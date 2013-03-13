@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130312182802) do
+ActiveRecord::Schema.define(:version => 20130313142637) do
 
   create_table "schools", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(:version => 20130312182802) do
     t.date     "dob"
     t.date     "medical_issues"
     t.integer  "school_id"
+    t.string   "gender"
+    t.string   "grade_level"
   end
 
 end

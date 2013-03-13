@@ -10,6 +10,13 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+//= require bootstrap
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require_tree .
+
+// jquery datepicker
+$(function() {
+	$("input#student_dob").datepicker({dateFormat: 'D, M dd yy'});
+});

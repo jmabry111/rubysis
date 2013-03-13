@@ -1,5 +1,95 @@
 <div class="center hero-unit">
-	<h1>Hello!</h1>
-	<h2>Hello!</h2>
-	<h3>Hello!</h3>
+	<h1>Enter student details</h1>
+	
+	<%= simple_form_for @student do |f| -%>
+		<%= render 'shared/error_messages', object: f.object %>
+		<div class="row">
+			<div class="span12">
+				<%= f.association :school %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span3">	
+				<%= f.input :first_name %>
+			</div>
+			<div class="span3">
+				<%= f.input :middle_name %>
+			</div>
+			<div class="span3">
+				<%= f.input :last_name %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span3">
+				<%= f.input :empl, :label => "EMPL ID" %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span3">
+				<%= f.input :gender, :collection => ["Male", "Female"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+			</div>
+			<div class="span3">
+				<%= f.input :grade_level, :collection => ["11", "12"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span6">
+				<%= f.input :dob, as: :string, :label => "Date of Birth" %>
+			</div>
+		</div>
+		<hr />
+		<p>Mailing Address</p>
+		<div class="row">
+			<div class="span9">
+				<%= f.input :street_address, :label => "Street Address or PO Box", :input_html => {:class => "wide-field"} %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span3">
+				<%= f.input :city %>
+			</div>
+			<div class="span3">
+				<%= f.input :state, :input_html => {:maxlength => 2, :value => "VA"} %>
+			</div>
+			<div class="span3">
+				<%= f.input :zip, :label => "5 Digit Zip Code", :input_html => {:maxlength => 5} %>
+			</div>
+		</div>
+		<p>Physical Address (if different from above)</p>
+		<div class="row">
+			<div class="span9">
+				<%= f.input :street_address_911, :label => "Street Address", :input_html => {:class => "wide-field"} %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span3">
+				<%= f.input :city_911 %>
+			</div>
+			<div class="span3">
+				<%= f.input :state_911, :input_html => {:maxlength => 2, :value => "VA"} %>
+			</div>
+			<div class="span3">
+				<%= f.input :zip_911, :label => "5 Digit Zip Code", :input_html => {:maxlength => 5} %>
+			</div>
+		</div>
+		<hr />
+		<div class="row">
+			<div class="span4">
+				<%= f.input :home_phone, :placeholder => "555-555-1212" %>
+				<!--[if IE 9]>
+				<p style="color:gray;">Ex: 555-555-1212</p>
+				<![endif]-->
+			</div>
+			<div class="span4">
+				<%= f.input :cell_phone, :placeholder => "555-555-1212" %>
+				<!--[if IE 9]>
+				<p style="color:gray;">Ex: 555-555-1212</p>
+				<![endif]-->
+			</div>
+		</div>
+		<%= f.input :email %>
+		<hr />
+		<%= f.input :medical_issues, as: :text %>
+		<%= f.submit "Submit new student", class: "btn btn-large" %>
+	<% end %>
 </div>

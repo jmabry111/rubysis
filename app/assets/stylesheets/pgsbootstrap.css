@@ -770,8 +770,7 @@ input[type="color"],
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
-input,
-textarea {
+input {
   width: 210px;
 }
 textarea {
@@ -4776,4 +4775,15 @@ h2{
 	margin-bottome:30px;
 	font-weight:normal;
 	color:#b1babd;
+}
+
+/* Inputs */
+
+.wide-field {
+	width:100%;
+}
+
+textarea {
+	width: 100%;
+	height: 120px;
 }
