@@ -3353,7 +3353,7 @@ input[type="submit"].btn.btn-mini {
   *z-index: 2;
 }
 .navbar-inner {
-  min-height: 40px;
+  min-height: 20px;
   padding-left: 20px;
   padding-right: 20px;
   background-color: #383838;
@@ -4738,4 +4738,42 @@ a.badge:hover {
 }
 .affix {
   position: fixed;
+}
+
+
+/* Custom items */
+
+#logo{
+	float:left;
+	margin-right:5px;
+	font-size:1.7em;
+	color:white;
+	text-transform:uppercase;
+	letter-spacing:-1px;
+	font-wieght:bold;
+	line-height:1;
+	&:hover{
+		color:white;
+		text-decoration:none;
+	}
+}
+
+/* Typeography */
+
+h1, h2, h3, h4, h5, h6{
+	text-align:center;
+}
+
+h1{
+	font-size:3em;
+	letter-spacing:-2px;
+	margin-bottom:30px;
+}
+
+h2{
+	font-size:2.75em;
+	letter-spacing:-1px;
+	margin-bottome:30px;
+	font-weight:normal;
+	color:#b1babd;
 }
