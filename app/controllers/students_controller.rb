@@ -5,8 +5,7 @@ class StudentsController < ApplicationController
   end
   
   def create
-    @student = Student.new(params[:applicant])
-    @school = [School.list].flatten
+    @student = Student.new(params[:student])
     
       if @student.save
         session[:current_student] = @student.id
@@ -17,10 +16,11 @@ class StudentsController < ApplicationController
   end
   
   def index
-    @students = Student.find(params[:id])
+    @students = Student.all
   end
   
   def show
+    @student = Student.find(params[:id])
   end
   
   def edit
