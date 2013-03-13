@@ -24,6 +24,7 @@ class Student < ActiveRecord::Base
   validates :email, allow_blank:true, format: {with:VALID_EMAIL_REGEX}
   
   
+  
   def to_s
     "#{first_name} #{last_name}"
   end
