@@ -10,6 +10,8 @@ gem 'pg', '0.12.2'
 gem 'faker'
 gem 'factory_girl_rails'
 gem 'actionmailer'
+gem 'jquery-rails'
+gem 'simple_form'
 
 
 group :development, :test do
@@ -28,8 +30,6 @@ group :assets do
   gem "meta_search",    '>= 1.1.0.pre'
 end
 
-gem 'jquery-rails'
-gem 'simple_form'
 
 group :test do
   gem 'rspec'
