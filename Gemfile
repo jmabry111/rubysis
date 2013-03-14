@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails',     :git => 'git://github.com/rails/rails.git', :branch => '3-2-stable'
-gem 'journey',   :git => 'git://github.com/rails/journey.git', :branch => '1-0-stable'
-gem 'arel',      :git => 'git://github.com/rails/arel.git', :branch => '3-0-stable'
+gem 'rails'
 gem 'bootstrap-sass'
 gem 'jquery-ui-rails'
 gem 'daemons'

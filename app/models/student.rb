@@ -2,6 +2,8 @@ class Student < ActiveRecord::Base
   attr_accessible :first_name, :middle_name, :last_name, :street_address, :city, :state, :zip, :street_address_911, :city_911, 
                   :state_911, :zip_911, :home_phone, :cell_phone, :email, :empl, :dob, :medical_issues, :grade_level, :gender, :school_id
   belongs_to :school
+  has_many :guardianships
+  has_many :parents, :through => :guardianships
   
   VALID_PHONE_REGEX = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
