@@ -26,5 +26,6 @@ require 'spec_helper'
 	    fill_in "Email", with: "jed@clampett.com"
       click_button "Submit new student"
       page.should have_content ("Information was successfully submitted")
+      
     end
   end
