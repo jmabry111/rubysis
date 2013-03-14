@@ -242,6 +242,7 @@ DEPENDENCIES
   pg (= 0.12.2)
   pry
   rails!
+  rake
   rb-fsevent
   rspec
   rspec-rails (= 2.11.0)

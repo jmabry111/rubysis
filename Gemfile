@@ -40,6 +40,7 @@ group :test do
   gem 'cucumber-rails', '1.2.1', require: false
   gem 'launchy'
   gem 'email_spec'
+  gem 'rake'
 end
 
 group :production do
