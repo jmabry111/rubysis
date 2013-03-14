@@ -23,7 +23,7 @@ require 'spec_helper'
       fill_in "5 Digit Zip Code 911", with: "90210"
       fill_in "Home phone", with: "555-765-0987"
       fill_in "Cell phone", with: "555-555-1212"
-	  fill_in "Email", with: "jed@clampett.com"
+	    fill_in "Email", with: "jed@clampett.com"
       click_button "Submit new student"
       page.should have_content ("Information was successfully submitted")
     end
