@@ -4,7 +4,7 @@ require 'spec_helper'
     scenario 'without_errors' do
       School.create(name: "Beverly High School")
       visit "root"
-      page.should have_content "Enter student information"
+      page.should have_content "Enter student details"
       
       select "Beverly High School", :from => "School"
       fill_in "First name", with: "Jethro"
