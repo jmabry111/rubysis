@@ -1,12 +1,15 @@
 source 'https://rubygems.org'
 
-gem 'rails'
+gem 'rails',     :git => 'git://github.com/rails/rails.git', :branch => '3-2-stable'
+gem 'journey',   :git => 'git://github.com/rails/journey.git', :branch => '1-0-stable'
+gem 'arel',      :git => 'git://github.com/rails/arel.git', :branch => '3-0-stable'
 gem 'bootstrap-sass'
 gem 'jquery-ui-rails'
 gem 'daemons'
 gem 'pg', '0.12.2'
 gem 'faker'
 gem 'factory_girl_rails'
+gem 'actionmailer'
 
 
 group :development, :test do
