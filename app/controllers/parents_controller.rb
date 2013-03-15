@@ -6,13 +6,7 @@ class ParentsController < ApplicationController
   
   def create
     @parent = Parent.new(parent_params)
-    
-      if @parent.save
-        session[:current_parent] = @parent.id
-        redirect_to parents_path, notice: 'Parent saved.'
-      else
-        render action: "new"
-      end
+    @parent.save
   end
   
   def show

@@ -5,13 +5,7 @@ class AddressesController < ApplicationController
   
   def create
     @address = Address.new(address_params)
-    
-      if @address.save
-        session[:current_address] = @address.id
-        redirect_to address_path, notice: 'Address saved.'
-      else
-        render action: "new"
-      end
+    @address.save
   end
   
   def show

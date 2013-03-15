@@ -6,7 +6,7 @@ class StudentsController < ApplicationController
   
   def create
     @student = Student.new(student_params)
-    
+
       if @student.save
         session[:current_student] = @student.id
         redirect_to students_path(@student.id), notice: 'Information was successfully submitted.'

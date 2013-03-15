@@ -90,7 +90,7 @@
 						<%= parent.input :last_name %>
 					</div>
 				</div>
-				<%= simple_fields_for :addresses do |address| %>
+				<%= parent.simple_fields_for :addresses do |address| %>
 					<div class="row">
 						<div class="span9">
 							<%= address.input :type, collection: ["Mailing Address", "Physical Address"], :label => "Address Type" %>
