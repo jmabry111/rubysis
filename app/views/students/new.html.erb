@@ -92,6 +92,45 @@
 		</div>
 		<%= f.input :email %>
 		<hr />
+		<div id="parent1">
+			<p>Parent Information</p>
+			<%= f.fields_for :parents do |p| %>
+				<div class="row">
+					<div class="span4">
+						<%= p.input :first_name %>
+					</div>
+					<div class="span4">
+						<%= p.input :last_name %>
+					</div>
+				</div>
+				<div class="row">
+					<div class="span9">
+						<%= p.input :address %>
+					</div>
+				</div>
+				<div class="row">
+					<div class="span3">
+						<%= p.input :city %>
+					</div>
+					<div class="span3">
+						<%= p.input :state %>
+					</div>
+					<div class="span3">
+						<%= p.input :zip %>
+					</div>
+				</div>
+				<div class="row">
+					<div class="span4">
+						<%= p.input :home_phone %>
+					</div>
+					<div class="span4">
+						<%= p.input :work_phone %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+		<div id="parent2"></div>
+		<hr />
 		<%= f.input :medical_issues, as: :text %>
 		<%= f.submit "Submit new student", class: "btn btn-large" %>
 	<% end %>

@@ -28,7 +28,6 @@ $(function() {
 });
 
 $(document).ready(function() {
-	var street;
 	$('#fill_address').click(function() {
 		street = $("#student_street_address").val();
 		city = $("#student_city").val();
