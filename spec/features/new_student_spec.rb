@@ -13,19 +13,25 @@ require 'spec_helper'
       choose "Male"
       choose "12"
       fill_in "Date of Birth", with: "Mon, Feb 01 1995"
-      fill_in "Street Address or PO Box", with: "PO Box 1"
+      fill_in "Home phone", with: "555-765-0987"
+      fill_in "Cell phone", with: "5555551223"
+	    fill_in "Email", with: "jed@clampett.com"
+	    select "Mailing Address"
+     fill_in "Street Address or PO Box", with: "PO Box 1"
       fill_in "City", with: "Beverly Hills"
       fill_in "State", with: "CA"
       fill_in "5 Digit Zip Code", with: "90210"
-      fill_in "Street Address", with: "12 Beverly Way"
-      fill_in "City 911", with: "Beverly Hills"
-      fill_in "State 911", with: "CA"
-      fill_in "5 Digit Zip Code 911", with: "90210"
-      fill_in "Home phone", with: "555-765-0987"
-      fill_in "Cell phone", with: "555-555-1212"
-	    fill_in "Email", with: "jed@clampett.com"
-      click_button "Submit new student"
-      page.should have_content ("Information was successfully submitted")
-      
+      fill_in "parents_first_name", with: "Jed"
+      fill_in "parents_last_name", with: "Clampett"
+      fill_in "addresses_street", with: "12 Beverly Way"
+      fill_in "addresses_city", with: "Beverly Hills"
+      fill_in "addresses_state", with: "CA"
+      fill_in "addresses_zip", with: "90210"
+      fill_in "parents_home_phone", with: "23434547"
+      fill_in "parents_work_phone", with: "234-234-8765"
+      fill_in "Medical issues", with: "Outrageous hunger pangs!"
+     click_button "Submit new student"
+#      page.should have_content ("Information was successfully submitted")
+      save_and_open_page
     end
   end

@@ -1,5 +1,8 @@
 <div class="center hero-unit">
+	
+	<%= paginate @students %>
+	
 	<%= @students.each do |student| %>
-		<%= student.to_s %>
+		<p><%= student.to_s %></p>
 	<% end %>
 </div>

@@ -1,137 +1,132 @@
 <div class="center hero-unit">
 	<h1>Enter student details</h1>
 	
-	<%= simple_form_for @student do |f| -%>
-		<%= render 'shared/error_messages', object: f.object %>
+	<%= simple_form_for @student do |student| -%>
+		<%= render 'shared/error_messages', object: student.object %>
+		<p>Student Information</p>
 		<div class="row">
 			<div class="span12">
-				<%= f.association :school %>
+				<%= student.association :school %>
 			</div>
 		</div>
 		<div class="row">
 			<div class="span3">	
-				<%= f.input :first_name %>
+				<%= student.input :first_name %>
 			</div>
 			<div class="span3">
-				<%= f.input :middle_name %>
+				<%= student.input :middle_name %>
 			</div>
 			<div class="span3">
-				<%= f.input :last_name %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="span3">
-				<%= f.input :empl, :label => "EMPL ID" %>
+				<%= student.input :last_name %>
 			</div>
 		</div>
 		<div class="row">
 			<div class="span3">
-				<%= f.input :gender, :collection => ["Male", "Female"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+				<%= student.input :empl, :label => "EMPL ID" %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span3">
+				<%= student.input :gender, :collection => ["Male", "Female"], :as => :radio_buttons, :item_wrapper_class => :inline %>
 			</div>
 			<div class="span3">
-				<%= f.input :grade_level, :collection => ["11", "12"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+				<%= student.input :grade_level, :collection => ["11", "12"], :as => :radio_buttons, :item_wrapper_class => :inline %>
 			</div>
 		</div>
 		<div class="row">
 			<div class="span6">
-				<%= f.input :dob, as: :string, :label => "Date of Birth" %>
+				<%= student.input :dob, as: :string, :label => "Date of Birth" %>
 			</div>
 		</div>
-		<hr />
-		<p>Mailing Address</p>
-		<div class="row">
-			<div class="span9">
-				<%= f.input :street_address, :label => "Street Address or PO Box", :input_html => {:class => "wide-field"} %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="span3">
-				<%= f.input :city %>
-			</div>
-			<div class="span3">
-				<%= f.input :state, :input_html => {:maxlength => 2, :value => "VA"} %>
-			</div>
-			<div class="span3">
-				<%= f.input :zip, :label => "5 Digit Zip Code", :input_html => {:maxlength => 5} %>
-			</div>
-		</div>
-		<p>
-			Physical Address<br />
-		   <label><input type="checkbox" id="fill_address" />Check if same as mailing address.</label>
-		</p>
-		<div class="row">
-			<div class="span9">
-				<%= f.input :street_address_911, :label => "Street Address", :input_html => {:class => "wide-field"}, :id => "911street" %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="span3">
-				<%= f.input :city_911 %>
-			</div>
-			<div class="span3">
-				<%= f.input :state_911, :input_html => {:maxlength => 2, :value => "VA"} %>
-			</div>
-			<div class="span3">
-				<%= f.input :zip_911, :label => "5 Digit Zip Code 911", :input_html => {:maxlength => 5} %>
-			</div>
-		</div>
-		<hr />
 		<div class="row">
 			<div class="span4">
-				<%= f.input :home_phone, :placeholder => "555-555-1212" %>
+				<%= student.input :home_phone, :placeholder => "555-555-1212" %>
 				<!--[if IE 9]>
 				<p style="color:gray;">Ex: 555-555-1212</p>
 				<![endif]-->
 			</div>
 			<div class="span4">
-				<%= f.input :cell_phone, :placeholder => "555-555-1212" %>
+				<%= student.input :cell_phone, :placeholder => "555-555-1212" %>
 				<!--[if IE 9]>
 				<p style="color:gray;">Ex: 555-555-1212</p>
 				<![endif]-->
 			</div>
 		</div>
-		<%= f.input :email %>
+		<%= student.input :email %>
+		<hr />
+		<p>Address Information</p>
+		<%= simple_fields_for :addresses do |address| %>
+			<div class="row">
+				<div class="span9">
+					<%= address.input :type, collection: ["Mailing Address", "Physical Address"], :label => "Address Type" %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span9">
+					<%= address.input :street, :label => "Street Address or PO Box", :input_html => {:class => "wide-field"} %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span3">
+					<%= address.input :city %>
+				</div>
+				<div class="span3">
+					<%= address.input :state, :input_html => {:maxlength => 2, :value => "VA"} %>
+				</div>
+				<div class="span3">
+					<%= address.input :zip, :label => "5 Digit Zip Code", :input_html => {:maxlength => 5} %>
+				</div>
+			</div>
+		<% end %>
 		<hr />
 		<div id="parent1">
 			<p>Parent Information</p>
-			<%= f.fields_for :parents do |p| %>
+			<%= simple_fields_for :parents do |parent| %>
 				<div class="row">
 					<div class="span4">
-						<%= p.input :first_name %>
+						<%= parent.input :first_name %>
 					</div>
 					<div class="span4">
-						<%= p.input :last_name %>
+						<%= parent.input :last_name %>
 					</div>
 				</div>
-				<div class="row">
-					<div class="span9">
-						<%= p.input :address %>
+				<%= simple_fields_for :addresses do |address| %>
+					<div class="row">
+						<div class="span9">
+							<%= address.input :type, collection: ["Mailing Address", "Physical Address"], :label => "Address Type" %>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="span3">
-						<%= p.input :city %>
+					<div class="row">
+						<div class="span9">
+							<%= address.input :street, :input_html => {:class => "wide-field"} %>
+						</div>
 					</div>
-					<div class="span3">
-						<%= p.input :state %>
+					<div class="row">
+						<div class="span3">
+							<%= address.input :city %>
+						</div>
+						<div class="span3">
+							<%= address.input :state %>
+						</div>
+						<div class="span3">
+							<%= address.input :zip %>
+						</div>
 					</div>
-					<div class="span3">
-						<%= p.input :zip %>
-					</div>
-				</div>
+				<% end %>
 				<div class="row">
 					<div class="span4">
-						<%= p.input :home_phone %>
+						<%= parent.input :home_phone %>
 					</div>
 					<div class="span4">
-						<%= p.input :work_phone %>
+						<%= parent.input :work_phone %>
 					</div>
 				</div>
 			<% end %>
+
 		</div>
 		<div id="parent2"></div>
 		<hr />
-		<%= f.input :medical_issues, as: :text %>
-		<%= f.submit "Submit new student", class: "btn btn-large" %>
+		<%= student.input :medical_issues, as: :text %>
+		<%= student.submit "Submit new student", class: "btn btn-large" %>
 	<% end %>
 </div>

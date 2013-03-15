@@ -5,18 +5,18 @@ class StudentsController < ApplicationController
   end
   
   def create
-    @student = Student.new(params[:student])
+    @student = Student.new(student_params)
     
       if @student.save
         session[:current_student] = @student.id
-        redirect_to students_path, notice: 'Information was successfully submitted.'
+        redirect_to students_path(@student.id), notice: 'Information was successfully submitted.'
       else
         render action: "new"
       end
   end
   
   def index
-    @students = Student.all
+    @students = Student.order(:first_name).page(params[:page])
   end
   
   def show
@@ -29,4 +29,11 @@ class StudentsController < ApplicationController
   def update
   end
   
+  
+  private
+  
+  def student_params
+    params.require(:student).permit(:first_name, :middle_name, :last_name, :home_phone, :cell_phone, :email, :empl, :dob, 
+                    :medical_issues, :grade_level, :gender, :school_id, :parent_id, :address_id)
+  end
 end

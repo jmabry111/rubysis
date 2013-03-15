@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130314151757) do
+ActiveRecord::Schema.define(:version => 20130315140446) do
+
+  create_table "addresses", :force => true do |t|
+    t.string   "type"
+    t.string   "street"
+    t.string   "unit"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "guardianships", :force => true do |t|
     t.integer  "student_id"
@@ -23,10 +34,6 @@ ActiveRecord::Schema.define(:version => 20130314151757) do
   create_table "parents", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "address"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
     t.string   "home_phone"
     t.string   "work_phone"
     t.datetime "created_at", :null => false
@@ -44,19 +51,11 @@ ActiveRecord::Schema.define(:version => 20130314151757) do
   end
 
   create_table "students", :force => true do |t|
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "first_name"
     t.string   "middle_name"
     t.string   "last_name"
-    t.string   "street_address"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.string   "street_address_911"
-    t.string   "city_911"
-    t.string   "state_911"
-    t.string   "zip_911"
     t.string   "home_phone"
     t.string   "cell_phone"
     t.string   "email"

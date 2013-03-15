@@ -5,7 +5,7 @@ class ParentsController < ApplicationController
   end
   
   def create
-    @parent = Parent.new(params[:parent])
+    @parent = Parent.new(parent_params)
     
       if @parent.save
         session[:current_parent] = @parent.id
@@ -19,4 +19,10 @@ class ParentsController < ApplicationController
     @parent = Parent.find(params[:id])
   end
   
+  
+  private 
+  
+  def parent_params
+    params.require(:parent).permit(:first_name, :home_phone, :last_name, :address_id, :student_id)
+  end
 end

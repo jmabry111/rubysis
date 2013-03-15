@@ -1,3 +1,9 @@
 <div class="center hero-unit">
-	<%= @student.to_s %>
+	<%= @student.to_s %><br />
+	<%= @student.addresses.each do |address| %>
+		<%= address.street %>
+	<% end %>
+	<%= @student.parents.each do |parent| %>
+		<%= parent.first_name %>
+	<% end %>
 </div>

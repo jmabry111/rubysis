@@ -12,6 +12,8 @@ gem 'factory_girl_rails'
 gem 'actionmailer'
 gem 'jquery-rails'
 gem 'simple_form'
+gem 'strong_parameters'
+gem 'kaminari'
 
 
 group :development, :test do
