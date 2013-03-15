@@ -18,5 +18,26 @@
 
 // jquery datepicker
 $(function() {
-	$("input#student_dob").datepicker({dateFormat: 'D, M dd yy'});
+	$("input#student_dob").datepicker({
+		changeYear:true,
+		yearRange:'-40:+0',
+		changeMonth:true,
+		showAnim:'slideDown',
+		dateFormat: 'mm/dd/yy',
+		});
 });
+
+$(document).ready(function() {
+	var street;
+	$('#fill_address').click(function() {
+		street = $("#student_street_address").val();
+		city = $("#student_city").val();
+		state = $("#student_state").val();
+		zip = $("#student_zip").val();
+		$("#student_street_address_911").val(street);
+		$("#student_city_911").val(city);
+		$("#student_state_911").val(state);
+		$("#student_zip_911").val(zip);
+    });
+});
+

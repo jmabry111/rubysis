@@ -1,6 +1,7 @@
 Rubysis::Application.routes.draw do
   
   resources :students
+  resources :parents
   
   root to: 'students#new'
   # The priority is based upon order of creation:

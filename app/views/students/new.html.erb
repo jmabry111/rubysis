@@ -55,10 +55,13 @@
 				<%= f.input :zip, :label => "5 Digit Zip Code", :input_html => {:maxlength => 5} %>
 			</div>
 		</div>
-		<p>Physical Address (if different from above)</p>
+		<p>
+			Physical Address<br />
+		   <label><input type="checkbox" id="fill_address" />Check if same as mailing address.</label>
+		</p>
 		<div class="row">
 			<div class="span9">
-				<%= f.input :street_address_911, :label => "Street Address", :input_html => {:class => "wide-field"} %>
+				<%= f.input :street_address_911, :label => "Street Address", :input_html => {:class => "wide-field"}, :id => "911street" %>
 			</div>
 		</div>
 		<div class="row">
