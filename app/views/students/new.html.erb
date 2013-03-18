@@ -55,7 +55,7 @@
 		<%= student.input :email %>
 		<hr />
 		<p>Address Information</p>
-		<%= simple_fields_for :addresses do |address| %>
+		<%= student.simple_fields_for :address do |address| %>
 			<div class="row">
 				<div class="span9">
 					<%= address.input :type, collection: ["Mailing Address", "Physical Address"], :label => "Address Type" %>

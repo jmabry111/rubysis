@@ -23,7 +23,7 @@ $(function() {
 		yearRange:'-40:+0',
 		changeMonth:true,
 		showAnim:'slideDown',
-		dateFormat: 'mm/dd/yy',
+		dateFormat: 'D, M dd yy',
 		});
 });
 

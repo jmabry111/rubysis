@@ -32,7 +32,8 @@ require 'spec_helper'
       fill_in "parents_work_phone", with: "234-234-8765"
       fill_in "Medical issues", with: "Outrageous hunger pangs!"
      click_button "Submit new student"
-#      page.should have_content ("Information was successfully submitted")
+      page.should have_content ("PO Box 1")
+      page.should have_content ("Jed")
       save_and_open_page
     end
   end
