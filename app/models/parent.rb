@@ -10,4 +10,10 @@ class Parent < ActiveRecord::Base
   VALID_PHONE_REGEX = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
   validates :home_phone, presence:true, format: {with:VALID_PHONE_REGEX}
   validates :work_phone, allow_blank:true, format: {with:VALID_PHONE_REGEX}
+  
+  
+
+  def to_s
+    "#{first_name} #{last_name}"
+  end
 end

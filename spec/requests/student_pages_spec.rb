@@ -13,6 +13,7 @@ describe 'Student Pages' do
   describe "show page" do
     let(:student) {FactoryGirl.create(:student)}
     let!(:address1) {FactoryGirl.create(:address, student: student)}
+#    let!(:parent1) {FactoryGirl.create(:parent, student: student)}
     
     before {visit student_path(student)}
     
@@ -24,5 +25,9 @@ describe 'Student Pages' do
       it {should have_content(address1.state)}
       it {should have_content(address1.zip)}
     end
+    
+#    describe "parents" do
+#      it {should have_content(parent1.to_s)}
+#    end
   end
 end

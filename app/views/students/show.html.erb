@@ -7,5 +7,8 @@
 	<% if @student.addresses.any? %>
 		<%= render @addresses %>
 	<% end %>
+	<% if @student.parents.any? %>
+		<%= render @parents %>
+	<% end %>
 	<%= link_to "Student Path", student_path(@student) %>
 </div>

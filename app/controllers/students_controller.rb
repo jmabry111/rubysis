@@ -3,6 +3,7 @@ class StudentsController < ApplicationController
   def new
     @student = Student.new
     @student.addresses.build
+    @student.parents.build
   end
   
   def create
@@ -25,6 +26,7 @@ class StudentsController < ApplicationController
   def show
     @student = Student.find(params[:id])
     @addresses = @student.addresses.page(params[:page])
+    @parents = @student.parents.page(params[:page])
   end
   
   def edit
@@ -54,6 +56,7 @@ class StudentsController < ApplicationController
      :school_id,
      :parent_id,
      :address_id,
-     addresses_attributes: [:city, :street, :state, :zip, :address_type, :unit])
+     addresses_attributes: [:city, :street, :state, :zip, :address_type, :unit], 
+     parents_attributes: [:first_name, :last_name, :home_phone, :work_phone])
   end
 end

@@ -5,8 +5,13 @@ class ParentsController < ApplicationController
   end
   
   def create
-    @parent = Parent.new(parent_params)
-    @parent.save
+    @parent = current_student.parents.build(parent_params)
+    if @parent.save
+      flash[:success] = "Parent entered."
+      redirect_to student_path(current_student)
+    else
+      render 'new'
+    end
   end
   
   def show
@@ -17,6 +22,6 @@ class ParentsController < ApplicationController
   private 
   
   def parent_params
-    params.require(:parent).permit(:first_name, :home_phone, :last_name, :address_id, :student_id)
+    params.require(:parent).permit(:first_name, :home_phone, :last_name, :parent_id, :student_id)
   end
 end
