@@ -90,6 +90,7 @@
 						<%= parent.input :last_name %>
 					</div>
 				</div>
+				<!--
 				<%= parent.simple_fields_for :addresses do |pa| %>
 					<div class="row">
 						<div class="span9">
@@ -113,6 +114,8 @@
 						</div>
 					</div>
 				<% end %>
+				
+				-->
 				<div class="row">
 					<div class="span4">
 						<%= parent.input :home_phone %>
@@ -124,7 +127,6 @@
 			<% end %>
 
 		</div>
-		<div id="parent2"></div>
 		<hr />
 		<%= student.input :medical_issues, as: :text %>
 		<%= student.submit "Submit new student", class: "btn btn-large" %>
