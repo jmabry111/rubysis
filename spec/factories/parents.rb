@@ -2,13 +2,13 @@
 
 FactoryGirl.define do
   factory :parent do
-    first_name "MyString"
-    last_name "MyString"
-    address "MyString"
-    city "MyString"
-    state "MyString"
-    zip "MyString"
-    home_phone "MyString"
-    work_phone "MyString"
+    first_name "Jor"
+    last_name "El"
+    address "7 Krypton Dr"
+    city "Krypton"
+    state "KR"
+    zip "77777"
+    home_phone "5557778888"
+    work_phone "5557778888"
   end
 end

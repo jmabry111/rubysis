@@ -24,6 +24,7 @@ class StudentsController < ApplicationController
   
   def show
     @student = Student.find(params[:id])
+    @addresses = @student.addresses.page(params[:page])
   end
   
   def edit

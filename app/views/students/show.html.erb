@@ -1,9 +1,11 @@
 <div class="center hero-unit">
-	<%= @student.to_s %><br />
-	<%= @student.addresses.each do |address| %>
-		<%= address.street %><br />
+	<div class="row">
+		<div class="span9">
+			<%= @student.to_s %>
+		</div>
+	</div>
+	<% if @student.addresses.any? %>
+		<%= render @addresses %>
 	<% end %>
-	<%= @student.parents.each do |parent| %>
-		<%= parent.first_name %><br />
-	<% end %>
+	<%= link_to "Student Path", student_path(@student) %>
 </div>

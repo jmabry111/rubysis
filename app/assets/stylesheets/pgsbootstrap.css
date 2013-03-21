@@ -132,11 +132,11 @@ body {
   background-color: #b1babd;
 }
 a {
-  color: #6c8d9d;
+  color: #F5F5F5;
   text-decoration: none;
 }
 a:hover {
-  color: #4b6571;
+  color: #363636;
   text-decoration: underline;
 }
 .img-rounded {

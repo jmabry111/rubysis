@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :school do
+    id  1
+    name  "Marvel High School"
   end
 end

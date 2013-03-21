@@ -2,11 +2,12 @@
 
 FactoryGirl.define do
   factory :address do
-    type ""
-    street "MyString"
-    unit "MyString"
-    city "MyString"
-    state "MyString"
-    zip "MyString"
+    address_type "Mailing"
+    street "123 Super St"
+    unit "S"
+    city "Metropolis"
+    state "NY"
+    zip "75313"
+    student
   end
 end
