@@ -17,23 +17,23 @@ require 'spec_helper'
       fill_in "Cell phone", with: "5555551223"
 	    fill_in "Email", with: "jed@clampett.com"
 	    select "Mailing Address"
-     fill_in "Street Address or PO Box", with: "PO Box 1"
+      fill_in "Street Address or PO Box", with: "PO Box 1"
       fill_in "City", with: "Beverly Hills"
       fill_in "State", with: "CA"
       fill_in "5 Digit Zip Code", with: "90210"
-      fill_in "parents_first_name", with: "Jed"
-      fill_in "parents_last_name", with: "Clampett"
-      select "Physical Address", :from => "parents_addresses_type"
-      fill_in "parents_addresses_street", with: "12 Beverly Way"
-      fill_in "parents_addresses_city", with: "Beverly Hills"
-      fill_in "parents_addresses_state", with: "CA"
-      fill_in "parents_addresses_zip", with: "90210"
-      fill_in "parents_home_phone", with: "23434547"
-      fill_in "parents_work_phone", with: "234-234-8765"
+#      fill_in "parents_first_name", with: "Jed"
+#      fill_in "parents_last_name", with: "Clampett"
+#      select "Physical Address", :from => "parents_addresses_type"
+#      fill_in "parents_addresses_street", with: "12 Beverly Way"
+#      fill_in "parents_addresses_city", with: "Beverly Hills"
+#      fill_in "parents_addresses_state", with: "CA"
+#      fill_in "parents_addresses_zip", with: "90210"
+#      fill_in "parents_home_phone", with: "23434547"
+#      fill_in "parents_work_phone", with: "234-234-8765"
       fill_in "Medical issues", with: "Outrageous hunger pangs!"
      click_button "Submit new student"
       page.should have_content ("PO Box 1")
-      page.should have_content ("Jed")
+#      page.should have_content ("Jed")
       save_and_open_page
     end
   end

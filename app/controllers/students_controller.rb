@@ -2,7 +2,7 @@ class StudentsController < ApplicationController
   
   def new
     @student = Student.new
-    @parent = Parent.new
+    @student.addresses.build
   end
   
   def create
@@ -54,6 +54,6 @@ class StudentsController < ApplicationController
      :school_id,
      :parent_id,
      :address_id,
-     addresses_attributes: [:city, :street])
+     addresses_attributes: [:city, :street, :state, :zip, :address_type, :unit])
   end
 end

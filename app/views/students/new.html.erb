@@ -55,10 +55,11 @@
 		<%= student.input :email %>
 		<hr />
 		<p>Address Information</p>
-		<%= student.simple_fields_for :address do |address| %>
+		<%= student.simple_fields_for :addresses do |address| %>
+			<%= hidden_field_tag @student.id %>
 			<div class="row">
 				<div class="span9">
-					<%= address.input :type, collection: ["Mailing Address", "Physical Address"], :label => "Address Type" %>
+					<%= address.input :address_type, collection: ["Mailing Address", "Physical Address"], :label => "Address Type" %>
 				</div>
 			</div>
 			<div class="row">
@@ -79,6 +80,7 @@
 			</div>
 		<% end %>
 		<hr />
+		<!--
 		<div id="parent1">
 			<p>Parent Information</p>
 			<%= simple_fields_for :parents do |parent| %>
@@ -126,6 +128,7 @@
 		</div>
 		<div id="parent2"></div>
 		<hr />
+		-->
 		<%= student.input :medical_issues, as: :text %>
 		<%= student.submit "Submit new student", class: "btn btn-large" %>
 	<% end %>

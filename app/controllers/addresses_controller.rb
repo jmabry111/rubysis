@@ -4,8 +4,13 @@ class AddressesController < ApplicationController
   end
   
   def create
-    @address = Address.new(address_params)
-    @address.save
+    @address = current_student.addresses.build(address_params)
+    if @address.save
+      flash[:success] = "Address entered."
+      redirect_to student_path(current_student)
+    else
+      render 'new'
+    end
   end
   
   def show
