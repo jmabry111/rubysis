@@ -7,7 +7,7 @@
 	<% if @student.addresses.any? %>
 		<%= render @addresses %>
 	<% end %>
-	<% if @student.parents.any? %>
+	<% @student.parents.each do |p| %>
 		<%= render @parents %>
 	<% end %>
 	<%= link_to "Student Path", student_path(@student) %>

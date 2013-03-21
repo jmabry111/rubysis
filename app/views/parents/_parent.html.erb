@@ -11,3 +11,6 @@
 		<%= parent.work_phone %>
 	</div>
 </div>
+<% if parent.addresses.any? %>
+	<%= render @addresses %>
+<% end %>

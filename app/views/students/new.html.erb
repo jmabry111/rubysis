@@ -90,31 +90,29 @@
 						<%= parent.input :last_name %>
 					</div>
 				</div>
-					<!--
-				<%= parent.simple_fields_for :addresses do |address| %>
+				<%= parent.simple_fields_for :addresses do |pa| %>
 					<div class="row">
 						<div class="span9">
-							<%= address.input :type, collection: ["Mailing Address", "Physical Address"], :label => "Address Type" %>
+							<%= pa.input :type, collection: ["Mailing Address", "Physical Address"], :label => "Address Type" %>
 						</div>
 					</div>
 					<div class="row">
 						<div class="span9">
-							<%= address.input :street, :input_html => {:class => "wide-field"} %>
+							<%= pa.input :street, :input_html => {:class => "wide-field"} %>
 						</div>
 					</div>
 					<div class="row">
 						<div class="span3">
-							<%= address.input :city %>
+							<%= pa.input :city %>
 						</div>
 						<div class="span3">
-							<%= address.input :state %>
+							<%= pa.input :state %>
 						</div>
 						<div class="span3">
-							<%= address.input :zip %>
+							<%= pa.input :zip %>
 						</div>
 					</div>
 				<% end %>
-				-->
 				<div class="row">
 					<div class="span4">
 						<%= parent.input :home_phone %>

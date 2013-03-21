@@ -23,10 +23,10 @@ require 'spec_helper'
       fill_in "5 Digit Zip Code", with: "90210"
       fill_in "student_parents_attributes_0_first_name", with: "Jed"
       fill_in "student_parents_attributes_0_last_name", with: "Clampett"
-#      select "Physical Address", :from => "student_parents_attributes_0_addresses_type"
+      select "Physical Address", :from => "student_parents_attributes_0_addresses_type"
 #      fill_in "student_parents_attributes_0_addresses_street", with: "12 Beverly Way"
 #      fill_in "student_parents_attributes_0_addresses_city", with: "Beverly Hills"
-#      fill_in "student_parents_attributes_0_addresses_state", with: "CA"
+##      fill_in "student_parents_attributes_0_addresses_state", with: "CA"
 #      fill_in "student_parents_attributes_0_addresses_zip", with: "90210"
       fill_in "student_parents_attributes_0_home_phone", with: "2343454744"
       fill_in "student_parents_attributes_0_work_phone", with: "234-234-8765"
@@ -34,6 +34,7 @@ require 'spec_helper'
       click_button "Submit new student"
       page.should have_content ("PO Box 1")
       page.should have_content ("Jed")
+#      page.should have_content ("12 Beverly Way")
 #      save_and_open_page
     end
   end

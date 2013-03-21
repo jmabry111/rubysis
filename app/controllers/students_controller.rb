@@ -4,8 +4,7 @@ class StudentsController < ApplicationController
     @student = Student.new
     @student.addresses.build
     @student.parents.build
-  end
-  
+  end 
   def create
     puts "student params"
     p student_params
