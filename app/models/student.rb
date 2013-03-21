@@ -15,7 +15,7 @@ class Student < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   
-  validates :school, presence:true
+#  validates :school, presence:true
   validates :first_name, presence:true
   validates :last_name, presence:true
   validates :grade_level, presence:true

@@ -4,7 +4,8 @@ class Address < ActiveRecord::Base
   belongs_to :student
   belongs_to :parent
   
-  validates :type, presence:true
+  
+  validates :address_type, presence:true
   validates :street, presence:true
   validates :city, presence:true
   validates :state, presence:true
