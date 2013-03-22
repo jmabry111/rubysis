@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.all
+//= require jquery.nested-fields
 //= require bootstrap
 //= require_tree .
 
@@ -40,3 +41,6 @@ $(document).ready(function() {
     });
 });
 
+$(document).ready(function(e) {
+  $('#parent-fields, #address-fields').nestedFields();
+});

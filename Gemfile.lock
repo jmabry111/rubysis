@@ -64,6 +64,8 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.3.3)
+    awesome_nested_fields (0.6.4)
+      rails (>= 3.0.0)
     bootstrap-sass (2.3.0.1)
       sass (~> 3.2)
     builder (3.0.4)
@@ -231,6 +233,7 @@ PLATFORMS
 DEPENDENCIES
   actionmailer
   arel!
+  awesome_nested_fields
   bootstrap-sass
   capybara (= 1.1.2)
   coffee-rails (= 3.2.2)

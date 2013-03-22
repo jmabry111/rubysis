@@ -54,78 +54,72 @@
 		</div>
 		<%= student.input :email %>
 		<hr />
-		<p>Address Information</p>
-		<%= student.simple_fields_for :addresses do |address| %>
-			<div class="row">
-				<div class="span9">
-					<%= address.input :address_type, collection: ["Mailing Address", "Physical Address"], :label => "Address Type" %>
-				</div>
-			</div>
-			<div class="row">
-				<div class="span9">
-					<%= address.input :street, :label => "Street Address or PO Box", :input_html => {:class => "wide-field"} %>
-				</div>
-			</div>
-			<div class="row">
-				<div class="span3">
-					<%= address.input :city %>
-				</div>
-				<div class="span3">
-					<%= address.input :state, :input_html => {:maxlength => 2, :value => "VA"} %>
-				</div>
-				<div class="span3">
-					<%= address.input :zip, :label => "5 Digit Zip Code", :input_html => {:maxlength => 5} %>
-				</div>
-			</div>
-		<% end %>
-		<hr />
-		<div id="parent1">
-			<p>Parent Information</p>
-			<%= student.simple_fields_for :parents do |parent| %>
-				<div class="row">
-					<div class="span4">
-						<%= parent.input :first_name %>
-					</div>
-					<div class="span4">
-						<%= parent.input :last_name %>
-					</div>
-				</div>
-				<!--
-				<%= parent.simple_fields_for :addresses do |pa| %>
-					<div class="row">
-						<div class="span9">
-							<%= pa.input :type, collection: ["Mailing Address", "Physical Address"], :label => "Address Type" %>
+		<div id="address-fields">
+				<div class="items">
+				<%= student.nested_fields_for :addresses do |address| %>
+					<fieldset class="item">
+						<p>Address Information</p>
+						<div class="row">
+							<div class="span9">
+								<%= address.select :address_type, ["Mailing Address", "Physical Address"] %>
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="span9">
-							<%= pa.input :street, :input_html => {:class => "wide-field"} %>
+						<div class="row">
+							<div class="span9">
+								<%= address.label "Street Address or PO Box" %>
+								<%= address.text_field :street, :input_html => {:class => "wide-field"} %>
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="span3">
-							<%= pa.input :city %>
+						<div class="row">
+							<div class="span3">
+								<%= address.label :city %>
+								<%= address.text_field :city %>
+							</div>
+							<div class="span3">
+								<%= address.label :state %>
+								<%= address.text_field :state %>
+							</div>
+							<div class="span3">
+								<%= address.label :zip %>
+								<%= address.text_field :zip %>
+							</div>
+							<br />
 						</div>
-						<div class="span3">
-							<%= pa.input :state %>
-						</div>
-						<div class="span3">
-							<%= pa.input :zip %>
-						</div>
-					</div>
+					</fieldset>
 				<% end %>
-				
-				-->
-				<div class="row">
-					<div class="span4">
-						<%= parent.input :home_phone %>
-					</div>
-					<div class="span4">
-						<%= parent.input :work_phone %>
-					</div>
-				</div>
-			<% end %>
-
+			</div>
+			<a href="#" class="add">Add another address</a>
+		</div>
+		<hr />
+		<div id="parent-fields">
+			<div class="items2">
+				<%= student.nested_fields_for :parents do |parent| %>
+					<fieldset class="items">
+						<p>Parent/Guardian Information</p>
+						<div class="row">
+							<div class="span4">
+								<%= parent.label :first_name %>
+								<%= parent.text_field :first_name %>
+							</div>
+							<div class="span4">
+								<%= parent.label :last_name %>
+								<%= parent.text_field :last_name %>
+							</div>
+						</div>
+						<div class="row">
+							<div class="span4">
+								<%= parent.label :home_phone %>
+								<%= parent.text_field :home_phone %>
+							</div>
+							<div class="span4">
+								<%= parent.label :work_phone %>
+								<%= parent.text_field :work_phone %>
+							</div>
+						</div>
+					</fieldset>
+				<% end %>
+			</div>
+			<a href="#" class="add">Add another parent or guardian</a>
 		</div>
 		<hr />
 		<%= student.input :medical_issues, as: :text %>

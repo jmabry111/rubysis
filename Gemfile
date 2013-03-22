@@ -14,6 +14,7 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem 'strong_parameters'
 gem 'kaminari'
+gem 'awesome_nested_fields'
 
 
 group :development, :test do
