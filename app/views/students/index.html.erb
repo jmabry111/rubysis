@@ -11,7 +11,7 @@
 	<tbody>
 		<% @students.each do |student| %>
 		<tr>
-			<td><%= student.to_s %></td>
+			<td><%= link_to student, student_path(student) %></td>
 			<td><%= student.school.name %></td>
 		</tr>
 		<% end %>	
