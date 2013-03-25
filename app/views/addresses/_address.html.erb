@@ -1,19 +1,17 @@
 <div class="row">
+	<% if address.address_type == "Physical" %>
+		<div class="section-head">Physical Address</div>
+	<% else %>
+		<div class="section-head">Mailing Address</div>
+	<% end %>
+</div>
+<div class="row">
 	<div class="span6">
-		<%= address.street %>
-	</div>
-	<div class="span3">
-		<%= address.unit %>
+		<p class="no-break"><%= address.street %>&nbsp;<%= address.unit %></p>
 	</div>
 </div>
 <div class="row">
-	<div class="span3">
-		<%= address.city %>,
-	</div>
-	<div class="span3">
-		<%= address.state %> 
-	</div>
-	<div class="span3">
-		<%= address.zip %>
+	<div class="span6">
+		<p class="no-break"><%= address.city %>, <%= address.state %> <%= address.zip %></p>
 	</div>
 </div>

@@ -4772,9 +4772,20 @@ h1{
 h2{
 	font-size:2.75em;
 	letter-spacing:-1px;
-	margin-bottome:30px;
+	margin-bottom:30px;
 	font-weight:normal;
 	color:#b1babd;
+}
+
+.section-head{
+	margin: 20px 20px 5px;
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.no-break{
+	margin-bottom:0;
+	margin-top:0;
 }
 
 /* Inputs */

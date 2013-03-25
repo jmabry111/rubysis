@@ -1,14 +1,9 @@
 <div class="center hero-unit">
-	<div class="row">
-		<div class="span9">
-			<%= @student.to_s %>
-		</div>
-	</div>
+	<h1><%= @student.to_s %></h1>
 	<% if @student.addresses.any? %>
 		<%= render @addresses %>
 	<% end %>
 	<% @student.parents.each do |p| %>
 		<%= render @parents %>
 	<% end %>
-	<%= link_to "Student Path", student_path(@student) %>
 </div>
