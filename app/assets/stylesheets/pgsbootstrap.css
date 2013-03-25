@@ -126,8 +126,8 @@ textarea {
 body {
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 1.4;
   color: #3d3d3d;
   background-color: #b1babd;
 }
@@ -4749,7 +4749,7 @@ a.badge:hover {
 	color:white;
 	text-transform:uppercase;
 	letter-spacing:-1px;
-	font-wieght:bold;
+	font-weight:bold;
 	line-height:1;
 	&:hover{
 		color:white;
@@ -4777,6 +4777,11 @@ h2{
 	color:#b1babd;
 }
 
+.left{
+	text-align:left;
+	color:inherit;
+}
+
 .section-head{
 	margin: 20px 20px 5px;
 	font-size: 24px;
@@ -4786,6 +4791,15 @@ h2{
 .no-break{
 	margin-bottom:0;
 	margin-top:0;
+}
+
+.info-label{
+	font-weight:500;
+}
+
+.edit{
+	font-size:14px;
+	font-weight:200;
 }
 
 /* Inputs */

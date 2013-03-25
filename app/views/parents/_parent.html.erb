@@ -1,17 +1,17 @@
 <div class="row">
-	<div class="section-head">Parent</div>
+	<div class="section-head">Parent<span class="edit"> <%= link_to "edit", edit_parent_path(@student) %></span></div>
 </div>
 <div class="row">
 	<div class="span9">
-		<p class="no-break">Name: <%= parent.to_s %></p>
+		<p class="no-break"><span class="info-label">Name:</span> <%= parent.to_s %></p>
 	</div>
 </div>
 <div class="row">
 	<div class="span3">
-		<p class="no-break">Home Phone: <%= parent.home_phone %></p>
+		<p class="no-break"><span class="info-label">Home Phone:</span> <%= parent.home_phone %></p>
 	</div>
 	<div class="span3">
-		<p class="no-break">Work Phone: <%= parent.work_phone %></p>
+		<p class="no-break"><span class="info-label">Work Phone:</span> <%= parent.work_phone %></p>
 	</div>
 </div>
 <% if parent.addresses.any? %>

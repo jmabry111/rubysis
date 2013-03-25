@@ -1,0 +1,30 @@
+<div class="center hero-unit">
+	<%= simple_form_for @address do |address| -%>
+	<div class="row">
+		<div class="span9">
+			<%= address.select :address_type, ["Mailing Address", "Physical Address"] %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span9">
+			<%= address.label "Street Address or PO Box" %>
+			<%= address.text_field :street, :class => "wide-field" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span3">
+			<%= address.label :city %>
+			<%= address.text_field :city %>
+		</div>
+		<div class="span3">
+			<%= address.label :state %>
+			<%= address.text_field :state %>
+		</div>
+		<div class="span3">
+			<%= address.label :zip %>
+			<%= address.text_field :zip %>
+		</div>
+	</div>
+	<%= address.submit "Save changes", class: "btn btn-large" %>
+	<% end %>
+</div>

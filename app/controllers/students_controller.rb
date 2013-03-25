@@ -5,6 +5,7 @@ class StudentsController < ApplicationController
     @student.addresses.build
     @student.parents.build
   end 
+  
   def create
     puts "student params"
     p student_params
@@ -19,23 +20,45 @@ class StudentsController < ApplicationController
   end
   
   def index
-    @students = Student.order(:first_name).page(params[:page])
+    @students = Student.joins(:school).order(:first_name).page(params[:page])
   end
   
   def show
-    @student = Student.find(params[:id])
+    @student = find_student_or_redirect
     @addresses = @student.addresses.page(params[:page])
     @parents = @student.parents.page(params[:page])
+    session[:current_student] = @student.id
   end
   
   def edit
+    @student = find_student_or_redirect
   end
   
   def update
+    @student = find_student_or_redirect
+    if @student.update_attributes!(student_params)
+      flash[:success] = "Information successfully changed"
+      redirect_to student_path(@student)
+    else
+      render 'edit'
+    end
   end
   
   
+  def current_student=(student)
+    @current_student = student
+  end
+  
   private
+  
+  def find_student_or_redirect
+    student = Student.find_by_id(params[:id])
+    unless student
+     flash[:notice] = "This student does not exist"
+     redirect_to students_path
+    end
+    student
+  end
 
   def student_params
     puts 'params'

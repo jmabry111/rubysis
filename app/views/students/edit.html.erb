@@ -1,0 +1,58 @@
+<div class="center hero-unit">
+	<h1>Edit student</h1>
+	
+	<%= simple_form_for @student do |student| -%>
+		<%= render 'shared/error_messages', object: student.object %>
+		<div class="row">
+			<div class="span12">
+				<%= student.association :school %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span3">	
+				<%= student.input :first_name %>
+			</div>
+			<div class="span3">
+				<%= student.input :middle_name %>
+			</div>
+			<div class="span3">
+				<%= student.input :last_name %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span3">
+				<%= student.input :empl, :label => "EMPL ID" %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span3">
+				<%= student.input :gender, :collection => ["Male", "Female"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+			</div>
+			<div class="span3">
+				<%= student.input :grade_level, :collection => ["11", "12"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span6">
+				<%= student.input :dob, as: :string, :label => "Date of Birth" %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span4">
+				<%= student.input :home_phone, :placeholder => "555-555-1212" %>
+				<!--[if IE 9]>
+				<p style="color:gray;">Ex: 555-555-1212</p>
+				<![endif]-->
+			</div>
+			<div class="span4">
+				<%= student.input :cell_phone, :placeholder => "555-555-1212" %>
+				<!--[if IE 9]>
+				<p style="color:gray;">Ex: 555-555-1212</p>
+				<![endif]-->
+			</div>
+		</div>
+		<%= student.input :email %>
+		<%= student.input :medical_issues, as: :text %>
+		<%= student.submit "Save changes", class: "btn btn-large" %>
+	<% end %>
+	</div>

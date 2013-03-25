@@ -4,25 +4,31 @@ class AddressesController < ApplicationController
   end
   
   def create
-    @address = current_student.addresses.build(address_params)
-    @paddress = current_parent.addresses.build(address_params)
+    @address = session[:current_student].addresses.build(address_params)
     if @address.save
-      flash[:success] = "Student Address Entered."
-      redirect_to student_path(current_student)
+      flash[:success] = "Address Entered."
+      redirect_to student_path(session[:current_student])
     else
       render 'new'
     end
-    
-    if @paddress.save
-        flash[:success] = "Parent Address Entered."
-        redirect_to student_path(current_student)
-      else
-        render 'new'
-      end
   end
   
   def show
     @address = Address.find(params[:id])
+  end
+  
+  def edit
+    @address = Address.find(params[:id])
+  end
+  
+  def update
+    @address = Address.find(params[:id])
+    if @address.update_attributes!(address_params)
+      flash[:success] = "Address updated."
+      redirect_to student_path(@address.student.id)
+    else
+      render 'edit'
+    end
   end
   
   

@@ -1,8 +1,20 @@
 <div class="center hero-unit">
-	
-	<%= paginate @students %>
-	
-	<%= @students.each do |student| %>
-		<p><%= student.to_s %></p>
-	<% end %>
+<%= paginate @students %>
+
+<table id="students" class="table table-hover">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>School</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @students.each do |student| %>
+		<tr>
+			<td><%= student.to_s %></td>
+			<td><%= student.school.name %></td>
+		</tr>
+		<% end %>	
+	</tbody>
+</table>
 </div>

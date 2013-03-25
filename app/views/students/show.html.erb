@@ -1,9 +1,67 @@
 <div class="center hero-unit">
-	<h1><%= @student.to_s %></h1>
+	<h2 class="left"><%= @student.to_s %></h2>
+	<div class="row">
+		<div class="span6 section-head">
+			General Information <span class="edit"><%= link_to "edit", edit_student_path(@student) %></span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span6">
+			<span class="info-label">Base School:</span> <%= @student.school.name %>
+		</div>
+	</div>	
+	<div class="row">
+		<div class="span6">
+			<span class="info-label">EMPL ID:</span> <%= @student.empl %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span3">
+			<span class="info-label">Gender:</span> <%= @student.gender %>
+		</div>
+		<div class="span3">
+			<span class="info-label">Grade Level:</span> <%= @student.grade_level %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span6">
+			<span class="info-label">Birth Date:</span> <%= @student.dob %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span3">
+			<span class="info-label">Gender:</span> <%= @student.home_phone %>
+		</div>
+		<div class="span3">
+			<span class="info-label">Grade Level:</span> <%= @student.cell_phone %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span6">
+			<span class="info-label">Email:</span> <%= @student.email %>
+		</div>
+	</div>
 	<% if @student.addresses.any? %>
 		<%= render @addresses %>
+		<span class="edit"><%= link_to "Add an address", new_address_path(@student) %></span>
 	<% end %>
 	<% @student.parents.each do |p| %>
 		<%= render @parents %>
+		<span class="edit"><%= link_to "Add a parent", new_parent_path(@student) %></span>
 	<% end %>
+	<br />
+	<div class="row">
+		<div class="span9 section-head">
+			Medical Issues
+		</div>
+	</div>
+	<div class="row">
+		<div class="span9">
+			<% if @student.medical_issues.present? %>
+				<p><%= @student.medical_issues %></p>
+			<% else %>
+				<p>None reported</p>
+			<% end %>
+		</div>
+	</div>
 </div>
