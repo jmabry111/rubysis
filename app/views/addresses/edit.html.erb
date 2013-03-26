@@ -1,5 +1,10 @@
 <div class="center hero-unit">
-	<%= simple_form_for @address do |address| -%>
+	<%= simple_form_for [@student, @address] do |address| -%>
+	<div class="row">
+		<div class="span9">
+			<p><span class="info-label">Name:</span> <%= @student.to_s %></p>
+		</div>
+	</div>
 	<div class="row">
 		<div class="span9">
 			<%= address.select :address_type, ["Mailing Address", "Physical Address"] %>

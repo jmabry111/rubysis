@@ -1,8 +1,12 @@
 Rubysis::Application.routes.draw do
   
-  resources :students
-  resources :parents
-  resources :addresses
+  resources :students do 
+    resources :addresses
+  end
+  
+  resources :parents do
+    resources :addresses
+  end
   
   root to: 'students#new'
   # The priority is based upon order of creation:

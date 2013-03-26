@@ -1,10 +1,12 @@
 class AddressesController < ApplicationController
   def new
+    @student = Student.find(params[:student_id])
     @address = Address.new
   end
   
   def create
-    @address = session[:current_student].addresses.build(address_params)
+    @student = Student.find(params[:student_id])
+    @address = @student.addresses.build(address_params)
     if @address.save
       flash[:success] = "Address Entered."
       redirect_to student_path(session[:current_student])
@@ -18,6 +20,7 @@ class AddressesController < ApplicationController
   end
   
   def edit
+    @student = Student.find(params[:student_id])
     @address = Address.find(params[:id])
   end
   
