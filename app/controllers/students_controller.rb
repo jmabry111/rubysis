@@ -12,7 +12,6 @@ class StudentsController < ApplicationController
     @student = Student.new(student_params)
 
       if @student.save
-        session[:current_student] = @student.attributes
         redirect_to student_path(@student.id), notice: 'Information was successfully submitted.'
       else
         render action: "new"
@@ -27,7 +26,6 @@ class StudentsController < ApplicationController
     @student = find_student_or_redirect
     @addresses = @student.addresses.page(params[:page])
     @parents = @student.parents.page(params[:page])
-    session[:current_student] = @student.attributes
   end
   
   def edit

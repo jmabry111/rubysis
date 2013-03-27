@@ -10,15 +10,19 @@
 	<div class="span3">
 		<p class="no-break"><span class="info-label">Home Phone:</span> <%= parent.home_phone %></p>
 	</div>
-	<div class="span3">
-		<p class="no-break"><span class="info-label">Work Phone:</span> <%= parent.work_phone %></p>
-	</div>
+	<% if parent.work_phone.present? %>
+		<div class="span3">
+			<p class="no-break"><span class="info-label">Work Phone:</span> <%= parent.work_phone %></p>
+		</div>
+	<% end %>
 </div>
+<% if parent.email.present? %>
 <div class="row">
 	<div class="span9">
 		<p class="no-break"><span class="info-label">Email:</span> <%= parent.email %></p>
 	</div>
 </div>
+<% end %>
 <% if parent.addresses.any? %>
 	<%= render @addresses %>
 <% end %>
