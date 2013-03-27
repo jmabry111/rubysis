@@ -1,5 +1,6 @@
 class ParentsController < ApplicationController
   
+  
   def new
     @student = Student.find(params[:student_id])
     @parent = Parent.new
