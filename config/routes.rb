@@ -1,5 +1,7 @@
 Rubysis::Application.routes.draw do
   
+  devise_for :admins
+
   resources :students do 
     resources :addresses
     resources :parents
@@ -9,7 +11,7 @@ Rubysis::Application.routes.draw do
     resources :addresses
   end
   
-  root to: 'students#new'
+  root to: 'students#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

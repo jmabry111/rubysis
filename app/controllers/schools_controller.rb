@@ -1,6 +1,7 @@
 class SchoolsController < ApplicationController
   
   
+  
   private
   
 

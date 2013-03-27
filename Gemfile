@@ -15,6 +15,7 @@ gem 'simple_form'
 gem 'strong_parameters'
 gem 'kaminari'
 gem 'awesome_nested_fields'
+gem 'devise'
 
 
 group :development, :test do
