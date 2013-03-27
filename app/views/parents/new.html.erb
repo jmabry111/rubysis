@@ -1,3 +1,32 @@
 <div class="center hero-unit">
 	<h1>Parent Information</h1>
+	<%= simple_form_for [@student, @parent] do |parent| %>
+		<div class="row">
+			<div class="span4">
+				<%= parent.label :first_name %>
+				<%= parent.text_field :first_name %>
+			</div>
+			<div class="span4">
+				<%= parent.label :last_name %>
+				<%= parent.text_field :last_name %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span4">
+				<%= parent.label :home_phone %>
+				<%= parent.text_field :home_phone %>
+			</div>
+			<div class="span4">
+				<%= parent.label :work_phone %>
+				<%= parent.text_field :work_phone %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span9">
+				<%= parent.label :email %>
+				<%= parent.text_field :email %>
+			</div>
+		</div>
+		<%= parent.submit "Add parent", class: "btn btn-large" %>
+	<% end %>
 </div>

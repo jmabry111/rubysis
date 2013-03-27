@@ -30,10 +30,10 @@
 	</div>
 	<div class="row">
 		<div class="span3">
-			<span class="info-label">Gender:</span> <%= @student.home_phone %>
+			<span class="info-label">Home Phone:</span> <%= @student.home_phone %>
 		</div>
 		<div class="span3">
-			<span class="info-label">Grade Level:</span> <%= @student.cell_phone %>
+			<span class="info-label">Cell Phone	:</span> <%= @student.cell_phone %>
 		</div>
 	</div>
 	<div class="row">
@@ -45,9 +45,10 @@
 		<%= render @addresses %>
 		<span class="edit"><%= link_to "Add an address", new_student_address_path(@student) %></span>
 	<% end %>
-	<% @student.parents.each do |p| %>
+	
+	<% if @student.parents.any?%>
 		<%= render @parents %>
-		<span class="edit"><%= link_to "Add a parent", new_parent_path(@parent) %></span>
+		<span class="edit"><%= link_to "Add a Parent/Guardian", new_student_parent_path(@student) %></span>
 	<% end %>
 	<br />
 	<div class="row">
