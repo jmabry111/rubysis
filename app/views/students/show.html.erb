@@ -43,13 +43,13 @@
 	</div>
 	<% if @student.addresses.any? %>
 		<%= render @addresses %>
-		<span class="edit"><%= link_to "Add an address", new_student_address_path(@student) %></span>
 	<% end %>
+	<div><span class="edit"><%= link_to "Add an address", new_student_address_path(@student) %></span></div>
 	
 	<% if @student.parents.any?%>
 		<%= render @parents %>
-		<span class="edit"><%= link_to "Add a Parent/Guardian", new_student_parent_path(@student) %></span>
-	<% end %>
+	<% end %>	
+	<div><span class="edit"><%= link_to "Add a Parent/Guardian", new_student_parent_path(@student) %></span></div>
 	<br />
 	<div class="row">
 		<div class="span9 section-head">
