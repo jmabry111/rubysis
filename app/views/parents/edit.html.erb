@@ -1,6 +1,6 @@
 <div class="center hero-unit">
 	<p>Parent/Guardian Information</p>
-	<%= form_for @parent do |parent| -%>
+	<%= simple_form_for @parent do |parent| -%>
 		<div class="row">
 			<div class="span4">
 				<%= parent.label :first_name %>
