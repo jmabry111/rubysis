@@ -1,6 +1,6 @@
 <div class="center hero-unit">
 	<p>Parent/Guardian Information</p>
-	<%= simple_form_for @parent do |parent| -%>
+	<%= form_for @parent do |parent| -%>
 		<div class="row">
 			<div class="span4">
 				<%= parent.label :first_name %>
@@ -19,6 +19,12 @@
 			<div class="span4">
 				<%= parent.label :work_phone %>
 				<%= parent.text_field :work_phone %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span9">
+				<%= parent.label :email %>
+				<%= parent.text_field :email %>
 			</div>
 		</div>
 		<%= parent.submit "Save changes", class: "btn btn-large" %>

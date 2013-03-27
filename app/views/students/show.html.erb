@@ -47,7 +47,7 @@
 	<% end %>
 	<% @student.parents.each do |p| %>
 		<%= render @parents %>
-		<span class="edit"><%= link_to "Add a parent", new_parent_path(@parent) %></span>
+		<span class="edit"><%= link_to "Add a parent", new_parent_path(@student, @parent) %></span>
 	<% end %>
 	<br />
 	<div class="row">
