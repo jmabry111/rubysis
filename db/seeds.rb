@@ -15,3 +15,9 @@ School.create!(name: "Tunstall High School", address: "100 Trojan Cir", city: "T
 School.create!(name: "Chatham High School", address: "100 Chatham Cavalier Cir", city: "Chatham", state: "VA", zip: "24531")
 School.create!(name: "Dan River High School", address: "100 Dan River Wildcat Cir", city: "Dan River", state: "VA", zip: "24586")
 School.create!(name: "Gretna High School", address: "100 Gretna Hawk Cir", city: "Gretna", state: "VA", zip: "24557")
+
+admin = Admin.create! do |a|
+   a.email = "jmabry@mymabry.com"
+   a.password = "password1"
+   a.password_confirmation = "password1"
+end
