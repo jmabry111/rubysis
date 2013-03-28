@@ -28,15 +28,15 @@ describe 'Student Pages' do
     end
     
     
-  #  describe "show page" do
-  #    let(:school) {FactoryGirl.create(:school)}
-  #    let(:student) {FactoryGirl.create(:student)}
-  #    let!(:address1) {FactoryGirl.create(:address, student: student)}
+    describe "show page" do
+      let(:school) {FactoryGirl.create(:school)}
+      let(:student) {FactoryGirl.create(:student)}
+      let!(:address1) {FactoryGirl.create(:address, student: student)}
   #    let!(:parent1) {FactoryGirl.create(:parent, student: student)}
     
-  #    before {visit student_path(student)}
-  #  
-  #    it {should have_content(student.first_name)}
+      before {visit student_path(student)}
+    
+      it {should have_content(student.to_s)}
     
   #    describe "addresses" do
   #      it {should have_content(address1.street)}
@@ -48,6 +48,6 @@ describe 'Student Pages' do
   #    describe "parents" do
   #      it {should have_content(parent1.to_s)}
   #    end
-  #  end
+    end
   end
 end
