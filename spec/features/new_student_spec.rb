@@ -5,7 +5,7 @@ require 'spec_helper'
       
       @admin = FactoryGirl.create(:admin)
       
-      visit "root"
+      visit root_path
       page.should have_content "Sign in"
       fill_in "Email", with: @admin.email
       fill_in "Password", with: @admin.password
@@ -14,8 +14,7 @@ require 'spec_helper'
       page.should have_content "Name"
       School.create(name: "Beverly High School")
       visit 'students/new'
-      
-      save_and_open_page
+
       page.should have_content "Enter student details"
       
       select "Beverly High School", :from => "School"
@@ -39,7 +38,6 @@ require 'spec_helper'
       fill_in "student_parents_attributes_0_work_phone", with: "234-234-8765"
       fill_in "Medical issues", with: "Outrageous hunger pangs!"
       click_button "Submit new student"
-      save_and_open_page
       page.should have_content ("PO Box 1")
       page.should have_content ("Jed")
 #      page.should have_content ("12 Beverly Way")
