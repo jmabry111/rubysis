@@ -5,7 +5,7 @@ require 'spec_helper'
       
       @admin = FactoryGirl.create(:admin)
       
-      visit "root"
+      visit root_path
       page.should have_content "Sign in"
       fill_in "Email", with: @admin.email
       fill_in "Password", with: @admin.password
