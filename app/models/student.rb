@@ -11,6 +11,8 @@ class Student < ActiveRecord::Base
   accepts_nested_attributes_for :parents
   accepts_nested_attributes_for :addresses
   
+  before_save :strip_extra_characters
+  
   VALID_PHONE_REGEX = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
@@ -29,5 +31,18 @@ class Student < ActiveRecord::Base
   
   def to_s
     "#{first_name} #{last_name}"
+  end
+  
+  def strip_extra_characters
+    self.home_phone = remove_non_digit_characters(home_phone)
+    self.cell_phone = remove_non_digit_characters(cell_phone)
+  end
+  
+  private
+  
+  def remove_non_digit_characters(string)
+    if string.present?
+      string.gsub(/[^0-9]/, "")
+    end
   end
 end

@@ -29,11 +29,11 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="span3">
-			<span class="info-label">Home Phone:</span> <%= @student.home_phone %>
+		<div class="span4">
+			<span class="info-label">Home Phone:</span> <%= number_to_phone(@student.home_phone, :area_code => true) %>
 		</div>
-		<div class="span3">
-			<span class="info-label">Cell Phone	:</span> <%= @student.cell_phone %>
+		<div class="span4">
+			<span class="info-label">Cell Phone	:</span> <%= number_to_phone(@student.cell_phone, :area_code => true) %>
 		</div>
 	</div>
 	<div class="row">
