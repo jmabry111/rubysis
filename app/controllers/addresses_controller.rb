@@ -9,7 +9,7 @@ class AddressesController < ApplicationController
     @address = @student.addresses.build(address_params)
     if @address.save
       flash[:success] = "Address Entered."
-      redirect_to student_path(session[:current_student])
+      redirect_to student_path(@student)
     else
       render 'new'
     end

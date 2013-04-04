@@ -14,7 +14,7 @@ feature 'student_applies' do
     page.should have_content "Name"
     visit 'students/new'
 
-    save_and_open_page
+#    save_and_open_page
     page.should have_content "Enter student details"
 
     select "Beverly High School", :from => "School"
@@ -38,10 +38,9 @@ feature 'student_applies' do
     fill_in "student_parents_attributes_0_work_phone", with: "234-234-8765"
     fill_in "Medical issues", with: "Outrageous hunger pangs!"
     click_button "Submit new student"
-    save_and_open_page
+#    save_and_open_page
     page.should have_content ("PO Box 1")
     page.should have_content ("Jed")
-    #      page.should have_content ("12 Beverly Way")
-    #      save_and_open_page
+#      save_and_open_page
   end
 end

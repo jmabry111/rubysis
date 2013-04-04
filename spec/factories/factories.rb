@@ -20,6 +20,10 @@ FactoryGirl.define do
     work_phone "5557778888"
     student
   end
+  
+  factory :parent_with_student, :parent => :student do |student|
+    student.after_create { |s| FactoryGirl.create(:parent, :student => s) }
+  end
 
   factory :guardianship do
     student_id 1
