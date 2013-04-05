@@ -1,0 +1,61 @@
+<div class="center hero-unit">
+	<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+	<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+	  <%= f.error_notification %>
+
+	  <div class="form-inputs">
+		<div class="row">
+			<div class="span9">
+				<%= f.label "Teacher Name", :required => true %>
+				<%= f.text_field :name, :autofocus => true, :class => "wide-field" %>
+			</div>
+		</div>
+	    <div class="row">
+			<div class="span3">
+				<%= f.input :work_phone, :required => true %>
+			</div>
+			<div class="span3">
+				<%= f.input :home_phone, :required => false %>
+			</div>
+			<div class="span3">
+				<%= f.input :cell_phone, :required => false %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span9">
+				<%= f.label "Email address", :required => true %>
+				<%= f.text_field :email, :class => "wide-field" %>
+			</div>
+		</div>
+
+	    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+	      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+	    <% end %>
+
+	    <div class="row">
+			<div class="span9">
+				<%= f.input :password, :autocomplete => "off", :hint => "Leave this blank if you don't want to change password", :required => false %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span9">
+		    	<%= f.input :password_confirmation, :required => false %>
+			</div>
+		</div>    
+		<div class="row">
+			<div class="span9">
+		    	<%= f.input :current_password, :hint => "Please provide your current password to confirm changes", :required => true %>
+			</div>
+		</div>
+	  </div>
+	  	<div class="row">
+			<div class="span9">
+				<hr />
+				<%= f.button :submit, "Update", class: "btn btn-large" %>
+			</div>
+		</div>
+	<% end %>
+
+	<%= link_to "Back", :back %>
+</div>

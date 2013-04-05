@@ -1,5 +1,10 @@
 Rubysis::Application.routes.draw do
   
+  devise_for :teachers, controllers: {
+    registrations: "custom_devise/registrations",
+    passwords: "custom_devise/passwords"
+  }
+
   devise_for :admins
 
   resources :students do 
@@ -10,6 +15,8 @@ Rubysis::Application.routes.draw do
   resources :parents do
     resources :addresses
   end
+  
+  resources :teachers, :only => :index
   
   root to: 'students#index'
   # The priority is based upon order of creation:

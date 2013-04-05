@@ -3,6 +3,7 @@ class Address < ActiveRecord::Base
     
   belongs_to :student
   belongs_to :parent
+  belongs_to :teacher
   
   
   validates :address_type, presence:true

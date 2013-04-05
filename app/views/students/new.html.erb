@@ -54,8 +54,8 @@
 		</div>
 		<%= student.input :email %>
 		<hr />
-		<div id="address-fields">
-				<div class="items">
+		<div id="student-address-fields">
+			<div class="items">
 				<%= student.nested_fields_for :addresses do |address| %>
 					<fieldset class="item">
 						<p>Address Information</p>
