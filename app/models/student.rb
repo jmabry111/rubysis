@@ -17,15 +17,16 @@ class Student < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   
-#  validates :school, presence:true
-  validates :first_name, presence:true
-  validates :last_name, presence:true
-  validates :grade_level, presence:true
-  validates :gender, presence:true
-  validates :dob, presence:true
-  validates :home_phone, presence:true, format: {with:VALID_PHONE_REGEX}
-  validates :cell_phone, allow_blank:true, format: {with:VALID_PHONE_REGEX}
-  validates :email, allow_blank:true, format: {with:VALID_EMAIL_REGEX}
+#  validates :school, presence: true
+  validates :school, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :grade_level, presence: true
+  validates :gender, presence: true
+  validates :dob, presence: true
+  validates :home_phone, presence: true, format: {with: VALID_PHONE_REGEX}
+  validates :cell_phone, allow_blank: true, format: {with: VALID_PHONE_REGEX}
+  validates :email, allow_blank: true, format: {with: VALID_EMAIL_REGEX}
   
   
   

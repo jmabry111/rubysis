@@ -42,5 +42,5 @@ $(document).ready(function() {
 });
 
 $(document).ready(function(e) {
-  $('#parent-fields, #address-fields').nestedFields();
+  $('#parent-fields, #student-address-fields, #teacher-address-fields').nestedFields();
 });

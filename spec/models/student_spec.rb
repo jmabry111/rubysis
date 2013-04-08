@@ -3,12 +3,14 @@ require 'spec_helper'
 describe Student do
   
   before do
-    @student = Student.new(first_name:"Clark", last_name:"Kent", gender: "Male",
+    @school = FactoryGirl.create(:school)
+    @student = Student.new(school: @school, first_name:"Clark", last_name:"Kent", gender: "Male",
                             grade_level: "12", dob:"Tue, Mar 12 2013", home_phone:"5555551212")
   end
   
   subject {@student}
   
+  it {should respond_to(:school)}
   it {should respond_to(:first_name)}
   it {should respond_to(:last_name)}
   it {should respond_to(:gender)}
