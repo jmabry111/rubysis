@@ -16,7 +16,9 @@ Rubysis::Application.routes.draw do
     resources :addresses
   end
   
-  resources :teachers, :only => :index
+  scope "/admin" do
+    resources :teachers, :only => [:index, :new, :create, :update]
+  end
   
   root to: 'students#index'
   # The priority is based upon order of creation:
