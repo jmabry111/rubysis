@@ -1,0 +1,78 @@
+<div class="center hero-unit">
+	<h2>Add a teacher</h2>
+
+	<%= simple_form_for @teacher do |f| -%>
+	  <%= render 'shared/error_messages', object: f.object %>
+
+	  <div class="form-inputs">
+		<div class="row">
+			<div class="span9">
+				<%= f.label "Teacher Name", :required => true %>
+				<%= f.text_field :name, :autofocus => true, :class => "wide-field" %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span3">
+				<%= f.input :work_phone, :required => true %>
+			</div>
+			<div class="span3">
+				<%= f.input :home_phone, :required => false %>
+			</div>
+			<div class="span3">
+				<%= f.input :cell_phone, :required => false %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span9">
+				<%= f.label "Email address", :required => true %>
+				<%= f.text_field :email, :class => "wide-field" %>
+			</div>
+		</div>
+		</div>
+		<hr />
+		
+		<div id="teacher-address-fields">
+			<div class="items">	
+				<%= f.nested_fields_for :addresses do |address| %>
+					<fieldset class="teacher-address">	
+						<p>Address Information</p>
+						<div class="row">
+							<div class="span9">
+								<%= address.select :address_type, ["Mailing Address", "Physical Address"] %>
+							</div>
+						</div>
+						<div class="row">
+							<div class="span9">
+								<%= address.label "Street Address or PO Box" %>
+								<%= address.text_field :street, :class => "wide-field" %>
+							</div>
+						</div>
+						<div class="row">
+							<div class="span3">
+								<%= address.label :city %>
+								<%= address.text_field :city %>
+							</div>
+							<div class="span3">
+								<%= address.label :state %>
+								<%= address.text_field :state %>
+							</div>
+							<div class="span3">
+								<%= address.label :zip %>
+								<%= address.text_field :zip %>
+							</div>
+							<br /><br />
+						</div>
+					</fieldset>	
+				<% end %>
+			</div>
+			<a href="#" class="add">Add another address</a>
+		</div>
+		<div class="row">
+			<div class="span9">
+				<hr />
+				<%= f.button :submit, "Add teacher", class: "btn btn-large" %>
+			</div>
+		</div>
+	  </div>   
+	<% end %>
+</div>

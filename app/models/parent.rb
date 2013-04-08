@@ -7,11 +7,11 @@ class Parent < ActiveRecord::Base
   
   before_save :strip_extra_characters
   
-  validates :first_name, presence:true
-  validates :last_name, presence:true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
   VALID_PHONE_REGEX = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
-  validates :home_phone, presence:true, format: {with:VALID_PHONE_REGEX}
-  validates :work_phone, allow_blank:true, format: {with:VALID_PHONE_REGEX}
+  validates :home_phone, presence: true, format: {with: VALID_PHONE_REGEX}
+  validates :work_phone, allow_blank: true, format: {with: VALID_PHONE_REGEX}
   
   
 

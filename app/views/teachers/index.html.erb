@@ -1,0 +1,18 @@
+<div class="center hero-unit">
+<%= paginate @teachers %>
+
+<table id="teachers" class="table table-hover">
+	<thead>
+		<tr>
+			<th>Name</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @teachers.each do |teacher| %>
+		<tr>
+			<td><%= link_to teacher.name, edit_teacher_registration_path(teacher) %></td>
+		</tr>
+		<% end %>	
+	</tbody>
+</table>
+</div>
