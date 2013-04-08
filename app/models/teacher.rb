@@ -7,6 +7,8 @@ class Teacher < ActiveRecord::Base
 
   has_many :addresses
   
+  accepts_nested_attributes_for :addresses
+  
   VALID_PHONE_REGEX = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   

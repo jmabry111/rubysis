@@ -6,6 +6,7 @@ class TeachersController < ApplicationController
   
   def new
     @teacher = Teacher.new
+    @teacher.addresses.build
   end
   
   def create

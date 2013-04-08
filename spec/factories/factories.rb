@@ -45,4 +45,12 @@ FactoryGirl.define do
     password  "password1"
     password_confirmation "password1"
   end
+  
+  factory :teacher do
+    name  "Mr. Teacher"
+    sequence(:email) {|nn| "teacher#{nn}@example.com"}
+    password  "rtyuioio567"
+    password_confirmation "rtyuioio567"
+    work_phone  "5557778888"
+  end
 end

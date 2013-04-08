@@ -1,7 +1,7 @@
 <div class="center hero-unit">
 	<h2>Add a teacher</h2>
 
-	<%= simple_form_for @teacher do |f| %>
+	<%= simple_form_for @teacher do |f| -%>
 	  <%= render 'shared/error_messages', object: f.object %>
 
 	  <div class="form-inputs">
@@ -33,9 +33,9 @@
 		
 		<div id="teacher-address-fields">
 			<div class="items">	
-				<fieldset class="teacher-address">	
-					<p>Address Information</p>
-					<%= f.nested_fields_for :addresses do |address| %>
+				<%= f.nested_fields_for :addresses do |address| %>
+					<fieldset class="teacher-address">	
+						<p>Address Information</p>
 						<div class="row">
 							<div class="span9">
 								<%= address.select :address_type, ["Mailing Address", "Physical Address"] %>
@@ -62,8 +62,8 @@
 							</div>
 							<br /><br />
 						</div>
-					<% end %>
-				</fieldset>
+					</fieldset>	
+				<% end %>
 			</div>
 			<a href="#" class="add">Add another address</a>
 		</div>
