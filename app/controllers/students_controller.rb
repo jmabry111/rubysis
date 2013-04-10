@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+  helper_method :sort_column, :sort_direction
   
   
   def new
@@ -20,7 +21,7 @@ class StudentsController < ApplicationController
   end
   
   def index
-    @students = Student.joins(:school).order(:first_name).page(params[:page])
+    @students = Student.joins(:school).search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page])
   end
   
   def show
@@ -58,6 +59,15 @@ class StudentsController < ApplicationController
      redirect_to students_path
     end
     student
+  end
+  
+  def sort_column
+    Student.column_names.include?(params[:sort]) ? params[:sort] : "last_name"
+    Student.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 
   def student_params

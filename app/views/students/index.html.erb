@@ -1,20 +1,20 @@
 <div class="center hero-unit">
-<%= paginate @students %>
-
-<table id="students" class="table table-hover">
-	<thead>
-		<tr>
-			<th>Name</th>
-			<th>School</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @students.each do |student| %>
-		<tr>
-			<td><%= link_to student, student_path(student) %></td>
-			<td><%= student.school.name %></td>
-		</tr>
-		<% end %>	
-	</tbody>
-</table>
+	
+	<%= form_tag students_path, :id => "students_search", :method => :get do %>
+		<%= hidden_field_tag :direction, params[:direction] %>
+		<%= hidden_field_tag :sort, params[:sort] %>
+		<p>
+			<div class="form-horizontal">
+				<!--[if IE 9]>
+				<span style="color:gray;">Search by name or school</span><br />
+				<![endif]-->
+				<%= text_field_tag :search, params[:search], class: "input-large", :placeholder => "Search students" %>
+				<%= submit_tag "Search", class: "btn btn-mini", :name => nil, :id => "search_button" %>
+			</div>
+		</p>
+	<% end %>
+	
+	<div id="students_ajax_table">
+		<%= render 'students' %>
+	</div>
 </div>

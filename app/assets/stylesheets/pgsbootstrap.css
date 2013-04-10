@@ -6250,3 +6250,8 @@ textarea {
 	width: 100%;
 	height: 120px;
 }
+
+/* table */
+.table th .current{padding-right:12px;background-repeat:no-repeat;background-position:right center;}
+.table th .asc{background-image:url(/assets/sort_arrow_up.png);}
+.table th .desc{background-image:url(/assets/sort_arrow_down.png);}

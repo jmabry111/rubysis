@@ -39,6 +39,14 @@ class Student < ActiveRecord::Base
     self.cell_phone = remove_non_digit_characters(cell_phone)
   end
   
+  def self.search(search)
+    if search
+      where('first_name iLIKE ? OR last_name iLIKE ? OR name iLIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
+    else
+      scoped
+    end
+  end
+  
   private
   
   def remove_non_digit_characters(string)

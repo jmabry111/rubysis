@@ -44,3 +44,20 @@ $(document).ready(function() {
 $(document).ready(function(e) {
   $('#parent-fields, #student-address-fields, #teacher-address-fields').nestedFields();
 });
+
+// Function to make sort and search ajax on applicant index page
+$(function() {
+	$(document).on("click","#students_ajax_table th a", function() {
+	  $.getScript(this.href);
+	  return false;
+	});
+	$(document).keyup("#students_search input", function() {
+		$.get($("#students_search").attr("action"), $("#students_search").serialize(), null, "script");
+		return false;
+	});
+});
+
+// Hides search button on applicant index page
+$(function() {
+	$("#search_button").hide();
+})
