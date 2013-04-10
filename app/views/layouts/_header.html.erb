@@ -1,8 +1,15 @@
-<div class="navbar navbar-fixed-top">
-	<div class="navbar navbar-inner">
-		<div class="container">
-			<%= link_to image_tag('/assets/pgsmstlogo.png'), "http://www.pgsmst.com", id: "logo" %>
-			<%= render 'layouts/navigation' %>
+<div class="container">	
+	<div class="masthead">
+		<div class="row">
+		<div class="span6"><h3 class="muted left bottom">PGS Student Information System</h3></div>
+		<div class="span6"><h3 class="muted right"><%= image_tag('/assets/pgsmstlogo.png') %></h3></div>
+		</div>
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="container">
+					<%= render 'layouts/navigation' %>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
