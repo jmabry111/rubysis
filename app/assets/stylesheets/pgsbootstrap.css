@@ -7,6 +7,8 @@
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
+@import url(http://fonts.googleapis.com/css?family=IM Fell English SC);
+
 
 .clearfix {
   *zoom: 1;
@@ -1922,7 +1924,7 @@ input.search-query {
 .form-inline .checkbox {
   padding-left: 0;
   margin-bottom: 0;
-  vertical-align: middle;
+  vertical-align: bottom;
 }
 
 .form-search .radio input[type="radio"],
@@ -3867,8 +3869,8 @@ input[type="submit"].btn.btn-mini {
 .alert {
   padding: 8px 35px 8px 14px;
   margin-bottom: 20px;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  background-color: #fcf8e3;
+  text-shadow: 0 1px 0 rgba(128, 128, 128, 0.5);
+  background-color: #0088cc;
   border: 1px solid #fbeed5;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
@@ -3877,7 +3879,7 @@ input[type="submit"].btn.btn-mini {
 
 .alert,
 .alert h4 {
-  color: #c09853;
+  color: #ffffff;
 }
 
 .alert h4 {
@@ -3892,35 +3894,35 @@ input[type="submit"].btn.btn-mini {
 }
 
 .alert-success {
-  color: #468847;
-  background-color: #dff0d8;
+  color: #ffffff;
+  background-color: #0088cc;
   border-color: #d6e9c6;
 }
 
 .alert-success h4 {
-  color: #468847;
+  color: #ffffff;
 }
 
 .alert-danger,
 .alert-error {
-  color: #b94a48;
+  color: #ff0000;
   background-color: #f2dede;
   border-color: #eed3d7;
 }
 
 .alert-danger h4,
 .alert-error h4 {
-  color: #b94a48;
+  color: #ff0000;
 }
 
 .alert-info {
-  color: #3a87ad;
-  background-color: #d9edf7;
+  color: #ffffff;
+  background-color: #468847;
   border-color: #bce8f1;
 }
 
 .alert-info h4 {
-  color: #3a87ad;
+  color: #ffffff;
 }
 
 .alert-block {
@@ -6192,6 +6194,12 @@ a.badge:focus {
 }
 
 /* Typeography */
+
+.title{
+	color: #104E8B;
+	font-family: 'IM Fell English SC', serif;
+	font-size:3.5em;
+}
 
 h1, h2, h3, h4, h5, h6{
 	text-align:center;

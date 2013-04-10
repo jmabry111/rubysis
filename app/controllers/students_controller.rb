@@ -6,6 +6,7 @@ class StudentsController < ApplicationController
     @student = Student.new
     @student.addresses.build
     @student.parents.build
+    @ethnicity = [Ethnicity.list].flatten
   end 
   
   def create
@@ -32,9 +33,11 @@ class StudentsController < ApplicationController
   
   def edit
     @student = find_student_or_redirect
+    @ethnicity = [Ethnicity.list].flatten
   end
   
   def update
+    @ethnicity = [Ethnicity.list].flatten
     @student = find_student_or_redirect
     if @student.update_attributes!(student_params)
       flash[:success] = "Information successfully changed"
@@ -81,6 +84,7 @@ class StudentsController < ApplicationController
      :cell_phone,
      :email,
      :empl,
+     :ethnicity,
      :dob,
      :medical_issues,
      :grade_level,

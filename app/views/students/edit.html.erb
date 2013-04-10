@@ -1,13 +1,8 @@
 <div class="center hero-unit">
-	<h1>Edit student</h1>
+	<h2>Edit student</h2>
 	
 	<%= simple_form_for @student do |student| -%>
 		<%= render 'shared/error_messages', object: student.object %>
-		<div class="row">
-			<div class="span12">
-				<%= student.association :school %>
-			</div>
-		</div>
 		<div class="row">
 			<div class="span3">	
 				<%= student.input :first_name %>
@@ -20,20 +15,30 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="span3">
+			<div class="form-inline input-prepend">
+				<div class="span4">
+					<%= student.input :gender, :collection => ["Male", "Female"], :as => :radio_buttons, 
+										:item_wrapper_class => :inline, :label => "Gender&nbsp;&nbsp;" %>
+				</div>
+				<div class="span4">
+					<%= student.input :grade_level, :collection => ["11", "12"], :as => :radio_buttons, 
+										:item_wrapper_class => :inline, :label => "Grade Level&nbsp;&nbsp;" %>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span4">
+				<%= student.association :school %>
+			</div>	
+			<div class="span4">
 				<%= student.input :empl, :label => "EMPL ID" %>
 			</div>
 		</div>
 		<div class="row">
-			<div class="span3">
-				<%= student.input :gender, :collection => ["Male", "Female"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+			<div class="span4">
+				<%= student.input :ethnicity, :collection => @ethnicity %>
 			</div>
-			<div class="span3">
-				<%= student.input :grade_level, :collection => ["11", "12"], :as => :radio_buttons, :item_wrapper_class => :inline %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="span6">
+			<div class="span4">
 				<%= student.input :dob, as: :string, :label => "Date of Birth" %>
 			</div>
 		</div>
