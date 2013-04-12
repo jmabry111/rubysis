@@ -7,6 +7,7 @@ class CoursesController < ApplicationController
   
   def show
     @course = Course.find_by_id(params[:id])
+    @sections = @course.sections.page(params[:page])
   end
   
   def create

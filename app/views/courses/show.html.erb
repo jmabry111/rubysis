@@ -2,9 +2,25 @@
 	<h2 class="left">
 		<%= @course.course_name %>
 	</h2>
-	<p>
-		<strong>Description:</strong><br />
-		<%= @course.course_description %>
-	</p>
-	<p><%= link_to "Add a course section", new_course_section_path(@course) %></p>
+	<div class="row">
+		<div class="span4">
+			<strong>Description:</strong><br />
+		</div>
+	</div>
+	<div class="row">
+		<div class="span12">
+			<%= @course.course_description %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span4 offset1">
+			<em>Sections</em>
+		</div>
+	</div>
+		<% if @course.sections.any? %>
+			<%= render @sections %>
+			<p><%= link_to "Add another course section", new_course_section_path(@course) %></p>
+		<% else %>
+			<p>No sections yet, <%= link_to "Add a course section", new_course_section_path(@course) %></p>
+		<% end %>
 </div>
