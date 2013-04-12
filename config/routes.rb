@@ -20,6 +20,8 @@ Rubysis::Application.routes.draw do
     resources :teachers, :only => [:index, :new, :create, :update]
   end
   
+  resources :courses
+  
   root to: 'students#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.

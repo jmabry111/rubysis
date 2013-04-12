@@ -53,4 +53,9 @@ FactoryGirl.define do
     password_confirmation "rtyuioio567"
     work_phone  "5557778888"
   end
+  
+  factory :course do
+    course_name "English 101"
+    course_description "BS English Class"
+  end
 end

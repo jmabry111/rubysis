@@ -58,13 +58,13 @@ describe 'Student Pages' do
 
           before do
             fill_in("address_street", with: "My street")
-            fill_in("City", with: "City")
-            fill_in("State", with: "ST")
-            fill_in("Zip", with: "99999")
+            fill_in("address_city", with: "City")
+            fill_in("address_state", with: "ST")
+            fill_in("address_zip", with: "99999")
             click_button("Save address")
-            save_and_open_page
-            page.should have_content("Address entered.")
           end
+          
+          it {should have_content("Address Entered.")}
         end
       end
       
@@ -84,10 +84,9 @@ describe 'Student Pages' do
             fill_in("City", with: "City")
             fill_in("State", with: "ST")
             fill_in("Zip", with: "99999")
-            click_button("Save address")
-            save_and_open_page
-            page.should have_content("Address updated.")
+            click_button("Save changes")
           end
+          it {should have_content("Address updated.")}
         end
       end
     

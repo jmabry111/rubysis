@@ -1,0 +1,22 @@
+<div class="center hero-unit">
+	<h2>Add a new course</h2>
+	
+	<%= simple_form_for @course do |course| %>
+		<div class="row">
+			<div class="span7">
+				<%= course.label "Course name" %>
+				<%= course.text_field :course_name, :class => "wide-field" %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span9">
+				<%= course.input :course_description, as: :text %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span3">
+				<%= course.submit "Add course", class: "btn btn-large" %>
+			</div>
+		</div>
+	<% end %>
+</div>
