@@ -19,9 +19,9 @@
 
 // jquery datepicker
 $(function() {
-	$("input#student_dob").datepicker({
+	$("input#student_dob, input#school_year_starts_on, input#school_year_ends_on, input#semester_starts_on, input#semester_ends_on").datepicker({
 		changeYear:true,
-		yearRange:'-40:+0',
+		yearRange:'-40:+5',
 		changeMonth:true,
 		showAnim:'slideDown',
 		dateFormat: 'D, M dd yy',

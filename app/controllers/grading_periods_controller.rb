@@ -1,0 +1,2 @@
+class GradingPeriodsController < ApplicationController
+end

@@ -21,6 +21,6 @@ class SectionsController < ApplicationController
   end
   
   def section_params
-    params.require(:section).permit(:course_id, :teacher_id, :section_number)
+    params.require(:section).permit(:course_id, :teacher_id, :section_number, :semester_id)
   end
 end

@@ -4,6 +4,11 @@
 	<%= simple_form_for [@course, @section] do |section| %>
 		<div class="row">
 			<div class="span6">
+				<%= section.association :semester %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span6">
 				<%= section.association :teacher %>
 			</div>
 		</div>

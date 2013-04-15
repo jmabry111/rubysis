@@ -27,6 +27,10 @@ Rubysis::Application.routes.draw do
     resources :sections
   end
   
+  resources :school_years do
+    resources :semesters
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,27 @@
+<div class="center hero-unit">
+	<h3 class="left muted">Enter Year Details</h3>
+	
+	<%= simple_form_for @school_year do |year| %>
+		<div class="row">
+			<div class="span9">
+				<%= year.input :description, :placeholder => "2013-2014" %>
+				<!--[if IE 9]>
+				<p style="color:gray;">Ex: Fall 2013-2014</p>
+				<![endif]-->
+			</div>
+		</div>
+		<div class="row">
+			<div class="span4">
+				<%= year.input :starts_on, as: :string, :label => "Beginning Date" %>
+			</div>
+			<div class="span4">
+				<%= year.input :ends_on, as: :string, :label => "End Date" %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span3">
+				<%= year.submit "Submit year", class: "btn btn-large" %>
+			</div>
+		</div>
+	<% end %>
+</div>

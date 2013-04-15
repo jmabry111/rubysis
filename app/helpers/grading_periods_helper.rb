@@ -1,0 +1,2 @@
+module GradingPeriodsHelper
+end
