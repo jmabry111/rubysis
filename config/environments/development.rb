@@ -37,4 +37,7 @@ Rubysis::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  # Raise unpermitted parameters errors
+  config.action_controller.action_on_unpermitted_parameters = :raise
 end
