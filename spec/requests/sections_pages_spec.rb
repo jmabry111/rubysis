@@ -19,12 +19,9 @@ describe 'Sections Pages' do
     describe "new course section page" do
       
       let(:course) {FactoryGirl.create(:course)}
-      let(:teacher) {FactoryGirl.create(:teacher)}
+      let!(:teacher) {FactoryGirl.create(:teacher)}
       
-      before do
-        teacher
-        visit new_course_section_path(course)
-      end
+      before {visit new_course_section_path(course)}
       
       it {should have_content("Section Created")}
       

@@ -228,7 +228,7 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #333333;
-  background-color: #C0C0C0;
+  background-color: #2F2F4F;
 }
 
 a {
@@ -6180,13 +6180,13 @@ a.badge:focus {
 /* Gradient */
 
 .gradient{
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#C0C0C0', endColorstr = '#F7F7F7');
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#C0C0C0', endColorstr = '#F7F7F7')";
-	background-image: -moz-linear-gradient(top, #C0C0C0, #F7F7F7);
-	background-image: -ms-linear-gradient(top, #C0C0C0, #F7F7F7);
-	background-image: -o-linear-gradient(top, #C0C0C0, #F7F7F7);
-	background-image: -webkit-linear-gradient(top, #C0C0C0, #F7F7F7);
-	background-image: linear-gradient(top, #C0C0C0, #F7F7F7);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#2F2F4F', endColorstr = '#E0FFFF');
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#2F2F4F', endColorstr = '#E0FFFF')";
+	background-image: -moz-linear-gradient(top, #2F2F4F, #E0FFFF);
+	background-image: -ms-linear-gradient(top, #2F2F4F, #E0FFFF);
+	background-image: -o-linear-gradient(top, #2F2F4F, #E0FFFF);
+	background-image: -webkit-linear-gradient(top, #2F2F4F, #E0FFFF);
+	background-image: linear-gradient(top, #2F2F4F, #E0FFFF);
 	-moz-background-clip: padding;
 	-webkit-background-clip: padding-box;
 	background-clip: padding-box;

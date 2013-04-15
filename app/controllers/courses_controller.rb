@@ -42,9 +42,6 @@ class CoursesController < ApplicationController
   
   
   def course_params
-    puts 'params'
-    p params
-    
     params.require(:course).permit(:course_name, :course_description)
   end
 end

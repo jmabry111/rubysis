@@ -31,9 +31,6 @@ class TeachersController < ApplicationController
   end
   
   def teacher_params
-    puts 'params'
-    p params
-
     params.require(:teacher).permit(:name,
      :home_phone,
      :cell_phone,
