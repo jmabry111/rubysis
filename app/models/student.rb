@@ -6,6 +6,8 @@ class Student < ActiveRecord::Base
   has_many :guardianships
   has_many :parents, :through => :guardianships
   has_many :addresses
+  has_many :section_registrations
+  has_many :sections, :through => :section_registrations
   
   
   accepts_nested_attributes_for :parents

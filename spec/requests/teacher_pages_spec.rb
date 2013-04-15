@@ -13,7 +13,7 @@ describe 'Teacher Pages' do
       fill_in "Password", with: @admin.password
       click_button "Sign in"
     
-      page.should have_content("Name")
+      page.should have_content("Signed in successfully.")
     end
 
     describe "new teacher page" do

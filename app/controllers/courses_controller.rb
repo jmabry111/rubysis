@@ -2,10 +2,12 @@ class CoursesController < ApplicationController
   
   def new
     @course = Course.new
+    @course.sections.build
   end
   
   def show
     @course = Course.find_by_id(params[:id])
+    @sections = @course.sections.page(params[:page])
   end
   
   def create
@@ -40,9 +42,6 @@ class CoursesController < ApplicationController
   
   
   def course_params
-    puts 'params'
-    p params
-    
     params.require(:course).permit(:course_name, :course_description)
   end
 end

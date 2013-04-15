@@ -26,8 +26,8 @@ FactoryGirl.define do
   end
 
   factory :guardianship do
-    student_id 1
-    parent_id 1
+    student
+    parent
   end
   
   factory :address do
@@ -57,5 +57,11 @@ FactoryGirl.define do
   factory :course do
     course_name "English 101"
     course_description "BS English Class"
+  end
+  
+  factory :section do
+    course
+    section_number 1
+    teacher
   end
 end

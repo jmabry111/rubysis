@@ -74,9 +74,6 @@ class StudentsController < ApplicationController
   end
 
   def student_params
-    puts 'params'
-    p params
-
     params.require(:student).permit(:first_name,
      :middle_name,
      :last_name,

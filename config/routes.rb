@@ -1,5 +1,8 @@
 Rubysis::Application.routes.draw do
   
+  get "static_pages/home"
+  root to: 'static_pages#home'
+  
   devise_for :teachers, controllers: {
     registrations: "custom_devise/registrations",
     passwords: "custom_devise/passwords"
@@ -20,9 +23,10 @@ Rubysis::Application.routes.draw do
     resources :teachers, :only => [:index, :new, :create, :update]
   end
   
-  resources :courses
+  resources :courses do
+    resources :sections
+  end
   
-  root to: 'students#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

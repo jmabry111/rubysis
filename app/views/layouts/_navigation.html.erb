@@ -41,8 +41,10 @@
 			</li>		
 		</ul>
 		<% else %>
-		<ul class="nav pull-right">
-			<li><%= link_to "Sign In", new_admin_session_path %></li>
+		<ul class="nav">
+			<li><%= link_to "Administrator Sign In", new_admin_session_path %></li>
+			<li><%= link_to "Teacher Sign In", new_teacher_session_path %></li>
+			<li><%= link_to "Student Sign In", "#" %></li>
 		</ul>
 		<% end %>
 </nav>

@@ -1,0 +1,22 @@
+<div class="center hero-unit">
+	<h3 class="left">Add a new section for <%= @course.course_name %></h3>
+	
+	<%= simple_form_for [@course, @section] do |section| %>
+		<div class="row">
+			<div class="span6">
+				<%= section.association :teacher %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span4">
+				<%= section.label :section_number %>
+				<%= section.select :section_number, ["Please choose one", 1, 2, 3, 4] %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span4">
+				<%= section.submit "Create Section", :class => "btn btn-large" %>
+			</div>
+		</div>
+	<% end %>
+</div>

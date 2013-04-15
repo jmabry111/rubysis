@@ -6,6 +6,7 @@ class Teacher < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
 
   has_many :addresses
+  has_many :sections
   
   accepts_nested_attributes_for :addresses
   
