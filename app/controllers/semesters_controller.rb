@@ -3,6 +3,7 @@ class SemestersController < ApplicationController
   def new
     @school_year = SchoolYear.find(params[:school_year_id])
     @semester = Semester.new
+    @semester.grading_periods.build
   end
   
   def create
@@ -18,6 +19,7 @@ class SemestersController < ApplicationController
   
   def show
     @semester = Semester.find(params[:id])
+    @grading_periods = @semester.grading_periods.page(params[:page])
   end
   
   

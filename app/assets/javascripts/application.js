@@ -19,7 +19,7 @@
 
 // jquery datepicker
 $(function() {
-	$("input#student_dob, input#school_year_starts_on, input#school_year_ends_on, input#semester_starts_on, input#semester_ends_on").datepicker({
+	$("input#student_dob, input#school_year_starts_on, input#school_year_ends_on, input#semester_starts_on, input#semester_ends_on, input#grading_period_starts_on, input#grading_period_ends_on").datepicker({
 		changeYear:true,
 		yearRange:'-40:+5',
 		changeMonth:true,

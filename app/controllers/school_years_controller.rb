@@ -20,6 +20,10 @@ class SchoolYearsController < ApplicationController
     @semesters = @school_year.semesters.page(params[:page])
   end
   
+  def index
+    @school_years = SchoolYear.order(:starts_on).page(params[:page])
+  end
+  
   
   private
   def school_year_params

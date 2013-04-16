@@ -31,6 +31,10 @@ Rubysis::Application.routes.draw do
     resources :semesters
   end
   
+  resources :semesters do
+    resources :grading_periods
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
