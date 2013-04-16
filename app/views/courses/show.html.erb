@@ -11,19 +11,19 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="span3 offset1.5">
+		<div class="span3 offset1">
 			<em>Sections</em>
 		</div>
 	</div>
 	<div class="row">
-		<div class="span3 offset1.5">Number</div>
+		<div class="span3 offset1">Number</div>
 		<div class="span3">Teacher</div>
 		<div class="span3">Semester</div>
 	</div>
 		<% if @course.sections.any? %>
 			<%= render @sections %>
-			<p class="center"><%= button_to "Add another section for this course", new_course_section_path(@course), class: "btn" %></p>
+			<p class="p-center"><%= button_to "Add another section for this course", new_course_section_path(@course), class: "btn" %></p>
 		<% else %>
-			<p class="center"><%= button_to "Add a course section", new_course_section_path(@course), class: "btn" %></p>
+			<p class="p-center"><%= button_to "Add a course section", new_course_section_path(@course), class: "btn" %></p>
 		<% end %>
 </div>

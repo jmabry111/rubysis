@@ -2185,7 +2185,7 @@ table {
 
 .table-hover tbody tr:hover > td,
 .table-hover tbody tr:hover > th {
-  background-color: #BBFFFF;
+  background-color: #9FB6CD;
 }
 
 table td[class*="span"],
@@ -2952,7 +2952,7 @@ table th[class*="span"],
   min-width: 160px;
   padding: 5px 0;
   list-style: none;
-  background-color: #0099CC;
+  background-color: #9FB6CD;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
   *border-right-width: 2px;
@@ -2997,7 +2997,7 @@ table th[class*="span"],
 .dropdown-menu > li > a:focus,
 .dropdown-submenu:hover > a,
 .dropdown-submenu:focus > a {
-  color: #BBFFFF;
+  color: #9FB6CD;
   text-decoration: none;
   background-color: #2F2F4F;
 /*
@@ -4412,7 +4412,7 @@ input[type="submit"].btn.btn-mini {
   background-image: -o-linear-gradient(top, #141414, #000000);
   background-image: linear-gradient(to bottom, #141414, #000000);
   background-repeat: repeat-x;
-  border: 1px solid #BBFFFF;
+  border: 1px solid #9FB6CD;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
           border-radius: 4px;
@@ -4645,7 +4645,7 @@ input[type="submit"].btn.btn-mini {
 .navbar .nav > li > a {
   float: none;
   padding: 10px 15px 10px;
-  color: #BBFFFF;
+  color: #9FB6CD;
   text-decoration: none;
   text-shadow: 0 1px 0 #2F2F4F;
 }
@@ -4656,7 +4656,7 @@ input[type="submit"].btn.btn-mini {
 
 .navbar .nav > li > a:focus,
 .navbar .nav > li > a:hover {
-  color: #0099CC;
+  color: #FFFFFF;
   text-decoration: none;
   background-color: transparent;
 }
@@ -6236,7 +6236,7 @@ a.badge:focus {
 /* Typeography */
 
 .title{
-	color: #BBFFFF;
+	color: #9FB6CD;
 	text-decoration: none;
   	text-shadow: 0 1px 0 #2F2F4F;
 	font-size:3.5em;
@@ -6265,7 +6265,7 @@ h2{
 .right{
 	text-align:right;
 }
-.center{
+.p-center{
 	text-align:center;
 }
 
