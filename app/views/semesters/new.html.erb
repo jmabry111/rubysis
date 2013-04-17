@@ -5,7 +5,8 @@
 		<%= semester.input :school_year_id, :as => :hidden, :input_html => { :value => @school_year.id } %>
 		<div class="row">
 			<div class="span9">
-				<%= semester.input :description, :placeholder => "Fall" %>
+				<%= semester.label "Semester name" %>
+				<%= semester.select :description, :options => ["Fall", "Spring"] %>
 				<!--[if IE 9]>
 				<p style="color:gray;">Ex: Fall Fall</p>
 				<![endif]-->

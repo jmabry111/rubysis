@@ -68,19 +68,20 @@ FactoryGirl.define do
   factory :school_year do
     starts_on "2013-04-15"
     ends_on "2013-04-15"
-    description "MyString"
+    description "2012"
   end
   
   factory :semester do
     starts_on "2013-04-15"
     ends_on "2013-04-15"
-    description "MyString"
+    description "fall"
+    school_year
   end
   
   factory :grading_period do
     starts_on "2013-04-15"
     ends_on "2013-04-15"
-    description "MyString"
+    description "six weeks"
     semester
   end
 end

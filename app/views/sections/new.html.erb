@@ -19,6 +19,12 @@
 			</div>
 		</div>
 		<div class="row">
+			<div class="span6">
+				<%= section.input :days_of_week, :collection => ["M", "TU", "W", "TH", "F"], :as => :check_boxes, 
+									:item_wrapper_class => :inline, :label => "Select the days of the week for the section" %>
+			</div>
+		</div>
+		<div class="row">
 			<div class="span4">
 				<%= section.submit "Create Section", :class => "btn btn-large" %>
 			</div>

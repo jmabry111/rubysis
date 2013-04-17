@@ -19,8 +19,11 @@ class SectionsController < ApplicationController
   def show
     @section = Section.find(params[:id])
   end
+
+  
+  private
   
   def section_params
-    params.require(:section).permit(:course_id, :teacher_id, :section_number, :semester_id)
+    params.require(:section).permit(:course_id, :teacher_id, :section_number, :semester_id, days_of_week:[])
   end
 end

@@ -3,8 +3,6 @@ class GradingPeriodsController < ApplicationController
   def new
     @semester = Semester.find(params[:semester_id])
     @grading_period = GradingPeriod.new
-    
-  	puts @semester.description
   end
   
   def create

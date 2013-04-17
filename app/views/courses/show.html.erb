@@ -16,14 +16,15 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="span3 offset1">Number</div>
-		<div class="span3">Teacher</div>
-		<div class="span3">Semester</div>
+		<div class="span2 offset1">Number</div>
+		<div class="span2">Teacher</div>
+		<div class="span2">Semester</div>
+		<div class="span2">Days Offered</div>
 	</div>
 		<% if @course.sections.any? %>
 			<%= render @sections %>
-			<p class="p-center"><%= button_to "Add another section for this course", new_course_section_path(@course), class: "btn" %></p>
+			<div class="span4"><%= link_to "Add another section for this course", new_course_section_path(@course), class: "btn" %></div>
 		<% else %>
-			<p class="p-center"><%= button_to "Add a course section", new_course_section_path(@course), class: "btn" %></p>
+			<div class="span4"><%= link_to "Add a course section", new_course_section_path(@course), class: "btn" %></div>
 		<% end %>
 </div>
