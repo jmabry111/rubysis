@@ -1,5 +1,4 @@
 class Semester < ActiveRecord::Base
-#  attr_accessible :description, :ends_on, :starts_on, :school_year_id
   
   has_many :sections
   has_many :grading_periods
@@ -7,6 +6,6 @@ class Semester < ActiveRecord::Base
   
   
   def to_s
-    "#{description}"
+    description
   end
 end

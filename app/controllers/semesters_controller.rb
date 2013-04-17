@@ -1,13 +1,13 @@
 class SemestersController < ApplicationController
   
   def new
-    @school_year = SchoolYear.find(params[:school_year_id])
+    find_school_year
     @semester = Semester.new
     @semester.grading_periods.build
   end
   
   def create
-    @school_year = SchoolYear.find(params[:school_year_id])
+    find_school_year
     @semester = Semester.create(semester_params)
     
     if @semester.save
@@ -24,6 +24,10 @@ class SemestersController < ApplicationController
   
   
   private
+  
+  def find_school_year
+    @school_year = SchoolYear.find(params[:school_year_id])
+  end
   
   def semester_params
     params.require(:semester).permit(:description, :starts_on, :ends_on, :school_year_id)

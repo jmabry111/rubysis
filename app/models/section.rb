@@ -11,6 +11,9 @@ class Section < ActiveRecord::Base
   has_many :section_registrations
   has_many :students, :through => :section_registrations
   
+ 
+  WEEKDAYS = ["M", "TU", "W", "TH", "F"]
+  
   private
   
   def array_to_s

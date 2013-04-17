@@ -2,21 +2,14 @@
 	<h3 class="left muted">Year: <%= @school_year.description %></h3>
 	<div class="row">
 		<% if @school_year.semesters.any? %>
-			<% if @school_year.semesters.count == 2 %>
 				<div class="row">
 					<div class="span3">Semester</div>
 					<div class="span3">Start Date</div>
 					<div class="span3">End Date</div>
 				</div>
 				<%= render @semesters %>
-			<% elsif @school_year.semesters.count == 1 %>
+			<% if @school_year.semesters.count == 1 %>
 				<p>Please click <em><%= link_to "here", new_school_year_semester_path(@school_year) %></em> to add another semester.</p>
-				<div class="row">
-					<div class="span3">Semester</div>
-					<div class="span3">Start Date</div>
-					<div class="span3">End Date</div>
-				</div>
-				<%= render @semesters %>
 			<% end %>
 		<% else %>
 			<p>Each year should contain 2 semesters. Please click <em><%= link_to "here", new_school_year_semester_path(@school_year) %></em> to enter the dates.</p>
