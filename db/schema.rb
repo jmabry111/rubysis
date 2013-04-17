@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130412152612) do
+ActiveRecord::Schema.define(:version => 20130417132524) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street"
@@ -52,6 +52,15 @@ ActiveRecord::Schema.define(:version => 20130412152612) do
     t.datetime "updated_at",         :null => false
   end
 
+  create_table "grading_periods", :force => true do |t|
+    t.date     "starts_on"
+    t.date     "ends_on"
+    t.string   "description"
+    t.integer  "semester_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "guardianships", :force => true do |t|
     t.integer  "student_id"
     t.integer  "parent_id"
@@ -67,6 +76,14 @@ ActiveRecord::Schema.define(:version => 20130412152612) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "email"
+  end
+
+  create_table "school_years", :force => true do |t|
+    t.date     "starts_on"
+    t.date     "ends_on"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "schools", :force => true do |t|
@@ -93,6 +110,17 @@ ActiveRecord::Schema.define(:version => 20130412152612) do
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
     t.integer  "section_registration_id"
+    t.integer  "semester_id"
+    t.string   "days_of_week"
+  end
+
+  create_table "semesters", :force => true do |t|
+    t.date     "starts_on"
+    t.date     "ends_on"
+    t.string   "description"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "school_year_id"
   end
 
   create_table "students", :force => true do |t|

@@ -1,0 +1,18 @@
+<div class="center hero-unit">
+	<h3 class="left muted">Semester: <%= @semester.description %></h3>
+	
+	<div class="row">
+		<% if @semester.grading_periods.any? %>
+			<div class="row">
+				<div class="span3">Period</div>
+				<div class="span3">Start Date</div>
+				<div class="span3">End Date</div>
+			</div>
+			<%= render @grading_periods %>
+		<% else %>
+			No
+		<% end %>
+	</div>
+	<%= link_to "Add grading period", new_semester_grading_period_path(@semester) %>
+	
+</div>

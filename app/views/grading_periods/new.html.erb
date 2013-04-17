@@ -1,0 +1,27 @@
+<div class="center hero-unit">
+	<h3 class="left muted">Enter Period Details for <%= @semester.description %></h3>
+	<%= simple_form_for [@semester, @grading_period] do |period| %>
+		<%= period.input :semester_id, :as => :hidden, :input_html => { :value => @semester.id } %>
+		<div class="row">
+			<div class="span9">
+				<%= period.input :description, :placeholder => "1st Six Weeks" %>
+				<!--[if IE 9]>
+				<p style="color:gray;">Ex: 1st 6-weeks</p>
+				<![endif]-->
+			</div>
+		</div>
+		<div class="row">
+			<div class="span4">
+				<%= period.input :starts_on, as: :string, :label => "Beginning Date" %>
+			</div>
+			<div class="span4">
+				<%= period.input :ends_on, as: :string, :label => "End Date" %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span3">
+				<%= period.submit "Submit Grading Period", class: "btn btn-large" %>
+			</div>
+		</div>
+	<% end %>
+</div>

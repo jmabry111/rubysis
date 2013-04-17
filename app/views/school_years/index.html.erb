@@ -1,0 +1,17 @@
+<div class="center hero-unit">
+	<%= paginate @school_years %>
+	
+	<h3 class="left muted">All years</h3>
+	<div class="row">
+		<div class="span3">Year</div>
+		<div class="span3">Start Date</div>
+		<dic class="span3">End Date</dic>
+	</div>
+	<%= @school_years.each do |year| %>
+		<div class="row">
+			<div class="span3"><%= link_to year.description, school_year_path(year) %></div>
+			<div class="span3"><%= year.starts_on.strftime("%b %d, %Y") %></div>
+			<div class="span3"><%= year.ends_on.strftime("%b %d, %Y") %></div>
+		</div>
+	<% end %>
+</div>

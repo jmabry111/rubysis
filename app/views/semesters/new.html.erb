@@ -1,0 +1,29 @@
+<div class="center hero-unit">
+	<h3 class="left muted">Enter Semester Details</h3>
+	
+	<%= simple_form_for [@school_year, @semester] do |semester| %>
+		<%= semester.input :school_year_id, :as => :hidden, :input_html => { :value => @school_year.id } %>
+		<div class="row">
+			<div class="span9">
+				<%= semester.label "Semester name" %>
+				<%= semester.select :description, :options => ["Fall", "Spring"] %>
+				<!--[if IE 9]>
+				<p style="color:gray;">Ex: Fall Fall</p>
+				<![endif]-->
+			</div>
+		</div>
+		<div class="row">
+			<div class="span4">
+				<%= semester.input :starts_on, as: :string, :label => "Beginning Date" %>
+			</div>
+			<div class="span4">
+				<%= semester.input :ends_on, as: :string, :label => "End Date" %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span3">
+				<%= semester.submit "Submit semester", class: "btn btn-large" %>
+			</div>
+		</div>
+	<% end %>
+</div>

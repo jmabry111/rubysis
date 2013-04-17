@@ -7,4 +7,8 @@ module ApplicationHelper
     link_to title, params.merge(:sort => column, :direction => direction, :page => nil), {:class => css_class}
   end
   
+  def current_year
+    SchoolYear.find(:first, :conditions => ['starts_on < ? AND ends_on > ?', DateTime.now, DateTime.now])
+  end
+  
 end

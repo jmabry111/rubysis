@@ -64,4 +64,24 @@ FactoryGirl.define do
     section_number 1
     teacher
   end
+  
+  factory :school_year do
+    starts_on "2013-04-15"
+    ends_on "2013-04-15"
+    description "2012"
+  end
+  
+  factory :semester do
+    starts_on "2013-04-15"
+    ends_on "2013-04-15"
+    description "fall"
+    school_year
+  end
+  
+  factory :grading_period do
+    starts_on "2013-04-15"
+    ends_on "2013-04-15"
+    description "six weeks"
+    semester
+  end
 end

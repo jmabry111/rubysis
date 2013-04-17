@@ -2,6 +2,7 @@ require 'spec_helper'
 
 feature 'student_applies' do
   scenario 'without_errors' do
+    school_year = FactoryGirl.create(:school_year)
     admin = FactoryGirl.create(:admin)
     School.create(name: "Beverly High School")
 

@@ -3,24 +3,28 @@
 		<%= @course.course_name %>
 	</h2>
 	<div class="row">
-		<div class="span4">
+		<div class="span1.5 left">
 			<strong>Description:</strong><br />
 		</div>
-	</div>
-	<div class="row">
-		<div class="span12">
+		<div class="span6.5 left">
 			<%= @course.course_description %>
 		</div>
 	</div>
 	<div class="row">
-		<div class="span4 offset1">
+		<div class="span3 offset1">
 			<em>Sections</em>
 		</div>
 	</div>
+	<div class="row">
+		<div class="span2 offset1">Number</div>
+		<div class="span2">Teacher</div>
+		<div class="span2">Semester</div>
+		<div class="span2">Days Offered</div>
+	</div>
 		<% if @course.sections.any? %>
 			<%= render @sections %>
-			<p><%= link_to "Add another course section", new_course_section_path(@course) %></p>
+			<div class="span4"><%= link_to "Add another section for this course", new_course_section_path(@course), class: "btn" %></div>
 		<% else %>
-			<p>No sections yet, <%= link_to "Add a course section", new_course_section_path(@course) %></p>
+			<div class="span4"><%= link_to "Add a course section", new_course_section_path(@course), class: "btn" %></div>
 		<% end %>
 </div>
