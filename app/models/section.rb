@@ -14,6 +14,10 @@ class Section < ActiveRecord::Base
  
   WEEKDAYS = ["M", "TU", "W", "TH", "F"]
   
+  def set_next_section_number(semester)
+    self.section_number = semester.sections.count + 1
+  end
+  
   private
   
   def array_to_s

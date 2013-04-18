@@ -9,7 +9,7 @@ class SectionsController < ApplicationController
       find_course
       @section = @course.sections.build(section_params)
       @semester = Semester.find(params[:section][:semester_id])
-      @section.section_number = @semester.sections.count + 1
+      @section.set_next_section_number(@semester)
     if @section.save
       flash[:success] = "Section Created."
       redirect_to course_path(@course)
