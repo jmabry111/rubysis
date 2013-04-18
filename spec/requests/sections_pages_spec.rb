@@ -29,7 +29,6 @@ describe 'Sections Pages' do
       before do
         select semester.description, :from => "Semester"
         select teacher.name, :from => "Teacher"
-        select "1", :from => "Section number"
         check "M"
         check "W"
         check "F"
