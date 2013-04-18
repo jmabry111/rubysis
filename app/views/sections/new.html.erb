@@ -13,12 +13,6 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="span4">
-				<%= section.label :section_number %>
-				<%= section.select :section_number, ["Please choose one", 1, 2, 3, 4] %>
-			</div>
-		</div>
-		<div class="row">
 			<div class="span6">
 				<%= section.input :days_of_week, :collection => Section::WEEKDAYS, :as => :check_boxes, 
 									:item_wrapper_class => :inline, :label => "Select the days of the week for the section" %>

@@ -1,13 +1,15 @@
 class SectionsController < ApplicationController
   
   def new
-    @course = Course.find(params[:course_id])
+    find_course
     @section = Section.new
   end
   
   def create
-    @course = Course.find(params[:course_id])
-    @section = @course.sections.build(section_params)
+      find_course
+      @section = @course.sections.build(section_params)
+      @semester = Semester.find(params[:section][:semester_id])
+      @section.section_number = @semester.sections.count + 1
     if @section.save
       flash[:success] = "Section Created."
       redirect_to course_path(@course)
@@ -21,6 +23,10 @@ class SectionsController < ApplicationController
   end
   
   private
+  
+  def find_course
+    @course = Course.find(params[:course_id])
+  end
   
   def section_params
     params.require(:section).permit(:course_id, :teacher_id, :section_number, :semester_id, days_of_week:[])
