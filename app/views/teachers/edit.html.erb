@@ -1,0 +1,38 @@
+<div class="center hero-unit">
+	<h2>Edit teacher</h2>
+	
+	<%= simple_form_for @teacher do |teacher| %>
+		<%= render 'shared/error_messages', object: teacher.object %>
+		<div class="form-inputs">
+			<div class="row">
+				<div class="span9">
+					<%= teacher.label "Teacher Name", :required => true %>
+					<%= teacher.text_field :name, :autofocus => true, :class => "wide-field" %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span3">
+					<%= teacher.input :work_phone, :required => true %>
+				</div>
+				<div class="span3">
+					<%= teacher.input :home_phone, :required => false %>
+				</div>
+				<div class="span3">
+					<%= teacher.input :cell_phone, :required => false %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span9">
+					<%= teacher.label "Email address", :required => true %>
+					<%= teacher.text_field :email, :class => "wide-field" %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span9">
+					<hr />
+					<%= teacher.button :submit, "Submit changes", class: "btn btn-large" %>
+				</div>
+			</div>
+		</div>
+	<% end %>
+</div>

@@ -1,0 +1,39 @@
+<div class="center hero-unit">
+	<h3 class="left"><%= @teacher.name %></h3>
+	
+	<div class="row">
+		<div class="span9 section-head">
+			General Information <span class="edit"><%= link_to "edit", edit_teacher_path(@teacher) %></span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span4">
+			<span class="info-label">Work Phone:</span> <%= number_to_phone(@teacher.work_phone, :area_code => true) %>
+		</div>
+	</div>
+		<% if @teacher.home_phone.present? %>
+			<div class="row">
+				<div class="span4">
+					<span class="info-label">Home Phone:</span> <%= number_to_phone(@teacher.home_phone, :area_code => true) %>
+				</div>
+			</div>
+		<% end %>
+		<% if @teacher.cell_phone.present? %>
+			<div class="row">
+				<div class="span4">
+					<span class="info-label">Cell Phone:</span> <%= number_to_phone(@teacher.cell_phone, :area_code => true) %>
+				</div>
+			</div>
+		<% end %>
+	<div class="row">
+		<div class="span6">
+			<span class="info-label">Email Address</span><%= @teacher.email %>
+		</div>
+	</div>
+	<hr />
+	<% if @teacher.addresses.any? %>
+		<%= render @addresses %>
+		<p>This teacher has an address... just need to figure out how to show it :P</p>
+	<% end %>
+	<%= link_to "Add an address", new_teacher_address_path(@teacher) %>
+</div>

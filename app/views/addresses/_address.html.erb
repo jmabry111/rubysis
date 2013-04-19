@@ -1,8 +1,17 @@
 <div class="row">
 	<% if address.address_type == "Physical Address" %>
-		<div class="section-head">Physical Address <span class="edit"><%= link_to "edit", edit_student_address_path(@student, address) %></span></div>
+		<div class="section-head">Physical Address <span class="edit">
+		<% if "#{request.fullpath}".match("student") %>
+			<%= link_to "edit", edit_student_address_path(@student, address) %></span></div>
+		<% else %>
+			<%= link_to "edit", edit_teacher_address_path(@teacher, address) %></span></div>
+		<% end %>
 	<% else %>
-		<div class="section-head">Mailing Address <span class="edit"><%= link_to "edit", edit_student_address_path(@student, address) %></span></div>
+		<% if "#{request.fullpath}".match("student") %>
+			<div class="section-head">Mailing Address <span class="edit"><%= link_to "edit", edit_student_address_path(@student, address) %></span></div>
+		<% else %>
+			<%= link_to "edit", edit_teacher_address_path(@teacher, address) %></span></div>
+		<% end %>
 	<% end %>
 </div>
 <div class="row">

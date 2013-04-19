@@ -23,8 +23,36 @@ class TeachersController < ApplicationController
       end
   end
   
+  def edit
+    @teacher = find_teacher_or_redirect
+  end
+  
+  def update
+    @teacher = find_teacher_or_redirect
+    if @teacher.update_attributes!(teacher_params)
+      flash[:success] = "Teacher information updated"
+      redirect_to teacher_path(@teacher)
+    else
+      render 'edit'
+    end
+  end
+
+  
+  def show
+    @teacher = find_teacher_or_redirect
+    @addresses = @teacher.addresses.page(params[:page])
+  end
   
   private
+  
+  def find_teacher_or_redirect
+    teacher = Teacher.find_by_id(params[:id])
+    unless teacher
+     flash[:notice] = "This teacher does not exist"
+     redirect_to teachers_path
+    end
+    teacher
+  end
   
   def password_generator
     SecureRandom.hex(8)

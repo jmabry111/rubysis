@@ -20,7 +20,9 @@ Rubysis::Application.routes.draw do
   end
   
   scope "/admin" do
-    resources :teachers, :only => [:index, :new, :create, :update]
+    resources :teachers, :only => [:index, :new, :create, :update, :edit, :show] do
+      resources :addresses
+    end
   end
   
   resources :courses do

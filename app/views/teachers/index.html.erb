@@ -10,7 +10,7 @@
 	<tbody>
 		<% @teachers.each do |teacher| %>
 		<tr>
-			<td><%= link_to teacher.name, edit_teacher_registration_path(teacher) %></td>
+			<td><%= link_to teacher.name, teacher_path(teacher) %></td>
 		</tr>
 		<% end %>	
 	</tbody>
