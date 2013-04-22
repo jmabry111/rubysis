@@ -1,1 +1,30 @@
-<%= render 'sections' %>
+<div class="center hero-unit">
+	<h2 class="left"><%= @section.course.course_name %></h2>
+	<div class="row">
+		<div class="span2">
+			Section
+		</div>
+		<div class="span3">
+			Teacher
+		</div>
+		<div class="span3">
+			Days of class
+		</div>
+	</div>
+	<div class="row">
+		<div class="span2">
+			<%= @section.section_number %>
+		</div>
+		<div class="span3">
+			<%= @section.teacher.name %>
+		</div>
+		<div class="span3">
+			<%= @section.days_of_week %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span4">
+			<%= link_to "Enroll a student", edit_course_section_path(@section.course, @section) %>
+		</div>
+	</div>
+</div>

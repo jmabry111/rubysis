@@ -19,7 +19,25 @@ class SectionsController < ApplicationController
   end
   
   def show
+    @students = Student.all
     @section = Section.find(params[:id])
+  end
+  
+  def edit
+    find_course
+    @students = Student.all
+    @section = Section.find(params[:id])
+  end
+  
+  def update
+    find_course
+    @section = Section.find(params[:id])
+    if @section.update_attributes!(section_params)
+      flash[:success] = "Success"
+      redirect_to course_section_path(@course, @section)
+    else
+      render 'edit'
+    end
   end
   
   private
