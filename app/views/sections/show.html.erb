@@ -22,9 +22,30 @@
 			<%= @section.days_of_week %>
 		</div>
 	</div>
-	<div class="row">
-		<div class="span4">
-			<%= link_to "Enroll a student", edit_course_section_path(@section.course, @section) %>
-		</div>
-	</div>
+	<hr />
+		<% if @section.students.any? %>
+			<div class="row">
+				<div class="span4 info-label">Currently Registered Students:</div>
+			</div>
+			<% @section.students.each do |s|  %>
+				<div class="row">
+					<div class="span4"><%= s.to_s %></div>
+				</div>
+			<% end %>
+			<div class="row">
+				<div class="span4">
+					<%= link_to "Register more students", edit_course_section_path(@section.course, @section) %>
+				</div>
+			</div>
+		<% else %>
+			<div class="row">
+				<div class="span4">No Students Registered</div>
+			</div>
+			<div class="row">
+				<div class="span4">
+					<%= link_to "Register a student", edit_course_section_path(@section.course, @section) %>
+				</div>
+			</div>
+		<% end %>
+
 </div>

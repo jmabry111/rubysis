@@ -1,6 +1,10 @@
 <div class="center hero-unit">
-	<h2 class="left muted">Enroll student</h2>
-	<% @section.students.each do |s| %>
-		<%= s.to_s %>
+	<h3 class="left muted">
+		Register a student for the <%= @section.days_of_week %><br /> 
+		section of <%= @section.course.course_name %>
+	</h3>
+	<%= simple_form_for [@course, @section] do |section| %>
+		<%= section.association :students, :as => :check_boxes %>
+		<%= section.submit "Register students", class: "btn" %>
 	<% end %>
 </div>

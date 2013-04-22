@@ -1,7 +1,7 @@
 class Section < ActiveRecord::Base
   serialize :days_of_week
   
-  before_save :array_to_s
+  before_create :array_to_s
   validates :days_of_week, presence: true
   
   

@@ -19,8 +19,8 @@ class SectionsController < ApplicationController
   end
   
   def show
-    @students = Student.all
     @section = Section.find(params[:id])
+    @students = @section.students.page(params[:page])
   end
   
   def edit
@@ -31,6 +31,7 @@ class SectionsController < ApplicationController
   
   def update
     find_course
+    @students = Student.all
     @section = Section.find(params[:id])
     if @section.update_attributes!(section_params)
       flash[:success] = "Success"
@@ -47,6 +48,6 @@ class SectionsController < ApplicationController
   end
   
   def section_params
-    params.require(:section).permit(:course_id, :teacher_id, :section_number, :semester_id, days_of_week:[])
+    params.require(:section).permit(:course_id, :teacher_id, :section_number, :semester_id, days_of_week:[], student_ids:[])
   end
 end
