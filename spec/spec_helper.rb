@@ -38,4 +38,5 @@ RSpec.configure do |config|
   
   #devise helper
   config.include Devise::TestHelpers, :type => :controller
+  
 end

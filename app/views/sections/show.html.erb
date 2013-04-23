@@ -38,20 +38,16 @@
 					<div class="span4"><%= s.to_s %></div>
 				</div>
 			<% end %>
-			<div class="row">
-				<div class="span4">
-					<%= link_to "Add students", edit_course_section_path(@section.course, @section) %>
-				</div>
-			</div>
 		<% else %>
 			<div class="row">
 				<div class="span4">No Students Registered</div>
 			</div>
-			<div class="row">
-				<div class="span4">
-					<%= link_to "Register students", edit_course_section_path(@section.course, @section) %>
-				</div>
-			</div>
 		<% end %>
+		
+		<div class="row">
+			<div class="span4">
+				<%= link_to "Add students", edit_course_section_path(@section.course, @section) %>
+			</div>
+		</div>
 
 </div>

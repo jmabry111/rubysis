@@ -19,8 +19,8 @@ describe 'Sections Pages' do
     describe "new course section page" do
       
       let!(:course) {FactoryGirl.create(:course)}
-      let!(:teacher) {FactoryGirl.create(:teacher)}
       let!(:semester) {FactoryGirl.create(:semester)}
+      let!(:teacher) {FactoryGirl.create(:teacher)}
       
       before {visit new_course_section_path(course)}
       
@@ -29,6 +29,7 @@ describe 'Sections Pages' do
       before do
         select semester.description, :from => "Semester"
         select teacher.name, :from => "Teacher"
+        select "7:45-9:15", :from => "section_time_block"
         check "M"
         check "W"
         check "F"

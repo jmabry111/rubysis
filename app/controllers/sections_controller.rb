@@ -34,7 +34,7 @@ class SectionsController < ApplicationController
 #    @students = Student.joins(:school).school_search(params[:search]).order(:last_name).page(params[:page])
     @section = Section.find(params[:id])
     if @section.update_attributes!(section_params)
-      flash[:success] = "Success"
+      flash[:success] = "Successfully registered students"
       redirect_to course_section_path(@course, @section)
     else
       render 'edit'
