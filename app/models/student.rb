@@ -51,7 +51,7 @@ class Student < ActiveRecord::Base
   
   def self.school_search(search)
     if search
-      where('name iLIKE ?', "%#{search}%")
+      where('name iLIKE ? OR site iLIKE ?', "%#{search}%", "%#{search}%")
     else
       scoped
     end

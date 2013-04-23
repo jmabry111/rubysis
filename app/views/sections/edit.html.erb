@@ -20,7 +20,9 @@
 				<!--[if IE 9]>
 				<span style="color:gray;">Search by school</span><br />
 				<![endif]-->
-				<%= text_field_tag :school_search, params[:school_search], class: "input-large", :placeholder => "Search by school" %>
+				<%= text_field_tag :school_search, params[:school_search], class: "input-large",
+					:placeholder => "Search by school", :id => "section_search" %>
+				<input id="school_id" name="school[id]" type="hidden" />
 				<%= submit_tag "Search", class: "btn btn-mini", :name => nil, :id => "section_search_button" %>
 			</div>
 		</p>

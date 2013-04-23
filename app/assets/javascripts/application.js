@@ -51,7 +51,7 @@ $(function() {
 });
 
 /*
-// Function to make 	search ajax on section enrollment
+// Function to make search ajax on section enrollment
 $(function() {
 	$(document).keyup("#section_school_search input", function() {
 		$.get($("#section_school_search").attr("action"), $("#section_school_search").serialize(), null, "script");
@@ -59,8 +59,4 @@ $(function() {
 	});
 });
 
-// Hides search button on section enrollment
-$(function() {
-	$("#section_search_button").hide();
-});
 */
