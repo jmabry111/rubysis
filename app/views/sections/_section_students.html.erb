@@ -1,0 +1,6 @@
+<%= simple_form_for [@course, @section] do |section| %>
+	<%= section.association :students,
+		:collection => Student.joins(:school).school_search(params[:school_search]).order(:last_name),
+		:as => :check_boxes %>
+	<%= section.submit "Register students", class: "btn" %>
+<% end %>

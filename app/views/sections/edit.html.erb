@@ -1,10 +1,32 @@
 <div class="center hero-unit">
 	<h3 class="left muted">
-		Register a student for the <%= @section.days_of_week %><br /> 
-		section of <%= @section.course.course_name %>
+		Register a student
 	</h3>
-	<%= simple_form_for [@course, @section] do |section| %>
-		<%= section.association :students, :as => :check_boxes %>
-		<%= section.submit "Register students", class: "btn" %>
+	<div class="row">
+		<div class="span3">
+			<strong><%= @section.course.course_name %></strong>
+		</div>
+		<div class="span3">
+			<strong><%= @section.days_of_week %></strong>
+		</div>
+		<div class="span3">
+			<strong><%= @section.time_block %></strong>
+		</div>
+	</div>
+	<hr />
+	<%= form_tag edit_course_section_path(@section.course, @section), :id => "section_school_search", :method => :get do %>
+		<p>
+			<div class="form-horizontal">
+				<!--[if IE 9]>
+				<span style="color:gray;">Search by school</span><br />
+				<![endif]-->
+				<%= text_field_tag :school_search, params[:school_search], class: "input-large", :placeholder => "Search by school" %>
+				<%= submit_tag "Search", class: "btn btn-mini", :name => nil, :id => "section_search_button" %>
+			</div>
+		</p>
 	<% end %>
+	
+	<div id="section_students">
+		<%= render 'section_students' %>
+	</div>
 </div>

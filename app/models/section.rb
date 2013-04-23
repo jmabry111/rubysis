@@ -14,6 +14,8 @@ class Section < ActiveRecord::Base
  
   WEEKDAYS = ["M", "TU", "W", "TH", "F"]
   
+  TIME_BLOCKS = ["7:45-9:15", "9:30-11:00"]
+  
   def set_next_section_number(semester)
     self.section_number = semester.sections.count + 1
   end

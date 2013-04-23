@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422160221) do
+ActiveRecord::Schema.define(:version => 20130422173751) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street"
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(:version => 20130422160221) do
     t.integer  "section_registration_id"
     t.integer  "semester_id"
     t.string   "days_of_week"
+    t.string   "time_block"
   end
 
   create_table "semesters", :force => true do |t|

@@ -7,8 +7,11 @@
 		<div class="span3">
 			Teacher
 		</div>
-		<div class="span3">
+		<div class="span2">
 			Days of class
+		</div>
+		<div class="span2">
+			Period
 		</div>
 	</div>
 	<div class="row">
@@ -18,8 +21,11 @@
 		<div class="span3">
 			<%= @section.teacher.name %>
 		</div>
-		<div class="span3">
+		<div class="span2">
 			<%= @section.days_of_week %>
+		</div>
+		<div class="span2">
+			<%= @section.time_block %>
 		</div>
 	</div>
 	<hr />
@@ -34,7 +40,7 @@
 			<% end %>
 			<div class="row">
 				<div class="span4">
-					<%= link_to "Register more students", edit_course_section_path(@section.course, @section) %>
+					<%= link_to "Add students", edit_course_section_path(@section.course, @section) %>
 				</div>
 			</div>
 		<% else %>
@@ -43,7 +49,7 @@
 			</div>
 			<div class="row">
 				<div class="span4">
-					<%= link_to "Register a student", edit_course_section_path(@section.course, @section) %>
+					<%= link_to "Register students", edit_course_section_path(@section.course, @section) %>
 				</div>
 			</div>
 		<% end %>
