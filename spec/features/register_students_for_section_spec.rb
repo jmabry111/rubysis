@@ -4,9 +4,7 @@ feature 'Register students' do
   scenario 'without errors' do
     admin = FactoryGirl.create(:admin)
     section = FactoryGirl.create(:section)
-    10.times do
-      FactoryGirl.create(:student)
-    end
+    student = FactoryGirl.create(:student)
     
     visit new_admin_session_path
     page.should have_content "Sign in"
@@ -22,7 +20,7 @@ feature 'Register students' do
     click_link 'Add students'
     page.should have_content 'Register a student'
     
-    find(:xpath, "(//input[@type='checkbox'])[1]").set(true)
+    check 'Clark Kent'
     
     click_button "Register students"
     page.should have_content 'Successfully registered students'

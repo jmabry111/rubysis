@@ -16,6 +16,7 @@ gem 'strong_parameters'
 gem 'kaminari'
 gem 'awesome_nested_fields'
 gem 'devise'
+gem 'textacular'
 
 
 group :development, :test do

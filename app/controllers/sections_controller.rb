@@ -3,6 +3,8 @@ class SectionsController < ApplicationController
   def new
     find_course
     @section = Section.new
+    @time_blocks = TimeBlock.all
+    @weekdays = Section::WEEKDAYS
   end
   
   def create
@@ -25,13 +27,15 @@ class SectionsController < ApplicationController
   
   def edit
     find_course
-#    @students = Student.joins(:school).school_search(params[:search]).order(:last_name)
+    @students = Student.joins(:school).school_search(params[:school_search]).order(:last_name)
+    @ialr_students = Student.joins(:school).where("site LIKE ?", "IALR").order(:last_name)
+    @nci_students = Student.joins(:school).where("site LIKE ?", "NCI").order(:last_name)
     @section = Section.find(params[:id])
   end
   
   def update
     find_course
-#    @students = Student.joins(:school).school_search(params[:search]).order(:last_name).page(params[:page])
+    @students = Student.joins(:school).school_search(params[:school_search]).order(:last_name).page(params[:page])
     @section = Section.find(params[:id])
     if @section.update_attributes!(section_params)
       flash[:success] = "Successfully registered students"
@@ -40,6 +44,7 @@ class SectionsController < ApplicationController
       render 'edit'
     end
   end
+  
   
   private
   

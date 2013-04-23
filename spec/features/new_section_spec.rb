@@ -7,6 +7,7 @@ feature 'create a section' do
     course = FactoryGirl.create(:course)
     semester = FactoryGirl.create(:semester)
     teacher = FactoryGirl.create(:teacher)
+    time_block = FactoryGirl.create(:time_block)
     
     visit new_admin_session_path
     page.should have_content "Sign in"
@@ -28,5 +29,6 @@ feature 'create a section' do
     check "F"
     click_button 'Create Section'
     page.should have_content 'Section Created'
+    page.should have_content 'M, W, F'
   end
 end

@@ -64,6 +64,8 @@ class StudentsController < ApplicationController
     student
   end
   
+
+  
   def sort_column
     Student.column_names.include?(params[:sort]) ? params[:sort] : "last_name"
     Student.column_names.include?(params[:sort]) ? params[:sort] : "name"

@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :student do
     school
     first_name  "Clark"
-    sequence(:last_name)   {|n| "Kent#{n}"}
+    last_name   "Kent"
     gender      "Male"
     grade_level "12"
     dob         "Tue, Mar 12 2013"
@@ -86,5 +86,9 @@ FactoryGirl.define do
     ends_on "2013-04-15"
     description "six weeks"
     semester
+  end
+  
+  factory :time_block do
+    block "7:45-9:15"
   end
 end
