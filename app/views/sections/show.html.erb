@@ -1,1 +1,53 @@
-<%= render 'sections' %>
+<div class="center hero-unit">
+	<h2 class="left"><%= @section.course.course_name %></h2>
+	<div class="row">
+		<div class="span2">
+			Section
+		</div>
+		<div class="span3">
+			Teacher
+		</div>
+		<div class="span2">
+			Days of class
+		</div>
+		<div class="span2">
+			Period
+		</div>
+	</div>
+	<div class="row">
+		<div class="span2">
+			<%= @section.section_number %>
+		</div>
+		<div class="span3">
+			<%= @section.teacher.name %>
+		</div>
+		<div class="span2">
+			<%= @section.days_of_week %>
+		</div>
+		<div class="span2">
+			<%= @section.time_block %>
+		</div>
+	</div>
+	<hr />
+		<% if @section.students.any? %>
+			<div class="row">
+				<div class="span4 info-label">Currently Registered Students:</div>
+			</div>
+			<% @section.students.each do |s|  %>
+				<div class="row">
+					<div class="span4"><%= s.to_s %></div>
+				</div>
+			<% end %>
+		<% else %>
+			<div class="row">
+				<div class="span4">No Students Registered</div>
+			</div>
+		<% end %>
+		
+		<div class="row">
+			<div class="span4">
+				<%= link_to "Add students", edit_course_section_path(@section.course, @section) %>
+			</div>
+		</div>
+
+</div>

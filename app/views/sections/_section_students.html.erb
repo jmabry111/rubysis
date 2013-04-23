@@ -1,0 +1,26 @@
+<%= simple_form_for [@course, @section] do |section| %>
+<div class="row">
+	<% if params[:school_search] == "" %>
+		<div class="span3 form_associations">
+		Danville
+			<%= section.association :students,
+				:collection => Student.joins(:school).where("site LIKE ?", "IALR").order(:last_name),
+				:as => :check_boxes %>
+		</div>
+		<div class="span3 form_associations">
+			Martinsville
+			<%= section.association :students,
+				:collection => Student.joins(:school).where("site LIKE ?", "NCI").order(:last_name),
+				:as => :check_boxes %>
+		</div>
+	<% else %>
+		<div class="span3 form_associations">
+			<%= section.association :students,
+				:collection => Student.joins(:school).school_search(params[:school_search]).order(:last_name),
+				:as => :check_boxes %>
+		</div>
+	<% end %>
+</div>
+	<%= section.submit "Register students", class: "btn" %>
+<% end %>
+

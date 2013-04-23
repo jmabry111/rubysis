@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :student do
     school
     first_name  "Clark"
-    last_name   "Kent"
+    sequence(:last_name)   {|n| "Kent#{n}"}
     gender      "Male"
     grade_level "12"
     dob         "Tue, Mar 12 2013"
@@ -11,6 +11,7 @@ FactoryGirl.define do
   
   factory :school do
     name  "Marvel High School"
+    site  "IALR"
   end
   
   factory :parent do
@@ -47,8 +48,8 @@ FactoryGirl.define do
   end
   
   factory :teacher do
-    name  "Mr. Teacher"
-    sequence(:email) {|nn| "teacher#{nn}@example.com"}
+    name  "Awesome Teacher"
+    sequence(:email) {|n| "teacher#{n}@example.com"}
     password  "rtyuioio567"
     password_confirmation "rtyuioio567"
     work_phone  "5557778888"
@@ -62,6 +63,8 @@ FactoryGirl.define do
   factory :section do
     course
     section_number 1
+    days_of_week ["M", "W", "F", ""]
+    time_block "7:45-9:15"
     teacher
   end
   

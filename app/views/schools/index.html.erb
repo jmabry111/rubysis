@@ -1,0 +1,18 @@
+<div class="center hero-unit">
+	<div class="row">
+		<div class="span3">School</div>
+		<div class="span3">Site</div>
+	</div>
+	<% @schools.each do |s| %>
+		<div class="row">
+			<div class="span3">
+				<%= s.name %>
+			</div>
+			<div class="span3">
+				<%= s.site %>
+			</div>
+		</div>		
+	<% end %>
+	
+	<%= link_to "json", schools_path(:json) %>
+</div>

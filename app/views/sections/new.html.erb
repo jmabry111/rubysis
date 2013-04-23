@@ -14,6 +14,12 @@
 		</div>
 		<div class="row">
 			<div class="span6">
+				<%= section.input :time_block, :collection => Section::TIME_BLOCKS, :as => :select, 
+									:label => "Period" %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span6">
 				<%= section.input :days_of_week, :collection => Section::WEEKDAYS, :as => :check_boxes, 
 									:item_wrapper_class => :inline, :label => "Select the days of the week for the section" %>
 			</div>

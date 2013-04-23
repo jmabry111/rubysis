@@ -28,24 +28,12 @@ $(function() {
 		});
 });
 
-$(document).ready(function() {
-	$('#fill_address').click(function() {
-		street = $("#student_street_address").val();
-		city = $("#student_city").val();
-		state = $("#student_state").val();
-		zip = $("#student_zip").val();
-		$("#student_street_address_911").val(street);
-		$("#student_city_911").val(city);
-		$("#student_state_911").val(state);
-		$("#student_zip_911").val(zip);
-    });
-});
 
 $(document).ready(function(e) {
   $('#parent-fields, #student-address-fields, #teacher-address-fields').nestedFields();
 });
 
-// Function to make sort and search ajax on applicant index page
+// Function to make sort and search ajax on student index page
 $(function() {
 	$(document).on("click","#students_ajax_table th a", function() {
 	  $.getScript(this.href);
@@ -57,7 +45,18 @@ $(function() {
 	});
 });
 
-// Hides search button on applicant index page
+// Hides search button on student index page
 $(function() {
 	$("#search_button").hide();
-})
+});
+
+/*
+// Function to make search ajax on section enrollment
+$(function() {
+	$(document).keyup("#section_school_search input", function() {
+		$.get($("#section_school_search").attr("action"), $("#section_school_search").serialize(), null, "script");
+		return false;
+	});
+});
+
+*/

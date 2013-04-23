@@ -1,7 +1,7 @@
 class Section < ActiveRecord::Base
   serialize :days_of_week
   
-  before_save :array_to_s
+  before_create :array_to_s
   validates :days_of_week, presence: true
   
   
@@ -13,6 +13,8 @@ class Section < ActiveRecord::Base
   
  
   WEEKDAYS = ["M", "TU", "W", "TH", "F"]
+  
+  TIME_BLOCKS = ["7:45-9:15", "9:30-11:00"]
   
   def set_next_section_number(semester)
     self.section_number = semester.sections.count + 1

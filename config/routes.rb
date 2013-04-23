@@ -9,6 +9,8 @@ Rubysis::Application.routes.draw do
   }
 
   devise_for :admins
+  
+  resources :schools, :only => :index
 
   resources :students do 
     resources :addresses

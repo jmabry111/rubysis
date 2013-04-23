@@ -24,6 +24,7 @@ group :development, :test do
   gem 'guard-rspec', '0.5.5'
   gem 'pry'
   gem 'selenium'
+  gem 'database_cleaner'
 end
 
 # Gems used only for assets and not required

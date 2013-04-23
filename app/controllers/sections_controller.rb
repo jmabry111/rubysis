@@ -20,6 +20,25 @@ class SectionsController < ApplicationController
   
   def show
     @section = Section.find(params[:id])
+    @students = @section.students.page(params[:page])
+  end
+  
+  def edit
+    find_course
+#    @students = Student.joins(:school).school_search(params[:search]).order(:last_name)
+    @section = Section.find(params[:id])
+  end
+  
+  def update
+    find_course
+#    @students = Student.joins(:school).school_search(params[:search]).order(:last_name).page(params[:page])
+    @section = Section.find(params[:id])
+    if @section.update_attributes!(section_params)
+      flash[:success] = "Successfully registered students"
+      redirect_to course_section_path(@course, @section)
+    else
+      render 'edit'
+    end
   end
   
   private
@@ -29,6 +48,6 @@ class SectionsController < ApplicationController
   end
   
   def section_params
-    params.require(:section).permit(:course_id, :teacher_id, :section_number, :semester_id, days_of_week:[])
+    params.require(:section).permit(:course_id, :teacher_id, :section_number, :semester_id, :time_block, days_of_week:[], student_ids:[])
   end
 end
