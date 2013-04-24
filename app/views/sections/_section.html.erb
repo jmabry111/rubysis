@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="span2 offset1">
-		<%= link_to section.section_number, course_section_path(@course, section) %>
+		<%= link_to "Section #{section.section_number}", course_section_path(@course, section) %>
 	</div>
 	<div class="span2">
 		<%= section.teacher.name %>
