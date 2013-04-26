@@ -23,7 +23,7 @@ feature 'create a section' do
      
     select semester.description, :from => 'Semester'
     select teacher.name, :from => 'Teacher'
-    select "7:45-9:15", :from => 'Period'
+    select "7:45-9:15", :from => 'Time block'
     check "M"
     check "W"
     check "F"

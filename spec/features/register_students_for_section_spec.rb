@@ -17,7 +17,7 @@ feature 'Register students' do
     visit course_section_path(section.course, section)
     page.should have_content section.course.course_name
     
-    click_link 'Add students'
+    click_link 'Add or Remove Students'
     page.should have_content 'Register a student'
     
     check 'Clark Kent'
