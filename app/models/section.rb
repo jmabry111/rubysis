@@ -20,6 +20,10 @@ class Section < ActiveRecord::Base
     self.section_number = semester.sections.count + 1
   end
   
+  def current_semester_sections
+     @current_sections = Section.where("description LIKE ?", current_semester)
+  end
+  
   private
   
   def array_to_s

@@ -14,8 +14,10 @@
 		</div>
 		<div class="row">
 			<div class="span6">
-				<%= section.input :time_block, :collection => @time_blocks, :as => :select, 
-									:label => "Period" %>
+				<%= section.input :time_block do %>
+				 	<%= section.select :time_block, TimeBlock.all.map{ |t| [t.block, t.block]},
+							:label => "Period", include_blank: true %>
+				<% end %>
 			</div>
 		</div>
 		<div class="row">

@@ -45,6 +45,7 @@ class SectionsController < ApplicationController
     end
   end
   
+ 
   
   private
   
