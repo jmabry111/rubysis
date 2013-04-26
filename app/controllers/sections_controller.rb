@@ -48,6 +48,14 @@ class SectionsController < ApplicationController
   
   private
   
+  def create_section_registrations
+    @section = Section.find(params[:id])
+    @students = Student.joins(:school).school_search(params[:school_search]).order(:last_name).page(params[:page])
+    @students.each do |s|
+      @section.section_registrations.create(:student => s)
+    end
+  end
+  
   def find_course
     @course = Course.find(params[:course_id])
   end

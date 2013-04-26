@@ -1,6 +1,11 @@
 <div class="center hero-unit">
 	<h2 class="left"><%= @student.to_s %></h2>
 	<div class="row">
+		<div class="span6">
+			<%= link_to "View current schedule", student_schedule_path(@student, 1) %>
+		</div>
+	</div>
+	<div class="row">
 		<div class="span6 section-head">
 			General Information <span class="edit"><%= link_to "edit", edit_student_path(@student) %></span>
 		</div>

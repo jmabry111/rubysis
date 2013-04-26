@@ -24,6 +24,9 @@ class SchoolYearsController < ApplicationController
     @school_years = SchoolYear.order(:starts_on).page(params[:page])
   end
   
+  def current_year
+    @current_year ||= SchoolYear.where("starts_on < ? AND ends_on > ?", Time.now, Time.now).to_s
+  end
   
   private
   def school_year_params

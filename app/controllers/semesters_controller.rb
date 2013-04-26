@@ -22,6 +22,10 @@ class SemestersController < ApplicationController
     @grading_periods = @semester.grading_periods.page(params[:page])
   end
   
+  def current_semester
+     @current_semester ||= Semester.where("starts_on < ? AND ends_on > ?", Time.now, Time.now).to_s
+  end
+  
   
   private
   

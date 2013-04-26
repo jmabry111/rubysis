@@ -1,0 +1,29 @@
+<div class="center hero-unit">
+	<% if @student.sections.any? %>
+		<%= current_year %>
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>Class</th>
+					<th>Days</th>
+					<th>Time</th>
+					<th>Semester</th>
+				</tr>
+			</thead>
+			<tbody>
+			<% @student.sections.each do |s| %>
+				<% if current_year == s.semester.school_year %>
+					<tr>
+						<td><%= s.course.course_name %></td>
+						<td><%= s.days_of_week %></td>
+						<td><%= s.time_block %></td>
+						<td><%= s.semester.description %></td>
+					</tr>
+				<% end %>
+			<% end %>
+			<tbody>
+		</table>
+	<% else %>
+		<h1><%= @student %></h1>
+	<% end %>
+</div>
