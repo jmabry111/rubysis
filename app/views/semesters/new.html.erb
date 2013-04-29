@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="span9">
 				<%= semester.label "Semester name" %>
-				<%= semester.select :description, :options => ["Fall", "Spring"] %>
+				<%= semester.select :description, :options => ["Fall #{@school_year.description}", "Spring #{@school_year.description}"] %>
 				<!--[if IE 9]>
 				<p style="color:gray;">Ex: Fall Fall</p>
 				<![endif]-->

@@ -24,7 +24,7 @@ describe 'Semester Pages' do
       describe "add a semester" do
         
         before do
-          select "Fall", :from => "semester_description"
+          select "Fall #{school_year.description}", :from => "semester_description"
           fill_in "semester_starts_on", :with => "Mon, Apr 01 2013"
           fill_in "semester_ends_on", :with => "Mon, Apr 01 2013"
           click_button "Submit semester"
