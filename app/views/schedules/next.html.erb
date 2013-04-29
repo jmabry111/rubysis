@@ -1,0 +1,29 @@
+<div class="center hero-unit">
+	<h2 class="left muted"><%= @student %></h2>
+	<%= next_semester %><br />
+	<%= current_semester %><br />
+	<% if @student.sections.any? %>
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>Class</th>
+					<th>Days</th>
+					<th>Time</th>
+					<th>Semester</th>
+				</tr>
+			</thead>
+			<tbody>
+			<% @student.sections.each do |s| %>
+					<tr>
+						<td><%= link_to s.course.course_name, course_section_path(s.course, s.id) %></td>
+						<td><%= s.days_of_week %></td>
+						<td><%= s.time_block %></td>
+						<td><%= s.semester.description %></td>
+					</tr>
+			<% end %>
+			<tbody>
+		</table>
+	<% else %>
+		<p><%= @student %> is not registered for any classes.</p>
+	<% end %>
+</div>

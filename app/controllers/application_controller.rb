@@ -19,9 +19,9 @@ class ApplicationController < ActionController::Base
   
   
   def current_semester
-     @current_semester ||= Semester.where("starts_on < ? AND ends_on > ?", Time.now, Time.now).first.to_s
+     @current_semester ||= Semester.where("starts_on < ? AND ends_on > ?", Time.now, Time.now).first
   end
   def next_semester
-    @next_semester ||= Semester.where("starts_on < ? AND ends_on > ?", Time.now + 6.months, Time.now + 6.months).first.to_s
+    @next_semester ||= Semester.where("starts_on < ? AND ends_on > ?", Time.now + 6.months, Time.now + 6.months).first
   end
 end

@@ -15,7 +15,7 @@ Rubysis::Application.routes.draw do
   resources :students do 
     resources :addresses
     resources :parents
-    resources :schedules
+    resource :schedule
   end
   
   resources :parents do
