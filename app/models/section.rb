@@ -8,8 +8,8 @@ class Section < ActiveRecord::Base
   belongs_to :course
   belongs_to :teacher
   belongs_to :semester
-  has_many :section_registrations
-  has_many :students, :through => :section_registrations
+  has_many :student_section_enrollments
+  has_many :students, :through => :student_section_enrollments
   
  
   WEEKDAYS = ["M", "TU", "W", "TH", "F"]

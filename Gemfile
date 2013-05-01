@@ -27,6 +27,7 @@ group :development, :test do
   gem 'pry'
   gem 'selenium'
   gem 'database_cleaner'
+  gem 'railroady'
 end
 
 # Gems used only for assets and not required

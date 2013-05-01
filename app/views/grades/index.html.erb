@@ -1,0 +1,7 @@
+<div class="center hero-unit">
+	Grades in <%= @section.course.course_name %> for <%= @student %><br />
+	<% @grades.each do |g| %>
+		<%= g.grading_period %> - <%= g.numerical_grade %><br />
+	<% end %>
+	Semester Grade - <%= @semester_grade %>
+</div>

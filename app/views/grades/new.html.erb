@@ -1,0 +1,11 @@
+<div class="center hero-unit">
+	<%= simple_form_for [@student, @section, @grade] do |g| %>
+		<%= @student %><br />
+		<%= @section.course.course_name %>
+		
+		<%= g.input :numerical_grade %>
+		<%= g.input :student_section_enrollment_id, :input_html => {:value => @section.id} %>
+		<%= g.association :grading_period, :collection => @section.semester.grading_periods %>
+		<%= g.submit "Submit Grades", class: "btn btn-large" %>
+	<% end %>
+</div>

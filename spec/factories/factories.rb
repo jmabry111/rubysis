@@ -91,4 +91,8 @@ FactoryGirl.define do
   factory :time_block do
     block "7:45-9:15"
   end
+  
+  factory :grade do
+    numerical_grade 1.5
+  end
 end
