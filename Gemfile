@@ -17,6 +17,7 @@ gem 'kaminari'
 gem 'awesome_nested_fields'
 gem 'devise'
 gem 'textacular'
+gem 'coveralls', require: false
 
 
 group :development, :test do
