@@ -6,4 +6,12 @@ class Grade < ActiveRecord::Base
   delegate :section, to: :student_section_enrollment, allow_nil: true
   delegate :course, to: :section, allow_nil: true
   
+  
+  def grade_modification
+    grade
+  end
+  
+  def grade_modification=(new_grade)
+    self.grade = new_grade
+  end
 end

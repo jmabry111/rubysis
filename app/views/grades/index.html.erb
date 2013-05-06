@@ -1,7 +1,29 @@
 <div class="center hero-unit">
-	Grades in <%= @section.course.course_name %> for <%= @student %><br />
-	<% @grades.each do |g| %>
-		<%= g.grading_period %> - <%= g.numerical_grade %><br />
+	<h3 class="left muted">Grades in <%= @section.course.course_name %> for <%= @student %></h3>
+	<% if @grades.present? %>
+		<% @grades.each do |g| %>
+			<div class="row">
+				<div class="span2">
+					<span class="info-label"><%= g.grading_period %>:</span>
+				</div>
+				<div class="span1">
+					<%= link_to g.numerical_grade, edit_student_section_grade_path(@student, @section, g) %>
+				</div>
+			</div>
+		<% end %>
+	<% else %>
+		<h3 class="left muted">No Current Grades</h3>
 	<% end %>
-	Semester Grade - <%= @semester_grade %>
+	<% if @grades.count == 4 %>
+		<hr />
+		<div class="row">
+			<div class="span2">
+				<span class="info-label">Semester Grade:</span>
+			</div>
+			<div class="span1">
+				<%= @semester_grade %>
+			</div>
+		</div>
+	<% end %>
+	<%= link_to "Back to student", student_path(@student) %> | <%= link_to "Back to student's schedule", student_schedule_path(@student) %>
 </div>
