@@ -21,7 +21,7 @@
 				<span class="info-label">Semester Grade:</span>
 			</div>
 			<div class="span1">
-				<%= @semester_grade %>
+				<%= number_with_precision @semester_grade, :precision => 2 %>
 			</div>
 		</div>
 	<% end %>

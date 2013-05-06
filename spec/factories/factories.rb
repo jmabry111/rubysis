@@ -75,8 +75,8 @@ FactoryGirl.define do
   end
   
   factory :semester do
-    starts_on "2013-04-15"
-    ends_on "2013-04-15"
+    starts_on Time.now - 1.month
+    ends_on Time.now + 1.month
     description "fall"
     school_year
   end
@@ -93,6 +93,7 @@ FactoryGirl.define do
   end
   
   factory :grade do
-    numerical_grade 1.5
+    numerical_grade 91.5
+    grading_period
   end
 end
