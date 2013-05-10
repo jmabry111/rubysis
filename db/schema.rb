@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130423202448) do
+ActiveRecord::Schema.define(:version => 20130501192929) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street"
@@ -50,6 +50,14 @@ ActiveRecord::Schema.define(:version => 20130423202448) do
     t.string   "course_description"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "grades", :force => true do |t|
+    t.float    "numerical_grade"
+    t.integer  "student_section_enrollment_id"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "grading_period_id"
   end
 
   create_table "grading_periods", :force => true do |t|
@@ -97,13 +105,6 @@ ActiveRecord::Schema.define(:version => 20130423202448) do
     t.string   "site"
   end
 
-  create_table "section_registrations", :force => true do |t|
-    t.integer  "student_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "section_id"
-  end
-
   create_table "sections", :force => true do |t|
     t.integer  "course_id"
     t.integer  "section_number"
@@ -123,6 +124,13 @@ ActiveRecord::Schema.define(:version => 20130423202448) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.integer  "school_year_id"
+  end
+
+  create_table "student_section_enrollments", :force => true do |t|
+    t.integer  "student_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "section_id"
   end
 
   create_table "students", :force => true do |t|

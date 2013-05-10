@@ -2,14 +2,14 @@ class Section < ActiveRecord::Base
   serialize :days_of_week
   
   before_create :array_to_s
-  validates :days_of_week, presence: true
+  #validates :days_of_week, presence: true
   
   
   belongs_to :course
   belongs_to :teacher
   belongs_to :semester
-  has_many :section_registrations
-  has_many :students, :through => :section_registrations
+  has_many :student_section_enrollments
+  has_many :students, :through => :student_section_enrollments
   
  
   WEEKDAYS = ["M", "TU", "W", "TH", "F"]

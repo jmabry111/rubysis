@@ -62,10 +62,16 @@ FactoryGirl.define do
   
   factory :section do
     course
-    section_number 1
+    sequence(:section_number) {|n| "n"}
     days_of_week ["M", "W", "F", ""]
     time_block "7:45-9:15"
     teacher
+    semester
+  end
+  
+  factory :student_section_enrollment do
+    student
+    section
   end
   
   factory :school_year do
@@ -75,8 +81,8 @@ FactoryGirl.define do
   end
   
   factory :semester do
-    starts_on "2013-04-15"
-    ends_on "2013-04-15"
+    starts_on Time.now - 1.month
+    ends_on Time.now + 1.month
     description "fall"
     school_year
   end
@@ -85,10 +91,21 @@ FactoryGirl.define do
     starts_on "2013-04-15"
     ends_on "2013-04-15"
     description "six weeks"
-    semester
+    semester_id 1
+  end
+  
+  factory :semester_with_grading_periods, :parent => :semester do
+    after_create do |semester|
+      FactoryGirl.create(:grading_period, :semester => semester)
+    end
   end
   
   factory :time_block do
     block "7:45-9:15"
+  end
+  
+  factory :grade do
+    numerical_grade 91.5
+    grading_period
   end
 end

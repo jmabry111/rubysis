@@ -12,7 +12,7 @@ feature 'student_applies' do
     fill_in "Password", with: admin.password
     click_button "Sign in"
 
-    page.should have_content "Name"
+    page.should have_content "Signed in successfully"
     visit 'students/new'
 
 #    save_and_open_page

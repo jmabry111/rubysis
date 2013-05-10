@@ -16,6 +16,9 @@ Rubysis::Application.routes.draw do
     resources :addresses
     resources :parents
     resource :schedule
+    resources :sections do
+      resources :grades
+    end
   end
   
   resources :parents do

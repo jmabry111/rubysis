@@ -4,12 +4,12 @@ class Schedule < ActiveRecord::Base
     @student = student
   end
   
-  def current_semester_schedule
-    @sections = @student.sections.where(semester_id: current_semester.id)
+  def self.current_semester_schedule(student)
+    student.sections.where(semester_id: current_semester.id)
   end
   
-  def next_semester_schedule
-    @sections = @student.sections.where(semester_id: next_semester.id)
+  def self.next_semester_schedule(student)
+    student.sections.where(semester_id: next_semester.id)
   end
   
   def should_not_show_next_semester?

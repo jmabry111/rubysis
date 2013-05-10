@@ -1,0 +1,42 @@
+<div class="center hero-unit">
+	<h2 class="left muted"><%= @student %></h2>
+	<div class="row">
+		<div class="span6">
+			<h3 class="left"><%= @section.course.course_name %></h3>
+		</div>
+	</div>
+	<% if @grades.present? %>
+		<h3 class="left muted">Current Grades</h3>
+		<% @grades.each do |g| %>
+			<div class="row">
+				<div class="span2">
+					<span class="info-label"><%= g.grading_period %>:</span>
+				</div>
+				<div class="span1">
+					<%= g.numerical_grade %>
+				</div>
+			</div>
+		<% end %>
+	<% else %>
+		<h3 class="left muted">No Current Grades</h3>
+	<% end %>
+	
+	<hr />
+	<h3 class="left">Enter new grade</h3>
+	<%= simple_form_for [@student, @section, @grade] do |g| %>
+		<%= g.hidden_field :student_section_enrollment_id, :value => @section.id %>
+		<div class="row">
+			<div class="span4">
+				<%= g.association :grading_period, :collection => @section.semester.grading_periods %>
+			</div>
+			<div class="span4">
+				<%= g.input :numerical_grade %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span6">
+				<%= g.submit "Submit Grade", class: "btn btn-large" %>
+			</div>
+		</div>
+	<% end %>
+</div>
