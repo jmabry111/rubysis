@@ -2,7 +2,7 @@ class Section < ActiveRecord::Base
   serialize :days_of_week
   
   before_create :array_to_s
-  validates :days_of_week, presence: true
+  #validates :days_of_week, presence: true
   
   
   belongs_to :course

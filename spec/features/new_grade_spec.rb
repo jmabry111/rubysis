@@ -1,8 +1,9 @@
 require 'spec_helper'
 
-feature 'Register students' do
+feature 'add a grade' do
   scenario 'without errors' do
     admin = FactoryGirl.create(:admin)
+    grading_period = FactoryGirl.create(:grading_period)
     section = FactoryGirl.create(:section)
     student = FactoryGirl.create(:student)
     
@@ -14,16 +15,12 @@ feature 'Register students' do
     
     page.should have_content 'Welcome'
     
-    visit course_section_path(section.course, section)
-    page.should have_content section.course.course_name
+
+    visit new_student_section_grade_path(student, section)
     
-    click_link 'Add or Remove Students'
-    page.should have_content 'Register a student'
-    
-    check 'Clark Kent'
-    
-    click_button "Register students"
-    page.should have_content 'Successfully registered students'
-    
+    select "six weeks", :from => "grade_grading_period_id"
+    fill_in "grade_numerical_grade", :with => 97
+    click_button "Submit Grade"
+    page.should have_content "Grade entered."
   end
 end

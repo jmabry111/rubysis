@@ -21,7 +21,7 @@ describe 'Sections Pages' do
       let!(:course) {FactoryGirl.create(:course)}
       let!(:semester) {FactoryGirl.create(:semester)}
       let!(:teacher) {FactoryGirl.create(:teacher)}
-      time_block = FactoryGirl.create(:time_block)
+      let!(:time_block) {FactoryGirl.create(:time_block)}
       
       before {visit new_course_section_path(course)}
       
