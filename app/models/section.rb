@@ -1,7 +1,6 @@
 class Section < ActiveRecord::Base
-  serialize :days_of_week
-  
-  before_create :array_to_s
+  serialize :days_of_week, Array
+  before_save :remove_empty_days_of_week
   #validates :days_of_week, presence: true
   
   
@@ -23,11 +22,16 @@ class Section < ActiveRecord::Base
   def current_semester_sections
      @current_sections = Section.where("description LIKE ?", current_semester)
   end
-  
+
+  def days_of_week_string
+    days_of_week.join(', ')
+  end
+
   private
-  
-  def array_to_s
-    self.days_of_week = self.days_of_week.reject!(&:empty?)
-    self.days_of_week = self.days_of_week.join(', ')
+
+  def remove_empty_days_of_week
+    if self.days_of_week.present?
+      self.days_of_week.reject!(&:empty?)
+    end
   end
 end
