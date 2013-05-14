@@ -2,11 +2,7 @@
 namespace :db do 
   desc "Add Initial Dev Data"
   task populate: [:environment, 'db:migrate'] do
-    admin2 = Admin.create! do |a|
-       a.email = "draper@drapergeek.com"
-       a.password = "password1"
-       a.password_confirmation = "password1"
-    end
+
 
     teacher = Teacher.create! do |t|
         t.name = "Albert Einstein"
