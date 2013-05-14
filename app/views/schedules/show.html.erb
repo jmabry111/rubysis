@@ -31,7 +31,7 @@
 									<% @sections.each do |s| %>
 										<tr>
 											<td><%= link_to s.course.course_name, new_student_section_grade_path(@student, s) %></td>
-											<td><%= s.days_of_week %></td>
+											<td><%= s.days_of_week_string %></td>
 											<td><%= s.time_block %></td>
 											<td><%= s.semester.description %></td>
 										</tr>
