@@ -21,3 +21,5 @@ admin = Admin.create! do |a|
    a.password = "password1"
    a.password_confirmation = "password1"
 end
+
+

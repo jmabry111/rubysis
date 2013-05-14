@@ -11,6 +11,8 @@ Coveralls.wear!('rails')
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 DatabaseCleaner.strategy = :truncation
+DatabaseCleaner.clean_with(:truncation)
+
 RSpec.configure do |config|
   # ## Mock Framework
   #

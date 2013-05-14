@@ -28,12 +28,12 @@
 									</tr>
 								</thead>
 								<tbody>
-									<% @sections.each do |s| %>
+									<% @sections.each do |section| %>
 										<tr>
-											<td><%= link_to s.course.course_name, new_student_section_grade_path(@student, s) %></td>
-											<td><%= s.days_of_week_string %></td>
-											<td><%= s.time_block %></td>
-											<td><%= s.semester.description %></td>
+											<td><%= link_to section.course.course_name, new_student_section_grade_path(@student, section) %></td>
+											<td><%= section.days_of_week_string %></td>
+											<td><%= section.time_block %></td>
+											<td><%= section.semester.description %></td>
 										</tr>
 									<% end %>
 								</tbody>
@@ -52,12 +52,12 @@
 										</tr>
 									</thead>
 									<tbody>	
-										<% @next_sections.each do |s| %>
+										<% @next_sections.each do |section| %>
 											<tr>
-												<td><%= link_to s.course.course_name, new_student_section_grade_path(@student, s) %></td>
-												<td><%= s.days_of_week %></td>
-												<td><%= s.time_block %></td>
-												<td><%= s.semester.description %></td>
+												<td><%= link_to section.course.course_name, new_student_section_grade_path(@student, section) %></td>
+												<td><%= section.days_of_week_string %></td>
+												<td><%= section.time_block %></td>
+												<td><%= section.semester.description %></td>
 											</tr>
 										<% end %>
 									</tbody>

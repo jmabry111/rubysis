@@ -62,11 +62,11 @@ FactoryGirl.define do
   
   factory :section do
     course
-    sequence(:section_number) {|n| "n"}
-    days_of_week ["M", "W", "F", ""]
-    time_block "7:45-9:15"
     teacher
     semester
+    sequence(:section_number) {|n| "#{n}"}
+    days_of_week ["M", "W", "F", ""]
+    time_block "7:45-9:15"
   end
   
   factory :student_section_enrollment do
