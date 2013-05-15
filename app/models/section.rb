@@ -1,6 +1,6 @@
 class Section < ActiveRecord::Base
   serialize :days_of_week, Array
-  before_save :remove_empty_days_of_week
+  before_validation :remove_empty_days_of_week
   
   validates :days_of_week, presence: true
   validates :semester, presence: true
