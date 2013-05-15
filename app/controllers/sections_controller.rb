@@ -10,8 +10,9 @@ class SectionsController < ApplicationController
   def create
       find_course
       @section = @course.sections.build(section_params)
-      @semester = Semester.find(params[:section][:semester_id])
+      @semester = find_semester_or_redirect
       @section.set_next_section_number(@semester)
+      @weekdays = Section::WEEKDAYS
     if @section.save
       flash[:success] = "Section Created."
       redirect_to course_path(@course)
@@ -40,8 +41,6 @@ class SectionsController < ApplicationController
     if @section.update_attributes!(section_params)
       flash[:success] = "Successfully registered students"
       redirect_to course_section_path(@course, @section)
-    else
-      render 'edit'
     end
   end
   
@@ -59,6 +58,17 @@ class SectionsController < ApplicationController
   
   def find_course
     @course = Course.find(params[:course_id])
+  end
+  
+  def find_semester_or_redirect
+    find_course
+    section = @course.sections.build(section_params)
+    if section.semester_id == nil
+      flash[:notice] = "That semester is invalid"
+    else
+      semester = Semester.find(params[:section][:semester_id])
+    end
+    return semester
   end
   
   def section_params

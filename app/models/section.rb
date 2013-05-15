@@ -1,7 +1,11 @@
 class Section < ActiveRecord::Base
   serialize :days_of_week, Array
   before_save :remove_empty_days_of_week
-  #validates :days_of_week, presence: true
+  
+  validates :days_of_week, presence: true
+  validates :semester, presence: true
+  validates :teacher, presence: true
+  validates :time_block, presence: true
   
   
   belongs_to :course
@@ -16,7 +20,11 @@ class Section < ActiveRecord::Base
   TIME_BLOCKS = ["7:45-9:15", "9:30-11:00"]
   
   def set_next_section_number(semester)
-    self.section_number = semester.sections.count + 1
+    if semester != nil
+      self.section_number = semester.sections.count + 1
+    else
+      self.section_number = 1
+    end
   end
   
   def current_semester_sections

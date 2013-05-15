@@ -31,6 +31,16 @@ describe 'Semester Pages' do
         end
         it{should have_content("Semester created")}
       end
+      
+      describe "add an invalid semester" do
+        
+        before do
+          select "Fall #{school_year.description}", :from => "semester_description"
+          fill_in "semester_starts_on", :with => "Mon, Apr 01 2013"
+          click_button "Submit semester"
+        end
+        it{should have_content("can't be blank")}
+      end
     end
     
     describe "semester show page" do

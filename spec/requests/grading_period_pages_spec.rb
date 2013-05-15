@@ -31,6 +31,15 @@ describe 'Grading Period Pages' do
         end
         it{should have_content("Period created")}
       end
+      describe "add an invalid grading period" do
+        
+        before do
+          fill_in "grading_period_description", :with => "Fall 2012"
+          fill_in "grading_period_starts_on", :with => "Mon, Apr 01 2013"
+          click_button "Submit Grading Period"
+        end
+        it{should have_content("can't be blank")}
+      end
     end
     
     describe "grading_period show page" do
