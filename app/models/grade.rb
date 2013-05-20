@@ -10,4 +10,8 @@ class Grade < ActiveRecord::Base
  def self.find_grades_for_section(section)
    self.where("student_section_enrollment_id = ?", section)
  end
+ 
+ def self.find_grades_for_student(section)
+ self.where("student_section_enrollment_id = ?", section)
+ end
 end

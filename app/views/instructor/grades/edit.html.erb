@@ -1,0 +1,27 @@
+<div class="center hero-unit">
+	<h2 class="left muted"><%= @student %></h2>
+	<div class="row">
+		<div class="span6">
+			<h3 class="left"><%= @section.course.course_name %></h3>
+		</div>
+	</div>
+	<%= simple_form_for [@student, @section, @grade] do |grade| %>
+	<h3 class="left muted">Current Grade</h3>
+	<div class="row">
+		<div class="span2">
+			<span class="info-label"><%= @grade.grading_period %>:</span>
+		</div>
+		<div class="span1">
+			<%= grade.input :numerical_grade, :input_html => {:value => @grade.numerical_grade}, :label => false %>
+		</div>
+	</div>
+	
+	<hr />
+
+		<div class="row">
+			<div class="span6">
+				<%= grade.submit "Update Grade", class: "btn btn-large" %>
+			</div>
+		</div>
+	<% end %>
+</div>

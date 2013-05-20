@@ -1,0 +1,35 @@
+<div class="center hero-unit">
+	<div class="row">
+		<h3 class="left muted"><%= @section.course.course_name %> | <%= @section.semester.description %> | Section <%= @section.section_number %></h3>
+	</div>
+	<div class="row">
+		<div class="span6">
+			<h3 class="left">Students:</h3>
+		</div>
+	</div>
+	<table class="table table-bordered">
+		<tr>
+			<th>Name</th>
+			<% @section.semester.grading_periods.each do |gp| %>
+				<th><%= gp.description %></th>
+			<% end %>
+		</tr>
+		<% @section.students.each do |student| %>
+			<tr>
+				<td>
+					<%= link_to student.to_s, new_instructor_section_student_grade_path(@section, student) %>
+				</td>
+				<% if @grades.present? %>
+					<% @grades.each do |grade| %>
+						<td><%= grade.numerical_grade %></td>
+					<% end %>
+				<% else %>
+					<td>NA</td>
+					<td>NA</td>
+					<td>NA</td>
+					<td>NA</td>
+				<% end %>
+			</tr>
+		<% end %>
+	</table>
+</div>
