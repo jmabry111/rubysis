@@ -2,7 +2,6 @@ class GradesController < ApplicationController
   
   def new
     get_student_section_grade
-    @current_semester = GradingPeriod.where("semester_id = ?", current_semester.id)
     @grade = Grade.new
     if @enrollment.grades.count >= 4
       redirect_to student_section_grades_path(@student, @section), notice: "All grades entered."

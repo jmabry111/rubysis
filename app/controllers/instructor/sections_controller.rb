@@ -1,7 +1,5 @@
-class Instructor::SectionsController < ApplicationController
+class Instructor::SectionsController < InstructorBaseController
   
-  skip_before_filter :authenticate_admin!
-  before_filter :authenticate_teacher!
   
   def show
     @section = Section.find(params[:id])

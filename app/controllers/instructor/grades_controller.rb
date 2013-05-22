@@ -1,11 +1,8 @@
-class Instructor::GradesController < ApplicationController
-  skip_before_filter :authenticate_admin!
-  before_filter :authenticate_teacher!
+class Instructor::GradesController < InstructorBaseController
   
   
   def new
     get_student_section_grade
-    @current_semester = GradingPeriod.where("semester_id = ?", current_semester.id)
     @grade = Grade.new
     if @enrollment.grades.count >= 4
       redirect_to new_instructor_section_student_grade_path(@section, @student), notice: "All grades entered."

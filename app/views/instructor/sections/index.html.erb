@@ -10,10 +10,10 @@
 	<% @sections.each do |section| %>
 		<div class="row">
 			<div class="span4">
-				<%= link_to section.course.course_name, instructor_section_path(section) %>
+				<%= link_to section.course_name, instructor_section_path(section) %>
 			</div>
 			<div class="span2">
-				<%= section.semester.description %>
+				<%= section.description %>
 			</div>
 			<div class="span1">
 				<%= section.section_number %>

@@ -1,5 +1,5 @@
 <div class="center hero-unit">
-	<h3 class="left muted">Grades in <%= @section.course.course_name %> for <%= @student %></h3>
+	<h3 class="left muted">Grades in <%= @section.course_name %> for <%= @student %></h3>
 	<% if @enrollment.grades.present? %>
 		<% @enrollment.grades.each do |g| %>
 			<div class="row">

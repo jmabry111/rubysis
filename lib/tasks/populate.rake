@@ -41,15 +41,15 @@ namespace :db do
     GradingPeriod.create!(starts_on: "2013-11-04", ends_on: "2013-12-20", description: "3rd Six Weeks", semester_id: 3)
     GradingPeriod.create!(starts_on: "2013-12-20", ends_on: "2013-12-20", description: "Fall Exam", semester_id: 3)
     GradingPeriod.create!(starts_on: "2014-01-06", ends_on: "2014-02-14", description: "4th Six Weeks", semester_id: 4)
-    GradingPeriod.create!(starts_on: "2014-02-17", ends_on: "2014-13-28", description: "5th Six Weeks", semester_id: 4)
+    GradingPeriod.create!(starts_on: "2014-02-17", ends_on: "2014-03-28", description: "5th Six Weeks", semester_id: 4)
     GradingPeriod.create!(starts_on: "2014-03-31", ends_on: "2014-05-30", description: "6th Six Weeks", semester_id: 4)
     GradingPeriod.create!(starts_on: "2014-05-30", ends_on: "2014-05-30", description: "Spring Exam", semester_id: 4)
 
     Course.create!(course_name: "Precalculus", course_description: "Prerequisite to Calculus I")
     Course.create!(course_name: "Calculus", course_description: "Hard Math")
 
-    Section.create!(course_id: 1, teacher_id: 1, semester_id: 1, section_number: 1, days_of_week: ["M", "W", "F", ""], time_block: "7:45-9:15")
-    Section.create!(course_id: 2, teacher_id: 1, semester_id: 1, section_number: 1, days_of_week: ["T", "TH", "F", ""], time_block: "7:45-9:15")
+    Section.create!(course_id: 1, teacher_id: 1, semester_id: 2, section_number: 1, days_of_week: ["M", "W", "F", ""], time_block: "7:45-9:15")
+    Section.create!(course_id: 2, teacher_id: 1, semester_id: 2, section_number: 1, days_of_week: ["T", "TH", "F", ""], time_block: "7:45-9:15")
 
     TimeBlock.create!(block: "7:45-9:15")
     TimeBlock.create!(block: "9:30-11:00")
