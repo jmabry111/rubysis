@@ -3,9 +3,8 @@ class GradesController < ApplicationController
   def new
     get_student_section_grade
     @current_semester = GradingPeriod.where("semester_id = ?", current_semester.id)
-    @enrollment = StudentSectionEnrollment.where(student_id: params[:student_id], section_id: params[:section_id]).first
     @grade = Grade.new
-    if @grades.count >= 4
+    if @enrollment.grades.count >= 4
       redirect_to student_section_grades_path(@student, @section), notice: "All grades entered."
     else
       render 'new'
@@ -13,8 +12,7 @@ class GradesController < ApplicationController
   end
   
   def create
-    @student = Student.find_by_id(params[:student_id])
-    @section = Section.find_by_id(params[:section_id])
+    get_student_section_grade
     @grade = Grade.create(grade_params)
     if @grade.save
         redirect_to student_section_grades_path(@student, @section), notice: "Grade entered."
@@ -29,7 +27,7 @@ class GradesController < ApplicationController
   
   def index
     get_student_section_grade
-    calculate_semseter_grade
+#    calculate_semseter_grade
   end
   
   def edit
@@ -54,8 +52,7 @@ class GradesController < ApplicationController
   def get_student_section_grade
     @student = Student.find_by_id(params[:student_id])
     @section = Section.find_by_id(params[:section_id])
-    @grade = Grade.find_by_id(params[:id])
-    @grades = Grade.find_grades_for_section(@section.id)
+    @enrollment = StudentSectionEnrollment.where(student_id: params[:student_id], section_id: params[:section_id]).first
   end
   
   def calculate_semseter_grade

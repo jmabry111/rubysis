@@ -7,29 +7,24 @@
 			<h3 class="left">Students:</h3>
 		</div>
 	</div>
-	<table class="table table-bordered">
-		<tr>
-			<th>Name</th>
+	<div class="row">
+		<div class="span3">Name</div>
 			<% @section.semester.grading_periods.each do |gp| %>
-				<th><%= gp.description %></th>
+				<div class="span1-5"><%= gp.description %></div>
 			<% end %>
-		</tr>
-		<% @section.students.each do |student| %>
-			<tr>
-				<td>
-					<%= link_to student.to_s, new_instructor_section_student_grade_path(@section, student) %>
-				</td>
-				<% if @grades.present? %>
-					<% @grades.each do |grade| %>
-						<td><%= grade.numerical_grade %></td>
+	</div>
+	<hr />
+		<% @enrollments.each do |student| %>
+			<div class="row">
+				<div class="span3">
+					<%= link_to student.student.to_s, new_instructor_section_student_grade_path(@section, student) %>
+				</div>
+				<% if student.grades.present? %>
+					<% student.grades.each do |grade| %>
+						<div class="span1-5"><%= grade.numerical_grade %></div>
 					<% end %>
-				<% else %>
-					<td>NA</td>
-					<td>NA</td>
-					<td>NA</td>
-					<td>NA</td>
 				<% end %>
-			</tr>
+			</div>
 		<% end %>
-	</table>
+	</div>
 </div>

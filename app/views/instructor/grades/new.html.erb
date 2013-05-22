@@ -1,17 +1,13 @@
 <div class="center hero-unit">
 	<h2 class="left muted"><%= @student %></h2>
-	<%= @enrollment.grades %><br />
-	<%= @enrollment.inspect %><br />
-	<%= @enrollment.student.inspect %><br />
-	<%= @enrollment.section.inspect %>
 	<div class="row">
 		<div class="span6">
 			<h3 class="left"><%= @section.course.course_name %></h3>
 		</div>
 	</div>
-	<% if @grades.present? %>
+	<% if @enrollment.grades.present? %>
 		<h3 class="left muted">Current Grades</h3>
-		<% @grades.each do |g| %>
+		<% @enrollment.grades.each do |g| %>
 			<div class="row">
 				<div class="span2">
 					<span class="info-label"><%= g.grading_period %>:</span>
@@ -28,7 +24,7 @@
 	<hr />
 	<h3 class="left">Enter new grade</h3>
 	<%= simple_form_for [@student, @section, @grade], :url => instructor_section_student_grades_path do |g| %>
-		<%= g.hidden_field :student_section_enrollment_id, :value => @section.id %>
+		<%= g.hidden_field :student_section_enrollment_id, :value => @enrollment.id %>
 		<div class="row">
 			<div class="span4">
 				<%= g.association :grading_period, :collection => @section.semester.grading_periods %>

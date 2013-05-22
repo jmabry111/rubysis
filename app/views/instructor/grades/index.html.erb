@@ -1,7 +1,7 @@
 <div class="center hero-unit">
 	<h3 class="left muted">Grades in <%= @section.course.course_name %> for <%= @student %></h3>
-	<% if @grades.present? %>
-		<% @grades.each do |g| %>
+	<% if @enrollment.grades.present? %>
+		<% @enrollment.grades.each do |g| %>
 			<div class="row">
 				<div class="span2">
 					<span class="info-label"><%= g.grading_period %>:</span>
@@ -14,7 +14,7 @@
 	<% else %>
 		<h3 class="left muted">No Current Grades</h3>
 	<% end %>
-	<% if @grades.count == 4 %>
+	<% if @enrollment.grades.count == 4 %>
 		<hr />
 		<div class="row">
 			<div class="span2">

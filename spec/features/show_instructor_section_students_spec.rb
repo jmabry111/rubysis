@@ -3,6 +3,7 @@ require 'spec_helper'
 feature 'sign in as teacher' do
   scenario 'show teacher courses' do
     
+   
    student_section_enrollment = FactoryGirl.create(:student_section_enrollment)
    
    visit new_teacher_session_path

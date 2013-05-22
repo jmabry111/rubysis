@@ -4,9 +4,8 @@ class Instructor::SectionsController < ApplicationController
   before_filter :authenticate_teacher!
   
   def show
-    get_section_students
-    @students = @section.students.page(params[:page])
-    find_grades_for_student
+    @section = Section.find(params[:id])
+    @enrollments = @section.student_section_enrollments
   end
   
   def index

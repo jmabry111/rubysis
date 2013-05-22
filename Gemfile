@@ -18,6 +18,7 @@ gem 'awesome_nested_fields'
 gem 'devise'
 gem 'textacular'
 gem 'coveralls', require: false
+gem 'rack-webconsole-pry', :require => 'rack-webconsole'
 
 
 group :development, :test do
