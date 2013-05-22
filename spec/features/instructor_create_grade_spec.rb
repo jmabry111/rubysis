@@ -29,6 +29,5 @@ feature 'sign in as teacher' do
    click_button 'Submit Grade'
    
    page.should have_content("Grade entered")
-   # save_and_open_page
   end
 end

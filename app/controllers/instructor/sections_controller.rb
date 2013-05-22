@@ -20,10 +20,4 @@ class Instructor::SectionsController < InstructorBaseController
     @grade = Grade.find_by_id(params[:grade_id])
   end
   
-  def find_grades_for_student
-    get_section_students
-    @section.students.each do |student|
-       @grades = Grade.where("student_section_enrollment_id = ?", student)
-    end
-  end
 end
