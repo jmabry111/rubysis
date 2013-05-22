@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130501192929) do
+ActiveRecord::Schema.define(:version => 20130522135026) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street"
@@ -109,12 +109,12 @@ ActiveRecord::Schema.define(:version => 20130501192929) do
     t.integer  "course_id"
     t.integer  "section_number"
     t.integer  "teacher_id"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
-    t.integer  "section_registration_id"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.integer  "semester_id"
     t.string   "days_of_week"
     t.string   "time_block"
+    t.integer  "student_section_enrollment_id"
   end
 
   create_table "semesters", :force => true do |t|
@@ -134,8 +134,8 @@ ActiveRecord::Schema.define(:version => 20130501192929) do
   end
 
   create_table "students", :force => true do |t|
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.string   "first_name"
     t.string   "middle_name"
     t.string   "last_name"
@@ -149,7 +149,7 @@ ActiveRecord::Schema.define(:version => 20130501192929) do
     t.string   "gender"
     t.string   "grade_level"
     t.string   "ethnicity"
-    t.integer  "section_registration_id"
+    t.integer  "student_section_enrollment_id"
   end
 
   create_table "teachers", :force => true do |t|

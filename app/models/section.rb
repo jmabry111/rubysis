@@ -14,6 +14,9 @@ class Section < ActiveRecord::Base
   has_many :student_section_enrollments
   has_many :students, :through => :student_section_enrollments
   
+  delegate :course_name, to: :course
+  delegate :description, to: :semester
+  
  
   WEEKDAYS = ["M", "TU", "W", "TH", "F"]
   

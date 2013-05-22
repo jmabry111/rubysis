@@ -7,7 +7,4 @@ class Grade < ActiveRecord::Base
   delegate :course, to: :section, allow_nil: true
   
   
- def self.find_grades_for_section(section)
-   self.where("student_section_enrollment_id = ?", section)
- end
 end

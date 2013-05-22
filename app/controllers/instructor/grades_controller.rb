@@ -1,10 +1,11 @@
-class GradesController < ApplicationController
+class Instructor::GradesController < InstructorBaseController
+  
   
   def new
     get_student_section_grade
     @grade = Grade.new
     if @enrollment.grades.count >= 4
-      redirect_to student_section_grades_path(@student, @section), notice: "All grades entered."
+      redirect_to new_instructor_section_student_grade_path(@section, @student), notice: "All grades entered."
     else
       render 'new'
     end 
@@ -14,7 +15,7 @@ class GradesController < ApplicationController
     get_student_section_grade
     @grade = Grade.create(grade_params)
     if @grade.save
-        redirect_to student_section_grades_path(@student, @section), notice: "Grade entered."
+        redirect_to new_instructor_section_student_grade_path, notice: "Grade entered."
       else
         render 'new'
       end
@@ -26,7 +27,7 @@ class GradesController < ApplicationController
   
   def index
     get_student_section_grade
-#    calculate_semseter_grade
+    # calculate_semseter_grade
   end
   
   def edit
@@ -37,7 +38,7 @@ class GradesController < ApplicationController
     get_student_section_grade
     if @grade.update_attributes!(grade_params)
       flash[:success] = "grade updated"
-      redirect_to student_section_grades_path(@student, @section)
+      redirect_to new_instructor_section_student_grade_path(@section, @student)
     else
       render 'edit'
     end

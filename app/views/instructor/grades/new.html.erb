@@ -23,7 +23,7 @@
 	
 	<hr />
 	<h3 class="left">Enter new grade</h3>
-	<%= simple_form_for [@student, @section, @grade] do |g| %>
+	<%= simple_form_for [@student, @section, @grade], :url => instructor_section_student_grades_path do |g| %>
 		<%= g.hidden_field :student_section_enrollment_id, :value => @enrollment.id %>
 		<div class="row">
 			<div class="span4">

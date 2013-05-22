@@ -1,14 +1,29 @@
-class Instructor::SectionsController < ApplicationController
+class Instructor::SectionsController < InstructorBaseController
   
-  skip_before_filter :authenticate_user!
   
   def show
     @section = Section.find(params[:id])
-    @students = @section.students.page(params[:page])
+    @enrollments = @section.student_section_enrollments
   end
   
   def index
-    @teacher = Teacher.find_by_id(params[:teacher_id])
-    @sections = @teacher.sections
+    @sections = current_teacher.sections
+  end
+  
+  
+  
+  
+  private
+  
+  def get_section_students
+    @section = Section.find(params[:id])
+    @grade = Grade.find_by_id(params[:grade_id])
+  end
+  
+  def find_grades_for_student
+    get_section_students
+    @section.students.each do |student|
+       @grades = Grade.where("student_section_enrollment_id = ?", student)
+    end
   end
 end
