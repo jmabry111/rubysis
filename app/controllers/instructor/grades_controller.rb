@@ -4,7 +4,7 @@ class Instructor::GradesController < InstructorBaseController
   def new
     get_student_section_grade
     @grade = Grade.new
-    if @enrollment.grades.count >= 4
+    if @enrollment.has_all_grades?
       redirect_to new_instructor_section_student_grade_path(@section, @student), notice: "All grades entered."
     else
       render 'new'

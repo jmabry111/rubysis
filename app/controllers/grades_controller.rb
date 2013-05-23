@@ -3,7 +3,7 @@ class GradesController < ApplicationController
   def new
     get_student_section_grade
     @grade = Grade.new
-    if @enrollment.grades.count >= 4
+    if @enrollment.has_all_grades?
       redirect_to student_section_grades_path(@student, @section), notice: "All grades entered."
     else
       render 'new'

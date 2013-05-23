@@ -14,7 +14,7 @@
 	<% else %>
 		<h3 class="left muted">No Current Grades</h3>
 	<% end %>
-	<% if @enrollment.grades.count == 4 %>
+	<% if @enrollment.has_all_grades? %>
 		<hr />
 		<div class="row">
 			<div class="span2">
