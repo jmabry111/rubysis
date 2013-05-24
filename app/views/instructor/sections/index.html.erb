@@ -1,22 +1,25 @@
 <div class="center hero-unit">
 	<h3 class="left muted">
-		Your Classes:
+		Current Classes:
 	</h3>
 	<div class="row info-label">
-		<div class="span4">Course name</div>
-		<div class="span2">Semester</div>
-		<div class="span1">Section</div>
+		<div class="span5">Course name</div>
+		<div class="span2">Section</div>
 	</div>
+	<hr />
 	<% @sections.each do |section| %>
 		<div class="row">
-			<div class="span4">
-				<%= link_to section.course_name, instructor_section_path(section) %>
+			<div class="span5 move-down info-label">
+				<%= section.course_name %>
 			</div>
-			<div class="span2">
-				<%= section.description %>
-			</div>
-			<div class="span1">
+			<div class="span2 move-down">
 				<%= section.section_number %>
+			</div>
+			<div class="span1-5">
+				<%= link_to image_tag("grades.png"), instructor_section_path(section) %>
+			</div>
+			<div class="span1-5">
+				<%= link_to image_tag("attendance.png"), "#" %>
 			</div>
 		</div>
 	<% end %>
