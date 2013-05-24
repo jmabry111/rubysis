@@ -18,6 +18,7 @@ Rubysis::Application.routes.draw do
     resource :schedule
     resources :sections do
       resources :grades
+      resources :attendances
     end
   end
   
@@ -47,6 +48,7 @@ Rubysis::Application.routes.draw do
     resources :sections do 
       resources :students do
         resources :grades
+        resources :attendances
       end
     end
   end
