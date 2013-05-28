@@ -10,7 +10,10 @@ class Instructor::SectionsController < InstructorBaseController
     @sections = current_teacher.sections
   end
   
-  
+  def attendance
+    @section = Section.find(params[:id])
+    @enrollments = @section.student_section_enrollments
+  end  
   
   
   private

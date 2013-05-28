@@ -1,0 +1,25 @@
+<div class="center hero-unit">
+	<%= @enrollment.to_s %><br />
+	<%= @enrollment.section.course_name %>
+	
+	<%= simple_form_for [@student, @section, @attendance] do |attendance| %>
+		<%= attendance.hidden_field :student_section_enrollment_id, :value => @enrollment.id %>
+		<%= attendance.hidden_field :day, :value => Date.today %>
+		<div class="row">
+			<div class="span2 info-label">
+				Attendance for: 
+			</div>
+			<div class="span3">
+				<%= l Date.today %>
+			</div>
+			<div class="span3">
+				<%= attendance.select :status, @attendance_codes %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span3">
+				<%= attendance.submit "Submit Attendance", class: "btn" %>
+			</div>
+		</div>
+	<% end %>
+</div>
