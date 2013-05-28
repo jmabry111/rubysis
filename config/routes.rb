@@ -46,6 +46,7 @@ Rubysis::Application.routes.draw do
   
   namespace :instructor do
     resources :sections do 
+    resource :section_attendances, :as => 'attendances'
       resources :students do
         resources :grades
         resources :attendances
