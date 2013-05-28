@@ -10,5 +10,5 @@ module ApplicationHelper
   def current_year
     SchoolYear.find(:first, :conditions => ['starts_on < ? AND ends_on > ?', DateTime.now, DateTime.now])
   end
-  
+
 end

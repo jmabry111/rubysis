@@ -3,5 +3,24 @@ class Attendance < ActiveRecord::Base
   
   belongs_to :student_section_enrollment
   
-  ATTENDANCE_CODES = ["Present", "Absent", "Tardy", "Excused"]
+  ATTENDANCE_STATUS = ["Present", "Absent", "Tardy", "Excused"]
+  
+  
+  def weekly_attendance
+    self.where("day >= ? AND day <= ?", Date.today.beginning_of_week(start_day = :monday), Date.today.end_of_week(start_day = :friday))
+  end
+  
+  def show_code
+    case self.status
+      when "Present"
+        ""
+      when "Absent"
+        "A"
+      when "Tardy"
+        "T"
+      when "Excused"
+        "X"
+    end 
+  end
+  
 end

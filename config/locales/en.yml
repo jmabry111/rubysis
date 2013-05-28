@@ -7,3 +7,5 @@ en:
   date: 
       formats:
           default: "%b %d, %Y"
+          short: "%b %d"
+          
