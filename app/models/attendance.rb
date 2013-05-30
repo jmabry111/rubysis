@@ -3,6 +3,9 @@ class Attendance < ActiveRecord::Base
   
   belongs_to :student_section_enrollment
   
+  validates :day, uniqueness: true
+  validates :status, presence: true
+  
   ATTENDANCE_STATUS = ["Present", "Absent", "Tardy", "Excused"]
   
   
@@ -13,13 +16,15 @@ class Attendance < ActiveRecord::Base
   def show_code
     case self.status
       when "Present"
-        ""
+        "P"
       when "Absent"
         "A"
       when "Tardy"
         "T"
       when "Excused"
         "X"
+      when nil
+        "N/A"
     end 
   end
   

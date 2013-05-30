@@ -2,15 +2,15 @@ class Instructor::AttendancesController < InstructorBaseController
   def new
     get_student_section_enrollment
     @attendance = Attendance.new
-    @attendance_codes = Attendance::ATTENDANCE_CODES
+    @attendance_status= Attendance::ATTENDANCE_STATUS
   end
   
   def create
     get_student_section_enrollment
-    @attendance_codes = Attendance::ATTENDANCE_CODES
+    @attendance_status = Attendance::ATTENDANCE_STATUS
     @attendance = Attendance.create(attendance_params)
     if @attendance.save
-        redirect_to student_section_path(@student, @section), notice: "Attendance recorded."
+        redirect_to instructor_sections_path(@section), notice: "Attendance recorded."
       else
         render 'new'
       end

@@ -9,3 +9,14 @@ en:
           default: "%b %d, %Y"
           short: "%b %d"
           
+  activerecord:
+    attributes:
+        attendance:
+            day: "Daily attendance"
+    errors:
+        models:
+            attendance:
+                attributes:
+                    status:
+                        uniqueness: "has already been taken."
+          

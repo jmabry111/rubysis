@@ -2,7 +2,8 @@
 	<%= @enrollment.to_s %><br />
 	<%= @enrollment.section.course_name %>
 	
-	<%= simple_form_for [@student, @section, @attendance] do |attendance| %>
+	<%= simple_form_for [@student, @section, @attendance], :url => instructor_section_student_attendances_path do |attendance| %>
+		<%= render 'shared/error_messages', object: attendance.object %>
 		<%= attendance.hidden_field :student_section_enrollment_id, :value => @enrollment.id %>
 		<%= attendance.hidden_field :day, :value => Date.today %>
 		<div class="row">
