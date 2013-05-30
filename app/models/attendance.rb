@@ -7,7 +7,7 @@ class Attendance < ActiveRecord::Base
   
   
   def weekly_attendance
-    self.where("day >= ? AND day <= ?", Date.today.beginning_of_week(start_day = :monday), Date.today.end_of_week(start_day = :friday))
+    self.where("day >= ? AND day <= ?", Date.today.beginning_of_week(start_day = :monday), Date.today.end_of_week(start_day = :monday))
   end
   
   def show_code

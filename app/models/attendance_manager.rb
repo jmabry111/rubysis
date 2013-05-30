@@ -1,0 +1,3 @@
+class AttendanceManager
+  
+end

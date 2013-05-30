@@ -108,4 +108,6 @@ FactoryGirl.define do
     numerical_grade 91.5
     grading_period
   end
+  
+
 end

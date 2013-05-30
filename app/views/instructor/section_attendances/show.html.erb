@@ -34,34 +34,34 @@
 				</td>
 				<% if enrollment.attendances.any? %>
 					<td>
-						<%= enrollment.attendances.where("day = ?", Date.today.prev_week(start_day = :monday)).first.show_code %>
+						<%= enrollment.attendances.where("day = ?", Date.today.prev_week(start_day = :monday)).first.try(:show_code) %>
 					</td>
 					<td>
-						<%= enrollment.attendances.where("day = ?", Date.today.prev_week(start_day = :monday) + 1).first.show_code  %>
+						<%= enrollment.attendances.where("day = ?", Date.today.prev_week(start_day = :monday) + 1).first.try(:show_code)  %>
 					</td>
 					<td>
-						<%= enrollment.attendances.where("day = ?", Date.today.prev_week(start_day = :monday) + 2).first.show_code  %>
+						<%= enrollment.attendances.where("day = ?", Date.today.prev_week(start_day = :monday) + 2).first.try(:show_code)  %>
 					</td>
 					<td>
-						<%= enrollment.attendances.where("day = ?", Date.today.prev_week(start_day = :monday) + 3).first.show_code  %>
+						<%= enrollment.attendances.where("day = ?", Date.today.prev_week(start_day = :monday) + 3).first.try(:show_code)  %>
 					</td>
 					<td>
-						<%= enrollment.attendances.where("day = ?", Date.today.prev_week(start_day = :monday) + 4).first.show_code  %>
+						<%= enrollment.attendances.where("day = ?", Date.today.prev_week(start_day = :monday) + 4).first.try(:show_code)  %>
 					</td>
-					<td>
-						<%= enrollment.attendances.where("day = ?", Date.today.beginning_of_week(start_day = :monday)).first.show_code %>
+					<td class="mon">
+						<%= enrollment.attendances.where("day = ?", Date.today.beginning_of_week(start_day = :monday)).first.try(:show_code) %>
 					</td>
-					<td>
-						<%= enrollment.attendances.where("day = ?", Date.today.beginning_of_week(start_day = :monday) + 1).first.show_code  %>
+					<td class="tues">
+						<%= enrollment.attendances.where("day = ?", Date.today.beginning_of_week(start_day = :monday) + 1).first.try(:show_code)  %>
 					</td>
-					<td>
-						<%= enrollment.attendances.where("day = ?", Date.today.beginning_of_week(start_day = :monday) + 2).first.show_code  %>
+					<td class="wed">
+						<%= enrollment.attendances.where("day = ?", Date.today.beginning_of_week(start_day = :monday) + 2).first.try(:show_code)  %>
 					</td>
-					<td>
-						<%= enrollment.attendances.where("day = ?", Date.today.beginning_of_week(start_day = :monday) + 3).first.show_code  %>
+					<td class="th">
+						<%= enrollment.attendances.where("day = ?", Date.today.beginning_of_week(start_day = :monday) + 3).first.try(:show_code)  %>
 					</td>
-					<td>
-						<%= enrollment.attendances.where("day = ?", Date.today.beginning_of_week(start_day = :monday) + 4).first.show_code  %>
+					<td class="fri">
+						<%= enrollment.attendances.where("day = ?", Date.today.beginning_of_week(start_day = :monday) + 4).first.try(:show_code)  %>
 					</td>
 				<% end %>
 			</tr>
