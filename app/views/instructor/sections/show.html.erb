@@ -17,7 +17,7 @@
 		<% @enrollments.each do |student| %>
 			<div class="row">
 				<div class="span3">
-					<%= link_to student.student.to_s, new_instructor_section_student_grade_path(@section, student) %>
+					<%= link_to student.student.name, new_instructor_section_student_grade_path(@section, student) %>
 				</div>
 				<% if student.grades.present? %>
 					<% student.grades.each do |grade| %>

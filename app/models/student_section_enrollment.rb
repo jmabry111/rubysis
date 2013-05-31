@@ -6,7 +6,7 @@ class StudentSectionEnrollment < ActiveRecord::Base
   has_many :attendances
   
   delegate :description, to: :section
-  delegate :to_s, to: :student
+  delegate :name, to: :student
 
 
   def has_all_grades?

@@ -1,6 +1,10 @@
 <div class="center hero-unit">
-	<% @attendances.each do |a| %>
-		<%= a.status %> <%= a.day %><br />
+
+	<% @attendances.each do |student_section_enrollment, attendances| %> 
+		Attendance for: <%= student_section_enrollment.name %> <br />
+		<% attendances.sort_by(&:day).each do |attendance| %> 
+			&nbsp;&nbsp;<%= l attendance.day %> - <%= attendance.status %><br /> 
+		<% end %>
 	<% end %>
 	<div class="row">
 		<div class="span9">
@@ -28,46 +32,15 @@
 				<th>F</th>
 			</tr>
 		</thead>
-	<% if @enrollments.any? %>
-		<% @enrollments.each do |enrollment| %>
+	<% if @attendances.any? %>
+		<% @attendances.each do |student_section_enrollment, attendances| %>
 			<tbody>
-			<tr>
-				<td>
-					<%= enrollment.to_s %>
-				</td>
-				<% if enrollment.attendances.any? %>
-					<td class="lastmon">
-						<%= enrollment.attendances.where("day = ?", Date.today.prev_week(start_day = :monday)).first.try(:show_code) %>
-					</td>
-					<td class="lasttues">
-						<%= enrollment.attendances.where("day = ?", Date.today.prev_week(start_day = :monday) + 1).first.try(:show_code) %>
-					</td>
-					<td class="lastwed">
-						<%= enrollment.attendances.where("day = ?", Date.today.prev_week(start_day = :monday) + 2).first.try(:show_code) %>
-					</td>
-					<td class="lastth">
-						<%= enrollment.attendances.where("day = ?", Date.today.prev_week(start_day = :monday) + 3).first.try(:show_code) %>
-					</td>
-					<td class="lastfri">
-						<%= enrollment.attendances.where("day = ?", Date.today.prev_week(start_day = :monday) + 4).first.try(:show_code) %>
-					</td>
-					<td class="mon">
-						<%= enrollment.attendances.where("day = ?", Date.today.beginning_of_week(start_day = :monday)).first.try(:show_code) %>
-					</td>
-					<td class="tues">
-						<%= enrollment.attendances.where("day = ?", Date.today.beginning_of_week(start_day = :monday) + 1).first.try(:show_code) %>
-					</td>
-					<td class="wed">
-						<%= enrollment.attendances.where("day = ?", Date.today.beginning_of_week(start_day = :monday) + 2).first.try(:show_code) %>
-					</td>
-					<td class="th">
-						<%= enrollment.attendances.where("day = ?", Date.today.beginning_of_week(start_day = :monday) + 3).first.try(:show_code) %>
-					</td>
-					<td class="fri">
-						<%= enrollment.attendances.where("day = ?", Date.today.beginning_of_week(start_day = :monday) + 4).first.try(:show_code) %>
-					</td>
+				<tr>
+					<td><%= student_section_enrollment.name %></td>
+				<% attendances.sort_by(&:day).each do |attendance| %> 
+					<td><%= attendance.try(:show_code) %></td>
 				<% end %>
-			</tr>
+				</tr>
 			</tbody>
 		<% end %>
 	<% else %>

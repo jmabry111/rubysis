@@ -1,5 +1,5 @@
 <div class="center hero-unit">
-	<%= @enrollment.to_s %><br />
+	<%= @enrollment.name %><br />
 	<%= @enrollment.section.course_name %>
 	
 	<%= simple_form_for [@student, @section, @attendance], :url => instructor_section_student_attendances_path do |attendance| %>
