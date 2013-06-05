@@ -29,6 +29,7 @@ group :development, :test do
   gem 'selenium'
   gem 'database_cleaner'
   gem 'railroady'
+  gem 'timecop'
 end
 
 # Gems used only for assets and not required

@@ -1,0 +1,52 @@
+<div class="center hero-unit">
+	Today is: <%= Date::DAYNAMES[Date.today.wday][0..2] %>, <%= l(Date.today) %>
+	<div class="row">
+		<div class="span9">
+			<h3 class="left muted">Weekly Attendance for <%= @section.course_name %></h3>
+		</div>
+	</div>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th></th>
+				<th colspan="5"><%= l(Date.today.prev_week(start_day = :monday), :format => :short) %> - <%= l(Date.today.prev_week(start_day = :monday) + 4, :format => :short) %></th>
+				<th colspan="5"><%= l(Date.today.beginning_of_week(start_day = :monday), :format => :short) %> - <%= l(Date.today.beginning_of_week(start_day = :monday) + 4, :format => :short) %></th>
+			</tr>
+			<tr>
+				<th>Name</th>
+				<th>M</th>
+				<th>Tu</th>
+				<th>W</th>
+				<th>Th</th>
+				<th>F</th>
+				<th>M</th>
+				<th>Tu</th>
+				<th>W</th>
+				<th>Th</th>
+				<th>F</th>
+			</tr>
+		</thead>	
+		<tbody>
+	<% if @attendances.any? %>
+		<% @attendances.each do |student_section_enrollment, attendances| %>
+				<tr>
+					<td><%= student_section_enrollment.name %></td>
+				<% attendances.sort_by(&:day).each do |attendance| %> 
+						<td><%= attendance.try(:show_code) %></td>
+				<% end %>
+				<% if attendances.count < 10 %>
+					<% (10-attendances.count).times do %>
+						<td></td>
+					<% end %>
+				<% end %>
+				</tr>
+			</tbody>
+		<% end %>
+	<% else %>
+			<tr>
+				<td colspan="6">No students currently enrolled</td>
+			</tr>
+		</tbody>
+	<% end %>
+	</table>
+</div>
