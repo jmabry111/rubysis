@@ -1,4 +1,4 @@
-class MissedAttendances
+class AttendanceFiller
   
    def initialize(attendances)
      @attendances = attendances
