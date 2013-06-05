@@ -1,11 +1,5 @@
 <div class="center hero-unit">
-
-	<% @attendances.each do |student_section_enrollment, attendances| %> 
-		Attendance for: <%= student_section_enrollment.name %> <br />
-		<% attendances.sort_by(&:day).each do |attendance| %> 
-			&nbsp;&nbsp;<%= l attendance.day %> - <%= attendance.status %><br /> 
-		<% end %>
-	<% end %>
+	Today is: <%= Date::DAYNAMES[Date.today.wday][0..2] %>, <%= l(Date.today) %>
 	<div class="row">
 		<div class="span9">
 			<h3 class="left muted">Weekly Attendance for <%= @section.course_name %></h3>
@@ -31,20 +25,24 @@
 				<th>Th</th>
 				<th>F</th>
 			</tr>
-		</thead>
+		</thead>	
+		<tbody>
 	<% if @attendances.any? %>
 		<% @attendances.each do |student_section_enrollment, attendances| %>
-			<tbody>
 				<tr>
 					<td><%= student_section_enrollment.name %></td>
 				<% attendances.sort_by(&:day).each do |attendance| %> 
-					<td><%= attendance.try(:show_code) %></td>
+						<td><%= attendance.try(:show_code) %></td>
+				<% end %>
+				<% if attendances.count < 10 %>
+					<% (10-attendances.count).times do %>
+						<td></td>
+					<% end %>
 				<% end %>
 				</tr>
 			</tbody>
 		<% end %>
 	<% else %>
-		<tbody>
 			<tr>
 				<td colspan="6">No students currently enrolled</td>
 			</tr>

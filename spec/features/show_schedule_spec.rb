@@ -26,11 +26,11 @@ feature 'show a student schedule' do
     
     visit student_path(student)
 
-    page.should have_content student.to_s
+    page.should have_content student.name
 
     visit student_schedule_path(student)
 
-    page.should have_content student.to_s
+    page.should have_content student.name
     
     page.should have_content student.sections.first.course.course_name
     

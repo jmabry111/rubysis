@@ -14,13 +14,13 @@
 			<% end %>
 	</div>
 	<hr />
-		<% @enrollments.each do |student| %>
+		<% @enrollments.each do |enrollment| %>
 			<div class="row">
 				<div class="span3">
-					<%= link_to student.student.name, new_instructor_section_student_grade_path(@section, student) %>
+					<%= link_to enrollment.student.name, new_instructor_section_student_grade_path(@section, enrollment.student) %>
 				</div>
-				<% if student.grades.present? %>
-					<% student.grades.each do |grade| %>
+				<% if enrollment.grades.present? %>
+					<% enrollment.grades.each do |grade| %>
 						<div class="span1-5"><%= grade.numerical_grade %></div>
 					<% end %>
 				<% end %>

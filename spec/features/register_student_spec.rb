@@ -26,6 +26,6 @@ feature 'register student for secion' do
     
     click_button "Register students"
     
-    page.should have_content student.to_s
+    page.should have_content student.name
   end
 end

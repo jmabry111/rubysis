@@ -19,7 +19,7 @@ feature 'sign in as teacher' do
    page.should have_content(student_section_enrollment.section.course.course_name)
    
    visit instructor_section_path(student_section_enrollment.section)
-   page.should have_content(student_section_enrollment.student.to_s)
+   page.should have_content(student_section_enrollment.student.name)
    
    visit new_instructor_section_student_grade_path(student_section_enrollment.section, student_section_enrollment.student)
    page.should have_content(student_section_enrollment.section.course.course_name)

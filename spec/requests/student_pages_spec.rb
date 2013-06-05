@@ -36,7 +36,7 @@ describe 'Student Pages' do
     
       before {visit student_path(student)}
     
-      it {should have_content(student.to_s)}
+      it {should have_content(student.name)}
     
       describe "addresses" do
         it {should have_content(address1.street)}
@@ -49,7 +49,7 @@ describe 'Student Pages' do
         
         before {visit new_student_address_path(student)}
         
-        it {should have_content(student.to_s)}
+        it {should have_content(student.name)}
         it {should have_content("Street address")}
         it {should have_content("Zip")}
         
@@ -72,7 +72,7 @@ describe 'Student Pages' do
         
         before {visit edit_student_address_path(student, address1)}
         
-        it {should have_content(student.to_s)}
+        it {should have_content(student.name)}
         it {should have_content("Street address")}
         it {should have_content("Zip")}
         

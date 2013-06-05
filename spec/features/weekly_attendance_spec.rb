@@ -26,11 +26,10 @@ feature 'show weekly attendance' do
      
    visit instructor_section_attendance_path(enrollment.section.id)
    page.should have_content(enrollment.section.course_name)
-   page.should have_selector("td.th", text: "")
-   page.should have_selector("td.wed", text: "A")
-   page.should have_selector("td.tues", text: "X")
-   page.should have_selector("td.mon", text: "T") 
-   page.should have_selector("td.fri", text: nil)
-   save_and_open_page
+   page.should have_selector("td", text: "P")
+   page.should have_selector("td", text: "A")
+   page.should have_selector("td", text: "X")
+   page.should have_selector("td", text: "T") 
+   page.should have_selector("td", text: nil)
   end
 end

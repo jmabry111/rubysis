@@ -4,7 +4,7 @@ class Attendance < ActiveRecord::Base
   belongs_to :student_section_enrollment
   
   validates_uniqueness_of :day, :scope => :student_section_enrollment_id
-  validates :status, presence: true
+  # validates :status, presence: true
   
   ATTENDANCE_STATUS = ["Present", "Absent", "Tardy", "Excused"]
   
