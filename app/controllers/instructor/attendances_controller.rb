@@ -10,10 +10,27 @@ class Instructor::AttendancesController < InstructorBaseController
     @attendance_status = Attendance::ATTENDANCE_STATUS
     @attendance = Attendance.create(attendance_params)
     if @attendance.save
-        redirect_to instructor_sections_path(@section), notice: "Attendance recorded."
+        redirect_to instructor_sections_path(@enrollment.section), notice: "Attendance recorded."
       else
         render 'new'
       end
+  end
+  
+  def edit
+    get_student_section_enrollment
+    @attendance = Attendance.find(params[:id])
+    @attendance_status= Attendance::ATTENDANCE_STATUS
+  end
+  
+  def update
+    get_student_section_enrollment
+    @attendance = Attendance.find(params[:id])
+    if @attendance.update_attributes!(attendance_params)
+      flash[:success] = "Attendance recorded"
+      redirect_to instructor_section_attendance_path(@enrollment.section)
+    else
+      render 'edit'
+    end
   end
   
   
@@ -25,8 +42,6 @@ class Instructor::AttendancesController < InstructorBaseController
   end
   
   def get_student_section_enrollment
-    @student = Student.find_by_id(params[:student_id])
-    @section = Section.find_by_id(params[:section_id])
     @enrollment = StudentSectionEnrollment.where(student_id: params[:student_id], section_id: params[:section_id]).first
   end
 end

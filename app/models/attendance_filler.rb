@@ -5,10 +5,10 @@ class AttendanceFiller
    end
    
    def insert_missed_attendances
-      @missing ||= get_missing_dates
+      missing ||= get_missing_dates
       @attendances.each do |student_section_enrollment, attendances|
-        unless @missing.count == 0
-          @missing.each do |day|
+        unless missing.count == 0
+          missing.each do |day|
             Attendance.create(student_section_enrollment_id: student_section_enrollment.id, day: day, status: "")
           end
         end
@@ -16,9 +16,9 @@ class AttendanceFiller
     end
 
     def get_missing_dates
-      @expected_range ||= get_valid_date_range
-      @existing_range ||= get_dates_from_attendances
-      missing = @expected_range - @existing_range
+      expected_range = get_valid_date_range
+      existing_range = get_dates_from_attendances
+      missing = expected_range - existing_range
     end
 
     def get_dates_from_attendances

@@ -6,5 +6,5 @@ class Instructor::SectionAttendancesController < InstructorBaseController
     @attendances = AttendanceManager.new(@section).attendances
     @missed_attendances = AttendanceFiller.new(@attendances).insert_missed_attendances
   end
- 
+
 end

@@ -1,5 +1,4 @@
 <div class="center hero-unit">
-	Today is: <%= Date::DAYNAMES[Date.today.wday][0..2] %>, <%= l(Date.today) %>
 	<div class="row">
 		<div class="span9">
 			<h3 class="left muted">Weekly Attendance for <%= @section.course_name %></h3>
@@ -31,14 +30,14 @@
 		<% @attendances.each do |student_section_enrollment, attendances| %>
 				<tr>
 					<td><%= student_section_enrollment.name %></td>
-				<% attendances.sort_by(&:day).each do |attendance| %> 
-						<td><%= attendance.try(:show_code) %></td>
-				<% end %>
-				<% if attendances.count < 10 %>
-					<% (10-attendances.count).times do %>
-						<td></td>
+					<% attendances.sort_by(&:day).each do |attendance| %> 
+							<td><%= attendance.show_code %></td>
 					<% end %>
-				<% end %>
+					<% if attendances.count < 10 %>
+						<% (10-attendances.count).times do %>
+							<td></td>
+						<% end %>
+					<% end %>
 				</tr>
 			</tbody>
 		<% end %>
