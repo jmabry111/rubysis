@@ -109,5 +109,9 @@ FactoryGirl.define do
     grading_period
   end
   
+  factory :attendance do
+    day Date.today
+    status ""
+  end
 
 end
