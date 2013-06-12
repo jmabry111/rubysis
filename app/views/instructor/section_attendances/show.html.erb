@@ -1,7 +1,16 @@
 <div class="center hero-unit">
 	<div class="row">
-		<div class="span9">
+		<div class="span8">
 			<h3 class="left muted">Weekly Attendance for <%= @section.course_name %></h3>
+		</div>
+		<div class="span2 floatright">
+			<div class="well-small ">
+				P - Present<br />
+				A - Unexcused Absence<br />
+				X - Excused Absence<br />
+				T - Tardy<br />
+				NR - Not Recorded
+			</div>
 		</div>
 	</div>
 	<table class="table table-bordered">
@@ -31,7 +40,7 @@
 				<tr>
 					<td><%= student_section_enrollment.name %></td>
 					<% attendances.sort_by(&:day).each do |attendance| %> 
-							<td><%= attendance.show_code %></td>
+							<td><%= link_to attendance.show_code, edit_instructor_section_student_attendance_path(student_section_enrollment.section, student_section_enrollment.student, attendance) %></td>
 					<% end %>
 					<% if attendances.count < 10 %>
 						<% (10-attendances.count).times do %>
@@ -43,7 +52,7 @@
 		<% end %>
 	<% else %>
 			<tr>
-				<td colspan="6">No students currently enrolled</td>
+				<td colspan="11">No students currently enrolled</td>
 			</tr>
 		</tbody>
 	<% end %>

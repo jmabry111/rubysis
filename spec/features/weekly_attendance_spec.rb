@@ -9,6 +9,7 @@ feature 'show weekly attendance' do
    absent = Attendance.create(:status => "Absent", :day => Date.today - 1, :student_section_enrollment_id => enrollment.id)
    excused = Attendance.create(:status => "Excused", :day => Date.today - 2, :student_section_enrollment_id => enrollment.id)
    tardy = Attendance.create(:status => "Tardy", :day => Date.today - 3, :student_section_enrollment_id => enrollment.id)
+   notrecorded = Attendance.create(:status => "", :day => Date.today - 4, :student_section_enrollment_id => enrollment.id)
    
    visit new_teacher_session_path
    
@@ -18,18 +19,13 @@ feature 'show weekly attendance' do
    fill_in "Password", with: enrollment.section.teacher.password
    click_button 'Sign in'
    page.should have_content 'Signed in successfully'
-     
-     p enrollment
-     p enrollment.section.course_name
-     p enrollment.section.id
-     p absent
-     
+
    visit instructor_section_attendance_path(enrollment.section.id)
    page.should have_content(enrollment.section.course_name)
    page.should have_selector("td", text: "P")
    page.should have_selector("td", text: "A")
    page.should have_selector("td", text: "X")
    page.should have_selector("td", text: "T") 
-   page.should have_selector("td", text: nil)
+   page.should have_selector("td", text: "NR")
   end
 end

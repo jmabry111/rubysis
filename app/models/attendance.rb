@@ -16,7 +16,8 @@ class Attendance < ActiveRecord::Base
       "Present" => "P",
       "Absent" => "A",
       "Tardy" => "T",
-      "Excused" => "X"
+      "Excused" => "X",
+      "" => "NR"
     }
     codes.fetch(status, "")
   end
