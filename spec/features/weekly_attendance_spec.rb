@@ -26,6 +26,5 @@ feature 'show weekly attendance' do
    page.should have_selector("td", text: "A")
    page.should have_selector("td", text: "X")
    page.should have_selector("td", text: "T") 
-   page.should have_selector("td", text: "NR")
   end
 end
