@@ -8,8 +8,7 @@
 				P - Present<br />
 				A - Unexcused Absence<br />
 				X - Excused Absence<br />
-				T - Tardy<br />
-				NR - Not Recorded
+				T - Tardy
 			</div>
 		</div>
 	</div>
@@ -22,16 +21,16 @@
 			</tr>
 			<tr>
 				<th>Name</th>
-				<th>M</th>
-				<th>Tu</th>
-				<th>W</th>
-				<th>Th</th>
-				<th>F</th>
-				<th>M</th>
-				<th>Tu</th>
-				<th>W</th>
-				<th>Th</th>
-				<th>F</th>
+				<th><%= Date.today.prev_week(start_day = :monday).strftime("#{Date.today.prev_week.day.ordinalize}") %></th>
+				<th><%= (Date.today.prev_week(start_day = :monday)+1).strftime("#{(Date.today.prev_week.day+1).ordinalize}") %></th>
+				<th><%= (Date.today.prev_week(start_day = :monday)+2).strftime("#{(Date.today.prev_week.day+2).ordinalize}") %></th>
+				<th><%= (Date.today.prev_week(start_day = :monday)+3).strftime("#{(Date.today.prev_week.day+3).ordinalize}") %></th>
+				<th><%= (Date.today.prev_week(start_day = :monday)+4).strftime("#{(Date.today.prev_week.day+4).ordinalize}") %></th>
+				<th><%= Date.today.beginning_of_week(start_day = :monday).strftime("#{Date.today.beginning_of_week.day.ordinalize}") %></th>
+				<th><%= (Date.today.beginning_of_week(start_day = :monday)+1).strftime("#{(Date.today.beginning_of_week.day+1).ordinalize}") %></th>
+				<th><%= (Date.today.beginning_of_week(start_day = :monday)+2).strftime("#{(Date.today.beginning_of_week.day+2).ordinalize}") %></th>
+				<th><%= (Date.today.beginning_of_week(start_day = :monday)+3).strftime("#{(Date.today.beginning_of_week.day+3).ordinalize}") %></th>
+				<th><%= (Date.today.beginning_of_week(start_day = :monday)+4).strftime("#{(Date.today.beginning_of_week.day+4).ordinalize}") %></th>
 			</tr>
 		</thead>	
 		<tbody>
@@ -42,6 +41,7 @@
 					<% attendances.sort_by(&:day).each do |attendance| %> 
 							<td><%= link_to attendance.show_code, edit_instructor_section_student_attendance_path(student_section_enrollment.section, student_section_enrollment.student, attendance) %></td>
 					<% end %>
+						
 					<% if attendances.count < 10 %>
 						<% (10-attendances.count).times do %>
 							<td></td>

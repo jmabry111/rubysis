@@ -1,0 +1,7 @@
+<div class="center hero-unit">
+	<%= @enrollment.section.course_name %><br />
+	
+	<% @attendances.each do |attendance| %>
+		<%= attendance.student_section_enrollment.name %> <%= attendance.status %> <%= l attendance.day %><br />
+	<% end %>
+</div>

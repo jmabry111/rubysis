@@ -33,6 +33,11 @@ class Instructor::AttendancesController < InstructorBaseController
     end
   end
   
+  def index
+    get_student_section_enrollment
+    @attendances = Attendance.where(student_section_enrollment_id: @enrollment).all
+  end
+  
   
   
   private
