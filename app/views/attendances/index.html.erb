@@ -1,0 +1,16 @@
+<div class="center hero-unit">
+<% if @attendances %>
+  <% @attendances.group_by(&:student_section_enrollment).each do |enrollment, attendances| %>
+    <ul>
+      <li><%= enrollment.student.name %>
+      <ul>
+        <% @attendances.group_by(&:status).each do |status, student_attendances| %>
+          <li><%= status %>: <%= student_attendances.count %></li>
+        <% end %>
+        </ul>
+        </li>
+    </ul>
+  <% end %>
+<% end %>
+</div>
+

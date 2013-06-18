@@ -33,7 +33,9 @@ Rubysis::Application.routes.draw do
   end
   
   resources :courses do
-    resources :sections
+    resources :sections do
+      resources :attendances, only: [:index]
+    end
   end
   
   resources :school_years do
@@ -45,7 +47,7 @@ Rubysis::Application.routes.draw do
   end
   
   namespace :instructor do
-    resources :sections do 
+    resources :sections do
       resource :section_attendance, path: 'attendance', as: :attendance
       resources :students do
         resources :grades

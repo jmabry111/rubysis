@@ -52,7 +52,6 @@ FactoryGirl.define do
   factory :admin do
     sequence(:email) {|nn| "person#{nn}@example.com" }
     password  "password1"
-    password_confirmation "password1"
   end
 
   factory :teacher do
