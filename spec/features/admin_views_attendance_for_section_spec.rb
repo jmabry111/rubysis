@@ -24,7 +24,6 @@ feature 'admin views attendance counts' do
     log_in_as_admin
     visit course_section_path(course, section)
     click_on 'Show Attendance'
-    save_and_open_page
     page.should have_content student.name
     page.should have_content  "Tardy: 2"
     page.should have_content  "Absent: 1"

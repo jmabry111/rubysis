@@ -1,7 +1,5 @@
 class AttendancesController < ApplicationController
   def index
-    @enrollments = StudentSectionEnrollment.where(section_id: params[:section_id])
-    @attendances = Attendance.where(student_section_enrollment_id: @enrollments.map(&:id))
   end
 
   def new
