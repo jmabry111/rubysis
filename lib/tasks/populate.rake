@@ -2,6 +2,8 @@
 namespace :db do 
   desc "Add Initial Dev Data"
   task populate: [:environment, 'db:migrate'] do
+    require 'factory_girl_rails'
+    include FactoryGirl::Syntax::Methods
 
 
     teacher = Teacher.create! do |t|
@@ -11,6 +13,8 @@ namespace :db do
         t.password_confirmation = "password"
         t.work_phone = "5557778888"
     end
+
+    students = create_list(:student, 25, :random_information)
 
     Student.create!(first_name: "John", middle_name: "Q.", last_name: "Smith", gender: "Male", grade_level: "12", dob: "Tue, Mar 12 1990", home_phone: "5555551212", school_id: 2)
 
