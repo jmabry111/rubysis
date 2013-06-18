@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+bundle install
+bundle exec rake db:setup db:migrate db:test:load
+bundle exec rake db:populate
+
