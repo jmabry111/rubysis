@@ -47,6 +47,7 @@
 		<div class="row">
 			<div class="span4">
 				<%= link_to "Add or Remove Students", edit_course_section_path(@section.course, @section), class: "btn" %>
+				<%= link_to "Show Attendance", course_section_attendances_path(@section.course, @section), class: "btn" %>
 			</div>
 		</div>
 

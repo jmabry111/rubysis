@@ -1,4 +1,7 @@
 class AttendancesController < ApplicationController
+  def index
+  end
+
   def new
     get_student_section_enrollment
     @attendance = Attendance.new
