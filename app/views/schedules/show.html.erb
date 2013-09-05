@@ -25,15 +25,19 @@
 										<th>Days</th>
 										<th>Time</th>
 										<th>Semester</th>
+										<th>Grades</th>
+										<th>Attendance</th>
 									</tr>
 								</thead>
 								<tbody>
 									<% @sections.each do |section| %>
 										<tr>
-											<td><%= link_to section.course_name, new_student_section_grade_path(@student, section) %></td>
+											<td><%= section.course_name %></td>
 											<td><%= section.days_of_week_string %></td>
 											<td><%= section.time_block %></td>
 											<td><%= section.description %></td>
+											<td><%= link_to "Current Grades", student_section_grades_path(@student, section), :class => "button btn-small" %></td>
+											<td><%= link_to "Current Attendance", student_section_attendances_path(@student, section), :class => "button btn-small" %></td>
 										</tr>
 									<% end %>
 								</tbody>

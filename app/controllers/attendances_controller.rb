@@ -16,7 +16,9 @@ class AttendancesController < ApplicationController
       end
   end
   
-  
+  def index
+    get_student_section_enrollment
+  end
   
   private
   

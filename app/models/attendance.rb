@@ -21,5 +21,14 @@ class Attendance < ActiveRecord::Base
     }
     codes.fetch(status, "")
   end
-  
+  def show_long
+    codes ={
+      "Present" => "Present",
+      "Absent" => "Unexcused Absence",
+      "Tardy" => "Tardy",
+      "Excused" => "Excused Absence",
+      "" => "Present"
+    }
+    codes.fetch(status, "")
+  end
 end

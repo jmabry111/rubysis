@@ -1,0 +1,20 @@
+<div class="center hero-unit">
+	<h3 class="left muted"><%= @student.name %></h3>
+	<h3 class="left muted">Attendance for <%= @section.course_name %></h3>
+	<% if @enrollment.attendances.present? %>
+		<% @enrollment.attendances.each do |attendance| %>
+			<div class="row">
+				<div class="span3">
+					<span class="info-label"><%= l attendance.day, :format => :long %>:</span>
+				</div>
+				<div class="span1">
+					<%= attendance.show_long %>
+				</div>
+			</div>
+		<% end %>
+	<% else %>
+		<h3 class="left muted">No Current Attendance</h3>
+	<% end %>
+
+	<%= link_to "Back to student", student_path(@student) %> | <%= link_to "Back to student's schedule", student_schedule_path(@student) %>
+</div>

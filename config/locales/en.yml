@@ -8,6 +8,7 @@ en:
       formats:
           default: "%b %d, %Y"
           short: "%b %d"
+          long: "%A, %b %d"
           
   activerecord:
     attributes:

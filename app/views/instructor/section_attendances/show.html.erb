@@ -37,7 +37,7 @@
 	<% if @attendances.any? %>
 		<% @attendances.each do |student_section_enrollment, attendances| %>
 				<tr>
-					<td><%= student_section_enrollment.name %></td>
+					<td><%= link_to student_section_enrollment.name, new_instructor_section_student_attendance_path(@section, student_section_enrollment.student) %></td>
 					<% attendances.sort_by(&:day).each do |attendance| %> 
 							<td><%= link_to attendance.show_code, edit_instructor_section_student_attendance_path(student_section_enrollment.section, student_section_enrollment.student, attendance) %></td>
 					<% end %>

@@ -6,6 +6,7 @@ feature 'show a student schedule' do
     admin = FactoryGirl.create(:admin)
     section = FactoryGirl.create(:section)
     student = FactoryGirl.create(:student)
+    current_semester = section.semester
     
     visit new_admin_session_path
     page.should have_content "Sign in"

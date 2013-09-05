@@ -8,7 +8,7 @@
 	<tbody>
 		<% @students.each do |student| %>
 		<tr>
-			<td><%= link_to student, student_path(student) %></td>
+			<td><%= link_to student.name, student_path(student) %></td>
 			<td><%= student.school.name %></td>
 		</tr>
 		<% end %>	
