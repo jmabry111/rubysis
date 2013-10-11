@@ -8,20 +8,26 @@ class SectionsController < ApplicationController
   end
   
   def create
-      @weekdays = Section::WEEKDAYS
-      find_course
-      @section = @course.sections.build(section_params)
-      find_semester_or_redirect
-      if @semester == nil
-        flash[:notice] = "That semester is invalid"
-      else
-        @section.set_next_section_number(@semester)
-      end  
-    if @section.save
-      flash[:success] = "Section Created."
-      redirect_to course_path(@course)
+    @weekdays = Section::WEEKDAYS
+    find_course
+    @section = @course.sections.build(section_params)
+    find_semester_or_redirect
+    if @semester == nil
+      flash[:notice] = "That semester is invalid"
     else
+      @section.set_next_section_number(@semester)
+    end  
+    @conflicts = ScheduleConflictChecker.new(@section).check_teacher_schedule
+    if @conflicts > 0 
+      flash[:alert] = "This teacher is already teaching a class during that time. Please choose another teacher or time."
       render 'new'
+    else
+      if @section.save
+        flash[:success] = "Section Created."
+        redirect_to course_path(@course)
+      else
+        render 'new'
+      end
     end
   end
   
