@@ -18,6 +18,8 @@ class SectionsController < ApplicationController
       @section.set_next_section_number(@semester)
     end  
     @conflicts = ScheduleConflictChecker.new(@section).check_teacher_schedule
+    logger.info(@section.description)
+    logger.info(@conflicts)
     if @conflicts > 0 
       flash[:alert] = "This teacher is already teaching a class during that time. Please choose another teacher or time."
       render 'new'

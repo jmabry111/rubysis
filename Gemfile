@@ -15,7 +15,7 @@ gem 'simple_form'
 gem 'strong_parameters'
 gem 'kaminari'
 gem 'awesome_nested_fields'
-gem 'devise'
+gem 'devise', "~> 2.2.3"
 gem 'textacular'
 gem 'coveralls', require: false
 gem 'rack-webconsole-pry', :require => 'rack-webconsole'

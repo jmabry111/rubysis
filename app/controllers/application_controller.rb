@@ -34,4 +34,5 @@ class ApplicationController < ActionController::Base
   def current_grading_period
      @current_grading_period ||= GradingPeriod.where("starts_on < ? AND ends_on > ?", Time.now + 4.months, Time.now + 4.months).first
   end
+  
 end
