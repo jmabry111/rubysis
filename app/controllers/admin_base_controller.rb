@@ -1,4 +1,4 @@
-class AdminBaseController::ParameterSanitizer < Devise:ParameterSanitizer
+class AdminBaseController < ApplicationController
   before_filter :authenticate_admin!
 
 end
