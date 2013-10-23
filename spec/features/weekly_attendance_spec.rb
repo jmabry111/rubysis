@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'show weekly attendance' do
   scenario 'show teacher courses' do
    
-   Timecop.freeze("2013-05-30")
+   #Timecop.freeze("2013-05-30")
    enrollment = FactoryGirl.create(:student_section_enrollment)
    present = Attendance.create(:status => "Present", :day => Date.today, :student_section_enrollment_id => enrollment.id)
    absent = Attendance.create(:status => "Absent", :day => Date.today - 1, :student_section_enrollment_id => enrollment.id)
