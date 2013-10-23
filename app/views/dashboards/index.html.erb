@@ -19,4 +19,11 @@
 			</li>
 		</ul>
 	</div>
+	<hr />
+	<div class="row">
+		<h2>Current Classes</h2>
+		<% @sections.each do |section| %>
+			<%= section.course.course_name %>, <%= section.teacher.name %>, <%= section.days_of_week_string %>, <%= section.time_block %><br />
+		<% end %>
+	</div>
 </div>
