@@ -1,6 +1,9 @@
 <nav>
 	<% if admin_signed_in? %>
 		<ul class="nav">
+			<li>
+				<%= link_to "Dashboard", dashboards_path %>
+			</li>
 			<li class="dropdown">
 				<%= link_to "Students", students_path %>
 				<ul class="dropdown-menu" role="menu">

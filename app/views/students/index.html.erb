@@ -1,4 +1,7 @@
 <div class="center hero-unit">
+	<div class="row">
+		<h2 class="muted">All Students</h2>
+	</div>
 	
 	<%= form_tag students_path, :id => "students_search", :method => :get do %>
 		<%= hidden_field_tag :direction, params[:direction] %>
@@ -16,5 +19,10 @@
 	
 	<div id="students_ajax_table">
 		<%= render 'students' %>
+	</div>
+	<div class="row">
+		<div class="span2">
+			<%= link_to "Add a student", new_student_path, class: "btn" %>
+		</div>
 	</div>
 </div>

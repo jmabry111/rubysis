@@ -6373,3 +6373,12 @@ a.menu:after, .dropdown-toggle:after {
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
+
+/* dashboard */
+.dashboard {
+	font-size: 18px;
+	font-weight: 300;
+	line-height: 30px;
+	color: inherit;
+	margin-bottom:30px;
+}
