@@ -5,15 +5,10 @@ describe 'School Year Pages' do
   subject {page}
   
   describe "index" do
-    before {visit admin_session_path}
   
     before (:each) do
-      @admin = FactoryGirl.create(:admin)
-      fill_in "Email", with: @admin.email
-      fill_in "Password", with: @admin.password
-      click_button "Sign in"
-    
-      page.should have_content("Signed in successfully.")
+      admin = FactoryGirl.create(:admin)
+      log_in_as_admin(admin)
     end
     
     describe "new year page" do

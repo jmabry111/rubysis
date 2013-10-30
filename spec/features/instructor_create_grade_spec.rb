@@ -6,14 +6,7 @@ feature 'sign in as teacher' do
    student_section_enrollment = FactoryGirl.create(:student_section_enrollment)
    grading_period = FactoryGirl.create(:grading_period)
    
-   visit new_teacher_session_path
-   
-   page.should have_content 'Sign in'
-   
-   fill_in "Email", with: student_section_enrollment.section.teacher.email
-   fill_in "Password", with: student_section_enrollment.section.teacher.password
-   click_button 'Sign in'
-   page.should have_content 'Signed in successfully'
+    log_in_as_teacher(student_section_enrollment.section.teacher)
      
    visit instructor_sections_path(student_section_enrollment.section.teacher)
    page.should have_content(student_section_enrollment.section.course.course_name)

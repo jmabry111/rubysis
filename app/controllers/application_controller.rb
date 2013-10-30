@@ -8,6 +8,13 @@ class ApplicationController < ActionController::Base
   helper_method :current_grading_period
   protect_from_forgery
   
+  def after_sign_in_path_for(admin)
+    dashboards_path
+  end
+  def after_sign_in_path_for(teacher)
+    root_path
+  end
+  
 
   protected
   

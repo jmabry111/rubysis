@@ -6,13 +6,8 @@ feature 'student_applies' do
     admin = FactoryGirl.create(:admin)
     School.create(name: "Beverly High School")
 
-    visit students_path
-    page.should have_content "Sign in"
-    fill_in "Email", with: admin.email
-    fill_in "Password", with: admin.password
-    click_button "Sign in"
-
-    page.should have_content "Signed in successfully"
+    log_in_as_admin(admin)
+    
     visit 'students/new'
 
 #    save_and_open_page

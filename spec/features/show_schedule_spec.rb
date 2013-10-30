@@ -7,15 +7,9 @@ feature 'show a student schedule' do
     section = FactoryGirl.create(:section)
     student = FactoryGirl.create(:student)
     current_semester = section.semester
-
      
-    visit new_admin_session_path
-    page.should have_content "Sign in"
-    fill_in "Email", with: admin.email
-    fill_in "Password", with: admin.password
-    click_button "Sign in"
+    log_in_as_admin(admin)
     
-    page.should have_content 'Welcome'
     visit course_section_path(section.course, section)
     page.should have_content section.course.course_name
     

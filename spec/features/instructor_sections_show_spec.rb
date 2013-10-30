@@ -5,14 +5,7 @@ feature 'sign in as teacher' do
    
    section =  FactoryGirl.create(:section)
    
-   visit new_teacher_session_path
-   
-   page.should have_content 'Sign in'
-   
-   fill_in "Email", with: section.teacher.email
-   fill_in "Password", with: section.teacher.password
-   click_button 'Sign in'
-   page.should have_content 'Signed in successfully'
+    log_in_as_teacher(section.teacher)
      
    visit instructor_sections_path(section.teacher)
    page.should have_content(section.course.course_name)

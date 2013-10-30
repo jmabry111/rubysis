@@ -8,13 +8,7 @@ feature 'register student for secion' do
     section = FactoryGirl.create(:section)
     student = FactoryGirl.create(:student)
     
-    visit new_admin_session_path
-    page.should have_content "Sign in"
-    fill_in "Email", with: admin.email
-    fill_in "Password", with: admin.password
-    click_button "Sign in"
-    
-    page.should have_content 'Welcome'
+    log_in_as_admin(admin)
     
     visit course_section_path(section.course, section)
     page.should have_content section.course.course_name

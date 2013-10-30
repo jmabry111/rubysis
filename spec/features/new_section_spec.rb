@@ -9,13 +9,7 @@ feature 'create a section' do
     teacher = FactoryGirl.create(:teacher)
     time_block = FactoryGirl.create(:time_block)
     
-    visit new_admin_session_path
-    page.should have_content "Sign in"
-    fill_in "Email", with: admin.email
-    fill_in "Password", with: admin.password
-    click_button "Sign in"
-    
-    page.should have_content 'Welcome'
+    log_in_as_admin(admin)
     
     visit new_course_section_path(course)
     
