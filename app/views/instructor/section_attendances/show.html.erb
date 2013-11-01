@@ -1,7 +1,8 @@
 <div class="center hero-unit">
 	<div class="row">
 		<div class="span8">
-			<h3 class="left muted">Weekly Attendance for <%= @section.course_name %></h3>
+			<h3 class="left muted no-break">Weekly Attendance for <%= @section.course_name %></h3>
+			<h5 class="left no-break">*Click the Attendance code to modify attendance for a day.</h5>
 		</div>
 		<div class="span2 floatright">
 			<div class="well-small ">
@@ -21,16 +22,16 @@
 			</tr>
 			<tr>
 				<th>Name</th>
-				<th><%= Date.today.prev_week(start_day = :monday).strftime("#{Date.today.prev_week.day.ordinalize}") %></th>
-				<th><%= (Date.today.prev_week(start_day = :monday)+1).strftime("#{(Date.today.prev_week.day+1).ordinalize}") %></th>
-				<th><%= (Date.today.prev_week(start_day = :monday)+2).strftime("#{(Date.today.prev_week.day+2).ordinalize}") %></th>
-				<th><%= (Date.today.prev_week(start_day = :monday)+3).strftime("#{(Date.today.prev_week.day+3).ordinalize}") %></th>
-				<th><%= (Date.today.prev_week(start_day = :monday)+4).strftime("#{(Date.today.prev_week.day+4).ordinalize}") %></th>
+				<th><%= Date.today.prev_week(start_day = :monday).day.ordinalize %></th>
+				<th><%= (Date.today.prev_week(start_day = :monday)+1).day.ordinalize %></th>
+				<th><%= (Date.today.prev_week(start_day = :monday)+2).day.ordinalize %></th>
+				<th><%= (Date.today.prev_week(start_day = :monday)+3).day.ordinalize %></th>
+				<th><%= (Date.today.prev_week(start_day = :monday)+4).day.ordinalize %></th>
 				<th><%= Date.today.beginning_of_week(start_day = :monday).strftime("#{Date.today.beginning_of_week.day.ordinalize}") %></th>
-				<th><%= (Date.today.beginning_of_week(start_day = :monday)+1).strftime("#{(Date.today.beginning_of_week.day+1).ordinalize}") %></th>
-				<th><%= (Date.today.beginning_of_week(start_day = :monday)+2).strftime("#{(Date.today.beginning_of_week.day+2).ordinalize}") %></th>
-				<th><%= (Date.today.beginning_of_week(start_day = :monday)+3).strftime("#{(Date.today.beginning_of_week.day+3).ordinalize}") %></th>
-				<th><%= (Date.today.beginning_of_week(start_day = :monday)+4).strftime("#{(Date.today.beginning_of_week.day+4).ordinalize}") %></th>
+				<th><%= (Date.today.beginning_of_week(start_day = :monday)+1).day.ordinalize %></th>
+				<th><%= (Date.today.beginning_of_week(start_day = :monday)+2).day.ordinalize %></th>
+				<th><%= (Date.today.beginning_of_week(start_day = :monday)+3).day.ordinalize %></th>
+				<th><%= (Date.today.beginning_of_week(start_day = :monday)+4).day.ordinalize %></th>
 			</tr>
 		</thead>	
 		<tbody>
@@ -52,8 +53,15 @@
 		<% end %>
 	<% else %>
 			<tr>
-				<td colspan="11">No students currently enrolled</td>
+				<td colspan="11">No attendance recorded. Please click the name to record attendance.</td>
 			</tr>
+		<% @enrollments.each do |e| %>
+			<tr>
+				<td colspan="11">
+					<%= link_to e.student.name , new_instructor_section_student_attendance_path(e.section, e.student) %>
+				</td>
+			</tr>
+		<% end %>
 		</tbody>
 	<% end %>
 	</table>

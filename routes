@@ -26,6 +26,13 @@
                    edit_admin_registration GET    /admins/edit(.:format)                                                               devise/registrations#edit
                                            PUT    /admins(.:format)                                                                    devise/registrations#update
                                            DELETE /admins(.:format)                                                                    devise/registrations#destroy
+                                dashboards GET    /dashboard(.:format)                                                                 dashboards#index
+                                           POST   /dashboard(.:format)                                                                 dashboards#create
+                             new_dashboard GET    /dashboard/new(.:format)                                                             dashboards#new
+                            edit_dashboard GET    /dashboard/:id/edit(.:format)                                                        dashboards#edit
+                                 dashboard GET    /dashboard/:id(.:format)                                                             dashboards#show
+                                           PUT    /dashboard/:id(.:format)                                                             dashboards#update
+                                           DELETE /dashboard/:id(.:format)                                                             dashboards#destroy
                                    schools GET    /schools(.:format)                                                                   schools#index
                          student_addresses GET    /students/:student_id/addresses(.:format)                                            addresses#index
                                            POST   /students/:student_id/addresses(.:format)                                            addresses#create
