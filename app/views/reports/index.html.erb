@@ -1,5 +1,8 @@
 <% @enrollments.each do |e_array| %>
 	<% e_array.each do |e| %>
-		<%= e.student.name %>, <%= e.section.course.course_name %><br />
+		<%= e.student.name %>, <%= e.section.course_name %><br />
 	<% end %>
+<% end %><br />
+<% @sections.each do |s| %>
+	<%= s.course_name %><br />
 <% end %>
