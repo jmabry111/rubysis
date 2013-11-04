@@ -11,6 +11,7 @@ Rubysis::Application.routes.draw do
   devise_for :admins
   
   resources :dashboards, path: 'dashboard'
+  resources :reports
   
   resources :schools, :only => :index
 
