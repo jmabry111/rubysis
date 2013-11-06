@@ -7,8 +7,7 @@ feature 'show admin dashboard' do
   
     log_in_as_admin(admin)
   
-    visit reports_path
-    page.should have_content enrollment.student.name
+    visit reports_sections_path
     page.should have_content enrollment.section.course_name
   end
 end

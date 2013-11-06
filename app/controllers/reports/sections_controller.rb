@@ -1,6 +1,11 @@
 class Reports::SectionsController < AdminBaseController
   def index
-    get_enrollments
+    @sections = Section.where(semester_id: current_semester.id).sort! {|a,b| a.course.course_name <=> b.course.course_name}
+  end
+  
+  def show
+    @section = Section.find(params[:id])
+    @enrollments = @section.student_section_enrollments
   end
   
   

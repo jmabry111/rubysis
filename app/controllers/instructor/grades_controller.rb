@@ -5,7 +5,7 @@ class Instructor::GradesController < InstructorBaseController
     get_student_section_grade
     @grade = Grade.new
     if @enrollment.has_all_grades?
-      redirect_to new_instructor_section_student_grade_path(@section, @student), notice: "All grades entered."
+      redirect_to instructor_section_student_grades_path(@section, @student), notice: "All grades entered."
     else
       render 'new'
     end 
@@ -27,7 +27,7 @@ class Instructor::GradesController < InstructorBaseController
   
   def index
     get_student_section_grade
-    # calculate_semseter_grade
+    calculate_semseter_grade
   end
   
   def edit
@@ -56,7 +56,7 @@ class Instructor::GradesController < InstructorBaseController
   end
   
   def calculate_semseter_grade
-    @semester_grade = @grades.average(:numerical_grade)
+    @semester_grade = @enrollment.grades.average(:numerical_grade)
   end
     
 end

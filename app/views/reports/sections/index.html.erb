@@ -1,4 +1,4 @@
 <h2 class="left muted">Current Classes</h2>
 <% @sections.each do |s| %>
-	<%= link_to s.course_name, "#" %>, <%= s.teacher.name %>, <%= s.time_block %>, <%= s.days_of_week_string %><br />
+	<%= link_to s.course_name, reports_section_path(s.id) %>, <%= s.teacher.name %>, <%= s.time_block %>, <%= s.days_of_week_string %><br />
 <% end %>

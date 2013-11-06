@@ -601,3 +601,211 @@ edit_instructor_section_student_attendance GET    /instructor/sections/:section_
                         instructor_section GET    /instructor/sections/:id(.:format)                                                   instructor/sections#show
                                            PUT    /instructor/sections/:id(.:format)                                                   instructor/sections#update
                                            DELETE /instructor/sections/:id(.:format)                                                   instructor/sections#destroy
+                         static_pages_home GET    /static_pages/home(.:format)                                                         static_pages#home
+                                      root        /                                                                                    static_pages#home
+                       new_teacher_session GET    /teachers/sign_in(.:format)                                                          devise/sessions#new
+                           teacher_session POST   /teachers/sign_in(.:format)                                                          devise/sessions#create
+                   destroy_teacher_session GET    /teachers/sign_out(.:format)                                                         devise/sessions#destroy
+                          teacher_password POST   /teachers/password(.:format)                                                         custom_devise/passwords#create
+                      new_teacher_password GET    /teachers/password/new(.:format)                                                     custom_devise/passwords#new
+                     edit_teacher_password GET    /teachers/password/edit(.:format)                                                    custom_devise/passwords#edit
+                                           PUT    /teachers/password(.:format)                                                         custom_devise/passwords#update
+               cancel_teacher_registration GET    /teachers/cancel(.:format)                                                           custom_devise/registrations#cancel
+                      teacher_registration POST   /teachers(.:format)                                                                  custom_devise/registrations#create
+                  new_teacher_registration GET    /teachers/sign_up(.:format)                                                          custom_devise/registrations#new
+                 edit_teacher_registration GET    /teachers/edit(.:format)                                                             custom_devise/registrations#edit
+                                           PUT    /teachers(.:format)                                                                  custom_devise/registrations#update
+                                           DELETE /teachers(.:format)                                                                  custom_devise/registrations#destroy
+                         new_admin_session GET    /admins/sign_in(.:format)                                                            devise/sessions#new
+                             admin_session POST   /admins/sign_in(.:format)                                                            devise/sessions#create
+                     destroy_admin_session GET    /admins/sign_out(.:format)                                                           devise/sessions#destroy
+                            admin_password POST   /admins/password(.:format)                                                           devise/passwords#create
+                        new_admin_password GET    /admins/password/new(.:format)                                                       devise/passwords#new
+                       edit_admin_password GET    /admins/password/edit(.:format)                                                      devise/passwords#edit
+                                           PUT    /admins/password(.:format)                                                           devise/passwords#update
+                 cancel_admin_registration GET    /admins/cancel(.:format)                                                             devise/registrations#cancel
+                        admin_registration POST   /admins(.:format)                                                                    devise/registrations#create
+                    new_admin_registration GET    /admins/sign_up(.:format)                                                            devise/registrations#new
+                   edit_admin_registration GET    /admins/edit(.:format)                                                               devise/registrations#edit
+                                           PUT    /admins(.:format)                                                                    devise/registrations#update
+                                           DELETE /admins(.:format)                                                                    devise/registrations#destroy
+                                dashboards GET    /dashboard(.:format)                                                                 dashboards#index
+                                           POST   /dashboard(.:format)                                                                 dashboards#create
+                             new_dashboard GET    /dashboard/new(.:format)                                                             dashboards#new
+                            edit_dashboard GET    /dashboard/:id/edit(.:format)                                                        dashboards#edit
+                                 dashboard GET    /dashboard/:id(.:format)                                                             dashboards#show
+                                           PUT    /dashboard/:id(.:format)                                                             dashboards#update
+                                           DELETE /dashboard/:id(.:format)                                                             dashboards#destroy
+                                   schools GET    /schools(.:format)                                                                   schools#index
+                         student_addresses GET    /students/:student_id/addresses(.:format)                                            addresses#index
+                                           POST   /students/:student_id/addresses(.:format)                                            addresses#create
+                       new_student_address GET    /students/:student_id/addresses/new(.:format)                                        addresses#new
+                      edit_student_address GET    /students/:student_id/addresses/:id/edit(.:format)                                   addresses#edit
+                           student_address GET    /students/:student_id/addresses/:id(.:format)                                        addresses#show
+                                           PUT    /students/:student_id/addresses/:id(.:format)                                        addresses#update
+                                           DELETE /students/:student_id/addresses/:id(.:format)                                        addresses#destroy
+                           student_parents GET    /students/:student_id/parents(.:format)                                              parents#index
+                                           POST   /students/:student_id/parents(.:format)                                              parents#create
+                        new_student_parent GET    /students/:student_id/parents/new(.:format)                                          parents#new
+                       edit_student_parent GET    /students/:student_id/parents/:id/edit(.:format)                                     parents#edit
+                            student_parent GET    /students/:student_id/parents/:id(.:format)                                          parents#show
+                                           PUT    /students/:student_id/parents/:id(.:format)                                          parents#update
+                                           DELETE /students/:student_id/parents/:id(.:format)                                          parents#destroy
+                          student_schedule POST   /students/:student_id/schedule(.:format)                                             schedules#create
+                      new_student_schedule GET    /students/:student_id/schedule/new(.:format)                                         schedules#new
+                     edit_student_schedule GET    /students/:student_id/schedule/edit(.:format)                                        schedules#edit
+                                           GET    /students/:student_id/schedule(.:format)                                             schedules#show
+                                           PUT    /students/:student_id/schedule(.:format)                                             schedules#update
+                                           DELETE /students/:student_id/schedule(.:format)                                             schedules#destroy
+                    student_section_grades GET    /students/:student_id/sections/:section_id/grades(.:format)                          grades#index
+                                           POST   /students/:student_id/sections/:section_id/grades(.:format)                          grades#create
+                 new_student_section_grade GET    /students/:student_id/sections/:section_id/grades/new(.:format)                      grades#new
+                edit_student_section_grade GET    /students/:student_id/sections/:section_id/grades/:id/edit(.:format)                 grades#edit
+                     student_section_grade GET    /students/:student_id/sections/:section_id/grades/:id(.:format)                      grades#show
+                                           PUT    /students/:student_id/sections/:section_id/grades/:id(.:format)                      grades#update
+                                           DELETE /students/:student_id/sections/:section_id/grades/:id(.:format)                      grades#destroy
+               student_section_attendances GET    /students/:student_id/sections/:section_id/attendances(.:format)                     attendances#index
+                                           POST   /students/:student_id/sections/:section_id/attendances(.:format)                     attendances#create
+            new_student_section_attendance GET    /students/:student_id/sections/:section_id/attendances/new(.:format)                 attendances#new
+           edit_student_section_attendance GET    /students/:student_id/sections/:section_id/attendances/:id/edit(.:format)            attendances#edit
+                student_section_attendance GET    /students/:student_id/sections/:section_id/attendances/:id(.:format)                 attendances#show
+                                           PUT    /students/:student_id/sections/:section_id/attendances/:id(.:format)                 attendances#update
+                                           DELETE /students/:student_id/sections/:section_id/attendances/:id(.:format)                 attendances#destroy
+                          student_sections GET    /students/:student_id/sections(.:format)                                             sections#index
+                                           POST   /students/:student_id/sections(.:format)                                             sections#create
+                       new_student_section GET    /students/:student_id/sections/new(.:format)                                         sections#new
+                      edit_student_section GET    /students/:student_id/sections/:id/edit(.:format)                                    sections#edit
+                           student_section GET    /students/:student_id/sections/:id(.:format)                                         sections#show
+                                           PUT    /students/:student_id/sections/:id(.:format)                                         sections#update
+                                           DELETE /students/:student_id/sections/:id(.:format)                                         sections#destroy
+                                  students GET    /students(.:format)                                                                  students#index
+                                           POST   /students(.:format)                                                                  students#create
+                               new_student GET    /students/new(.:format)                                                              students#new
+                              edit_student GET    /students/:id/edit(.:format)                                                         students#edit
+                                   student GET    /students/:id(.:format)                                                              students#show
+                                           PUT    /students/:id(.:format)                                                              students#update
+                                           DELETE /students/:id(.:format)                                                              students#destroy
+                          parent_addresses GET    /parents/:parent_id/addresses(.:format)                                              addresses#index
+                                           POST   /parents/:parent_id/addresses(.:format)                                              addresses#create
+                        new_parent_address GET    /parents/:parent_id/addresses/new(.:format)                                          addresses#new
+                       edit_parent_address GET    /parents/:parent_id/addresses/:id/edit(.:format)                                     addresses#edit
+                            parent_address GET    /parents/:parent_id/addresses/:id(.:format)                                          addresses#show
+                                           PUT    /parents/:parent_id/addresses/:id(.:format)                                          addresses#update
+                                           DELETE /parents/:parent_id/addresses/:id(.:format)                                          addresses#destroy
+                                   parents GET    /parents(.:format)                                                                   parents#index
+                                           POST   /parents(.:format)                                                                   parents#create
+                                new_parent GET    /parents/new(.:format)                                                               parents#new
+                               edit_parent GET    /parents/:id/edit(.:format)                                                          parents#edit
+                                    parent GET    /parents/:id(.:format)                                                               parents#show
+                                           PUT    /parents/:id(.:format)                                                               parents#update
+                                           DELETE /parents/:id(.:format)                                                               parents#destroy
+                         teacher_addresses GET    /admin/teachers/:teacher_id/addresses(.:format)                                      addresses#index
+                                           POST   /admin/teachers/:teacher_id/addresses(.:format)                                      addresses#create
+                       new_teacher_address GET    /admin/teachers/:teacher_id/addresses/new(.:format)                                  addresses#new
+                      edit_teacher_address GET    /admin/teachers/:teacher_id/addresses/:id/edit(.:format)                             addresses#edit
+                           teacher_address GET    /admin/teachers/:teacher_id/addresses/:id(.:format)                                  addresses#show
+                                           PUT    /admin/teachers/:teacher_id/addresses/:id(.:format)                                  addresses#update
+                                           DELETE /admin/teachers/:teacher_id/addresses/:id(.:format)                                  addresses#destroy
+                                  teachers GET    /admin/teachers(.:format)                                                            teachers#index
+                                           POST   /admin/teachers(.:format)                                                            teachers#create
+                               new_teacher GET    /admin/teachers/new(.:format)                                                        teachers#new
+                              edit_teacher GET    /admin/teachers/:id/edit(.:format)                                                   teachers#edit
+                                   teacher GET    /admin/teachers/:id(.:format)                                                        teachers#show
+                                           PUT    /admin/teachers/:id(.:format)                                                        teachers#update
+                           course_sections GET    /courses/:course_id/sections(.:format)                                               sections#index
+                                           POST   /courses/:course_id/sections(.:format)                                               sections#create
+                        new_course_section GET    /courses/:course_id/sections/new(.:format)                                           sections#new
+                       edit_course_section GET    /courses/:course_id/sections/:id/edit(.:format)                                      sections#edit
+                            course_section GET    /courses/:course_id/sections/:id(.:format)                                           sections#show
+                                           PUT    /courses/:course_id/sections/:id(.:format)                                           sections#update
+                                           DELETE /courses/:course_id/sections/:id(.:format)                                           sections#destroy
+                                   courses GET    /courses(.:format)                                                                   courses#index
+                                           POST   /courses(.:format)                                                                   courses#create
+                                new_course GET    /courses/new(.:format)                                                               courses#new
+                               edit_course GET    /courses/:id/edit(.:format)                                                          courses#edit
+                                    course GET    /courses/:id(.:format)                                                               courses#show
+                                           PUT    /courses/:id(.:format)                                                               courses#update
+                                           DELETE /courses/:id(.:format)                                                               courses#destroy
+                     school_year_semesters GET    /school_years/:school_year_id/semesters(.:format)                                    semesters#index
+                                           POST   /school_years/:school_year_id/semesters(.:format)                                    semesters#create
+                  new_school_year_semester GET    /school_years/:school_year_id/semesters/new(.:format)                                semesters#new
+                 edit_school_year_semester GET    /school_years/:school_year_id/semesters/:id/edit(.:format)                           semesters#edit
+                      school_year_semester GET    /school_years/:school_year_id/semesters/:id(.:format)                                semesters#show
+                                           PUT    /school_years/:school_year_id/semesters/:id(.:format)                                semesters#update
+                                           DELETE /school_years/:school_year_id/semesters/:id(.:format)                                semesters#destroy
+                              school_years GET    /school_years(.:format)                                                              school_years#index
+                                           POST   /school_years(.:format)                                                              school_years#create
+                           new_school_year GET    /school_years/new(.:format)                                                          school_years#new
+                          edit_school_year GET    /school_years/:id/edit(.:format)                                                     school_years#edit
+                               school_year GET    /school_years/:id(.:format)                                                          school_years#show
+                                           PUT    /school_years/:id(.:format)                                                          school_years#update
+                                           DELETE /school_years/:id(.:format)                                                          school_years#destroy
+                  semester_grading_periods GET    /semesters/:semester_id/grading_periods(.:format)                                    grading_periods#index
+                                           POST   /semesters/:semester_id/grading_periods(.:format)                                    grading_periods#create
+               new_semester_grading_period GET    /semesters/:semester_id/grading_periods/new(.:format)                                grading_periods#new
+              edit_semester_grading_period GET    /semesters/:semester_id/grading_periods/:id/edit(.:format)                           grading_periods#edit
+                   semester_grading_period GET    /semesters/:semester_id/grading_periods/:id(.:format)                                grading_periods#show
+                                           PUT    /semesters/:semester_id/grading_periods/:id(.:format)                                grading_periods#update
+                                           DELETE /semesters/:semester_id/grading_periods/:id(.:format)                                grading_periods#destroy
+                                 semesters GET    /semesters(.:format)                                                                 semesters#index
+                                           POST   /semesters(.:format)                                                                 semesters#create
+                              new_semester GET    /semesters/new(.:format)                                                             semesters#new
+                             edit_semester GET    /semesters/:id/edit(.:format)                                                        semesters#edit
+                                  semester GET    /semesters/:id(.:format)                                                             semesters#show
+                                           PUT    /semesters/:id(.:format)                                                             semesters#update
+                                           DELETE /semesters/:id(.:format)                                                             semesters#destroy
+             instructor_section_attendance POST   /instructor/sections/:section_id/attendance(.:format)                                instructor/section_attendances#create
+         new_instructor_section_attendance GET    /instructor/sections/:section_id/attendance/new(.:format)                            instructor/section_attendances#new
+        edit_instructor_section_attendance GET    /instructor/sections/:section_id/attendance/edit(.:format)                           instructor/section_attendances#edit
+                                           GET    /instructor/sections/:section_id/attendance(.:format)                                instructor/section_attendances#show
+                                           PUT    /instructor/sections/:section_id/attendance(.:format)                                instructor/section_attendances#update
+                                           DELETE /instructor/sections/:section_id/attendance(.:format)                                instructor/section_attendances#destroy
+         instructor_section_student_grades GET    /instructor/sections/:section_id/students/:student_id/grades(.:format)               instructor/grades#index
+                                           POST   /instructor/sections/:section_id/students/:student_id/grades(.:format)               instructor/grades#create
+      new_instructor_section_student_grade GET    /instructor/sections/:section_id/students/:student_id/grades/new(.:format)           instructor/grades#new
+     edit_instructor_section_student_grade GET    /instructor/sections/:section_id/students/:student_id/grades/:id/edit(.:format)      instructor/grades#edit
+          instructor_section_student_grade GET    /instructor/sections/:section_id/students/:student_id/grades/:id(.:format)           instructor/grades#show
+                                           PUT    /instructor/sections/:section_id/students/:student_id/grades/:id(.:format)           instructor/grades#update
+                                           DELETE /instructor/sections/:section_id/students/:student_id/grades/:id(.:format)           instructor/grades#destroy
+    instructor_section_student_attendances GET    /instructor/sections/:section_id/students/:student_id/attendances(.:format)          instructor/attendances#index
+                                           POST   /instructor/sections/:section_id/students/:student_id/attendances(.:format)          instructor/attendances#create
+ new_instructor_section_student_attendance GET    /instructor/sections/:section_id/students/:student_id/attendances/new(.:format)      instructor/attendances#new
+edit_instructor_section_student_attendance GET    /instructor/sections/:section_id/students/:student_id/attendances/:id/edit(.:format) instructor/attendances#edit
+     instructor_section_student_attendance GET    /instructor/sections/:section_id/students/:student_id/attendances/:id(.:format)      instructor/attendances#show
+                                           PUT    /instructor/sections/:section_id/students/:student_id/attendances/:id(.:format)      instructor/attendances#update
+                                           DELETE /instructor/sections/:section_id/students/:student_id/attendances/:id(.:format)      instructor/attendances#destroy
+               instructor_section_students GET    /instructor/sections/:section_id/students(.:format)                                  instructor/students#index
+                                           POST   /instructor/sections/:section_id/students(.:format)                                  instructor/students#create
+            new_instructor_section_student GET    /instructor/sections/:section_id/students/new(.:format)                              instructor/students#new
+           edit_instructor_section_student GET    /instructor/sections/:section_id/students/:id/edit(.:format)                         instructor/students#edit
+                instructor_section_student GET    /instructor/sections/:section_id/students/:id(.:format)                              instructor/students#show
+                                           PUT    /instructor/sections/:section_id/students/:id(.:format)                              instructor/students#update
+                                           DELETE /instructor/sections/:section_id/students/:id(.:format)                              instructor/students#destroy
+                       instructor_sections GET    /instructor/sections(.:format)                                                       instructor/sections#index
+                                           POST   /instructor/sections(.:format)                                                       instructor/sections#create
+                    new_instructor_section GET    /instructor/sections/new(.:format)                                                   instructor/sections#new
+                   edit_instructor_section GET    /instructor/sections/:id/edit(.:format)                                              instructor/sections#edit
+                        instructor_section GET    /instructor/sections/:id(.:format)                                                   instructor/sections#show
+                                           PUT    /instructor/sections/:id(.:format)                                                   instructor/sections#update
+                                           DELETE /instructor/sections/:id(.:format)                                                   instructor/sections#destroy
+                    reports_section_grades GET    /reports/sections/:section_id/grades(.:format)                                       reports/grades#index
+                                           POST   /reports/sections/:section_id/grades(.:format)                                       reports/grades#create
+                 new_reports_section_grade GET    /reports/sections/:section_id/grades/new(.:format)                                   reports/grades#new
+                edit_reports_section_grade GET    /reports/sections/:section_id/grades/:id/edit(.:format)                              reports/grades#edit
+                     reports_section_grade GET    /reports/sections/:section_id/grades/:id(.:format)                                   reports/grades#show
+                                           PUT    /reports/sections/:section_id/grades/:id(.:format)                                   reports/grades#update
+                                           DELETE /reports/sections/:section_id/grades/:id(.:format)                                   reports/grades#destroy
+               reports_section_attendances GET    /reports/sections/:section_id/attendances(.:format)                                  reports/attendances#index
+                                           POST   /reports/sections/:section_id/attendances(.:format)                                  reports/attendances#create
+            new_reports_section_attendance GET    /reports/sections/:section_id/attendances/new(.:format)                              reports/attendances#new
+           edit_reports_section_attendance GET    /reports/sections/:section_id/attendances/:id/edit(.:format)                         reports/attendances#edit
+                reports_section_attendance GET    /reports/sections/:section_id/attendances/:id(.:format)                              reports/attendances#show
+                                           PUT    /reports/sections/:section_id/attendances/:id(.:format)                              reports/attendances#update
+                                           DELETE /reports/sections/:section_id/attendances/:id(.:format)                              reports/attendances#destroy
+                          reports_sections GET    /reports/sections(.:format)                                                          reports/sections#index
+                                           POST   /reports/sections(.:format)                                                          reports/sections#create
+                       new_reports_section GET    /reports/sections/new(.:format)                                                      reports/sections#new
+                      edit_reports_section GET    /reports/sections/:id/edit(.:format)                                                 reports/sections#edit
+                           reports_section GET    /reports/sections/:id(.:format)                                                      reports/sections#show
+                                           PUT    /reports/sections/:id(.:format)                                                      reports/sections#update
+                                           DELETE /reports/sections/:id(.:format)                                                      reports/sections#destroy
