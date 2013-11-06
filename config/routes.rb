@@ -11,7 +11,6 @@ Rubysis::Application.routes.draw do
   devise_for :admins
   
   resources :dashboards, path: 'dashboard'
-  resources :reports
   
   resources :schools, :only => :index
 
@@ -54,6 +53,13 @@ Rubysis::Application.routes.draw do
         resources :grades
         resources :attendances
       end
+    end
+  end
+  
+  namespace :reports do
+    resources :sections do
+      resources :grades
+      resources :attendances
     end
   end
   

@@ -1,5 +1,4 @@
-class ReportsController < ApplicationController
-  
+class Reports::SectionsController < AdminBaseController
   def index
     get_enrollments
   end
