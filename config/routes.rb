@@ -58,8 +58,10 @@ Rubysis::Application.routes.draw do
   
   namespace :reports do
     resources :sections do
-      resources :grades
-      resources :attendances
+      resources :students do
+        resources :grades
+        resources :attendances
+      end
     end
   end
   

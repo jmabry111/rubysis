@@ -1,0 +1,29 @@
+<div class="center hero-unit">
+	<h3 class="left muted">Grades in <%= @section.course_name %> for <%= @student.name %></h3>
+	<% if @enrollment.grades.present? %>
+		<% @enrollment.grades.each do |g| %>
+			<div class="row">
+				<div class="span2">
+					<span class="info-label"><%= g.grading_period %>:</span>
+				</div>
+				<div class="span1">
+					<%= link_to g.numerical_grade, edit_student_section_grade_path(@student, @section, g) %>
+				</div>
+			</div>
+		<% end %>
+	<% else %>
+		<h3 class="left muted">No Current Grades</h3>
+	<% end %>
+	<% if @enrollment.has_all_grades? %>
+		<hr />
+		<div class="row">
+			<div class="span3">
+				<span class="info-label">Semester Grade:</span>
+			</div>
+			<div class="span1">
+				<span class="info-label"><%= number_with_precision @semester_grade, :precision => 2 %></span>
+			</div>
+		</div>
+	<% end %>
+	<%= link_to "Back to student", student_path(@student) %> | <%= link_to "Back to student's schedule", student_schedule_path(@student) %>
+</div>
