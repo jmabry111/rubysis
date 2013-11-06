@@ -58,6 +58,7 @@ Rubysis::Application.routes.draw do
   
   namespace :reports do
     resources :sections do
+      resource :attendance, path: 'attendance', as: :attendance
       resources :students do
         resources :grades
         resources :attendances

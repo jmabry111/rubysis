@@ -1,6 +1,11 @@
-<div class="center hero-unit">
+<div class="dashboard">
 	<div class="row">
-		<h3 class="left muted"><%= @section.course_name %> | <%= @section.description %> | Section <%= @section.section_number %></h3>
+		<div class="span8">
+			<h4 class="left muted"><%= @section.course_name %> | <%= @section.description %> | Section <%= @section.section_number %></h3>
+		</div>
+		<div class="span4">
+			<h4 class="right"><%= link_to "Weekly Attendance", reports_section_attendance_path(@section) %></h4>
+		</div>
 	</div>
 	<div class="row">
 		<div class="span6">
