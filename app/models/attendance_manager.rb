@@ -4,7 +4,11 @@ class AttendanceManager
   end
 
   def attendances
-    @attendances ||= get_attendances
+    if @attendances.any?
+      @attendances ||= get_attendances
+    else
+      
+    end
   end
 
   def get_attendances
@@ -22,4 +26,20 @@ class AttendanceManager
     end
   end
   
+  def empty_attendances
+    empty_days = []
+    @section.student_section_enrollments.each do
+      if Date.today.strftime('%a') == "Mon"
+        empty_days + (Date.today-7..Date.today+1).to_a
+      elsif Date.today.strftime('%a') == "Tue"
+        empty_days + (Date.today-8..Date.today+1).to_a
+      elsif Date.today.strftime('%a') == "Wed"
+        empty_days + (Date.today-9..Date.today+1).to_a
+      elsif Date.today.strftime('%a') == "Thu"
+        empty_days + (Date.today-10..Date.today+1).to_a
+      else
+        empty_days + (Date.today-11..Date.today+1).to_a 
+      end
+    end
+  end
 end

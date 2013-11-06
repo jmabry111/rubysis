@@ -23,10 +23,15 @@ class AttendanceFiller
 
     def get_dates_from_attendances
       @days = []
-      @attendances.each do |student_section_enrollment, attendances|
-        attendances.each do |attendance|
-          @days << attendance.day
+      if @attendances.any?
+        @attendances.each do |student_section_enrollment, attendances|
+          attendances.each do |attendance|
+            @days << attendance.day
+          end
         end
+      else
+        @days = [*Date.today-11...Date.today+1]
+        @days.delete_if{|date| date.strftime('%a') == "Sat" || date.strftime('%a') == "Sun"}
       end
       @days
     end
