@@ -17,6 +17,7 @@
 			<% @section.semester.grading_periods.each do |gp| %>
 				<div class="span1-5"><%= gp.description %></div>
 			<% end %>
+			<div class="span1-5 info-label">Final Grade</div>
 	</div>
 	<hr />
 		<% @enrollments.each do |enrollment| %>
@@ -27,6 +28,13 @@
 				<% if enrollment.grades.present? %>
 					<% enrollment.grades.each do |grade| %>
 						<div class="span1-5"><%= grade.numerical_grade %></div>
+					<% end %>
+					<% if enrollment.has_all_grades? %>
+						<div class="span1-5 info-label"><%= number_with_precision enrollment.grades.average(:numerical_grade), :precision => 2 %></div>
+					<% else %>
+						<% (5-enrollment.grades.size).times do %>
+							<div class="span1-5">N/A</div>
+						<% end %>
 					<% end %>
 				<% end %>
 			</div>

@@ -1,0 +1,11 @@
+<div class="center hero-unit" id="loading">
+	<h2 class="muted">Loading Attendance</h2>
+	<h2><%= image_tag("progressbar.gif") %></h2>
+</div>
+<script>
+	$(document).ready(function() {
+		setTimeout(function() {
+		    window.location = "<%= instructor_section_attendance_path(@section) %>";
+		}, 8000);
+	});
+</script>
