@@ -432,6 +432,10 @@ a:focus {
   margin-left: 100px;
 }
 
+.offset0-5 {
+  margin-left: 50px;
+}
+
 .row-fluid {
   width: 100%;
   *zoom: 1;
@@ -6389,4 +6393,29 @@ a.menu:after, .dropdown-toggle:after {
 
 .barcontainer{
 	width:380px;
+}
+
+/* collapse caret */
+.accordion-caret .accordion-toggle:hover {
+      text-decoration: none;
+}
+.accordion-caret .accordion-toggle:hover span,
+.accordion-caret .accordion-toggle:hover strong {
+  text-decoration: underline;
+}
+.accordion-caret .accordion-toggle:before {
+  font-size: 25px;
+  vertical-align: -3px;
+}
+.accordion-caret .accordion-toggle:not(.collapsed):before {
+  content: "▾";
+  margin-right: 0px;
+}
+.accordion-caret .accordion-toggle.collapsed:before {
+  content: "▸";
+  margin-right: 0px;
+}
+
+.noborder {
+	border:none;
 }
