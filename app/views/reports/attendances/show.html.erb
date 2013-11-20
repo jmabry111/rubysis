@@ -53,15 +53,8 @@
 		<% end %>
 	<% else %>
 			<tr>
-				<td colspan="11">No attendance recorded. Please click the name to record attendance.</td>
+				<td colspan="11">No attendance recorded.</td>
 			</tr>
-		<% @enrollments.each do |e| %>
-			<tr>
-				<td colspan="11">
-					<%= link_to e.student.name , "new_instructor_section_student_attendance_path(e.section, e.student)" %>
-				</td>
-			</tr>
-		<% end %>
 		</tbody>
 	<% end %>
 	</table>

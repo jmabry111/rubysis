@@ -420,6 +420,10 @@ a:focus {
   margin-left: 260px;
 }
 
+.offset2-5 {
+  margin-left: 220px;
+}
+
 .offset2 {
   margin-left: 180px;
 }
@@ -6381,4 +6385,8 @@ a.menu:after, .dropdown-toggle:after {
 	line-height: 30px;
 	color: inherit;
 	margin-bottom:30px;
+}
+
+.barcontainer{
+	width:380px;
 }

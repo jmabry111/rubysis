@@ -1,11 +1,25 @@
 <div class="center hero-unit" id="loading">
-	<h2 class="muted">Loading Attendance</h2>
-	<h2><%= image_tag("progressbar.gif") %></h2>
+	<h2 class="muted">Looking for attendance</h2>
+	<div class="barcontainer">
+		<div class="span5 offset2-5 progress progress-striped active">
+			<div class="bar" style="width:0%;"></div>
+		</div>
+	</div>
 </div>
 <script>
 	$(document).ready(function() {
 		setTimeout(function() {
 		    window.location = "<%= instructor_section_attendance_path(@section) %>";
-		}, 8000);
+		}, 8500);
+		var progress = setInterval(function() {
+		    var $bar = $('.bar');
+    
+		    if ($bar.width()==380) {
+		        clearInterval(progress);
+		        $('.progress').removeClass('active');
+		    } else {
+		        $bar.width($bar.width()+40);
+		    }
+		}, 800);
 	});
 </script>
