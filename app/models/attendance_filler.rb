@@ -40,6 +40,5 @@ class AttendanceFiller
       dates = [*Date.today-11...Date.today+1]
       dates.delete_if{|date| date.strftime('%a') == "Sat" || date.strftime('%a') == "Sun"}
     end
-  
-  
+
 end
