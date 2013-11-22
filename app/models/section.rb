@@ -23,8 +23,13 @@ class Section < ActiveRecord::Base
   TIME_BLOCKS = ["7:45-9:15", "9:30-11:00"]
   
   def set_next_section_number(semester)
+    @existing_sections = Section.where("course_id = ? AND semester_id = ?", self.course_id, semester.id).size
     if semester != nil
-      self.section_number = semester.sections.count + 1
+      if @existing_sections != nil
+        self.section_number = @existing_sections + 1
+      else
+        self.section_number = 1
+      end
     else
       self.section_number = 1
     end
