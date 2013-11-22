@@ -8,9 +8,17 @@
 		        </a>
 		    </div>
 			<div id="collapse<%= teacher[-3..-1] %>" class="accordion-body collapse in">
+
 				<% section.each do |s| %>
-				        <div class="accordion-inner offset0-5">
-				            <%= s.course_name %>
+				        <div class="accordion-inner noborder">
+							<div class="row">
+							<div class="span4 offset0-5">
+				            	<%= link_to s.course_name, reports_section_path(s.id) %>
+							</div>
+							<div class="span4">
+								<%= s.time_block %>; <%= s.days_of_week_string %>
+							</div>
+						</div>
 				        </div>
 				<% end %>
 		    </div>
