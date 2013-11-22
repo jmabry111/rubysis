@@ -2061,6 +2061,7 @@ table {
   text-align: left;
   vertical-align: top;
   border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
 }
 
 .table th {
@@ -6382,8 +6383,8 @@ a.menu:after, .dropdown-toggle:after {
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
-/* dashboard */
-.dashboard {
+/* admin */
+.admin {
 	font-size: 18px;
 	font-weight: 350;
 	line-height: 30px;

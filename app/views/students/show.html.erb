@@ -1,4 +1,4 @@
-<div class="center hero-unit">
+<div class="admin">
 	<h2 class="left"><%= @student.name %></h2>
 	<div class="row">
 		<div class="span6">
@@ -33,16 +33,18 @@
 			<span class="info-label">Ethnicity:</span><%= @student.ethnicity %>
 		</div>
 		<div class="span4">
-			<span class="info-label">Birth Date:</span> <%= @student.dob %>
+			<span class="info-label">Birth Date:</span> <%= l(@student.dob) %>
 		</div>
 	</div>
 	<div class="row">
 		<div class="span4">
 			<span class="info-label">Home Phone:</span> <%= number_to_phone(@student.home_phone, :area_code => true) %>
 		</div>
-		<div class="span4">
-			<span class="info-label">Cell Phone	:</span> <%= number_to_phone(@student.cell_phone, :area_code => true) %>
-		</div>
+		<% if @student.cell_phone.present? %>
+			<div class="span4">
+				<span class="info-label">Cell Phone	:</span> <%= number_to_phone(@student.cell_phone, :area_code => true) %>
+			</div>
+		<% end %>
 	</div>
 	<div class="row">
 		<div class="span6">

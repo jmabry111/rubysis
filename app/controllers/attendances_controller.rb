@@ -17,7 +17,7 @@ class AttendancesController < ApplicationController
   end
   
   def index
-    get_student_section_enrollment
+    @attendances = get_student_section_enrollment().attendances.order("day desc").page(params[:page]).per(15)
   end
   
   private

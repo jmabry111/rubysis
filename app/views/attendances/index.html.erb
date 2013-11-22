@@ -1,8 +1,9 @@
-<div class="center hero-unit">
+<%= paginate @attendances, :pagination_class => "pagination-large" %>
+<div class="admin">
 	<h3 class="left muted"><%= @student.name %></h3>
 	<h3 class="left muted">Attendance for <%= @section.course_name %></h3>
-	<% if @enrollment.attendances.present? %>
-		<% @enrollment.attendances.each do |attendance| %>
+	<% if @attendances.present? %>
+		<% @attendances.each do |attendance| %>
 			<div class="row">
 				<div class="span3">
 					<span class="info-label"><%= l attendance.day, :format => :long %>:</span>
@@ -15,6 +16,6 @@
 	<% else %>
 		<h3 class="left muted">No Current Attendance</h3>
 	<% end %>
-
+	<br /><br />
 	<%= link_to "Back to student", student_path(@student) %> | <%= link_to "Back to student's schedule", student_schedule_path(@student) %>
 </div>
